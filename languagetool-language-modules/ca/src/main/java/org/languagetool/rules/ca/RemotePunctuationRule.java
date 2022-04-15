@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.*;
 import org.languagetool.rules.*;
 import java.net.URLEncoder;
-
+import org.languagetool.AnalyzedTokenReadings;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -41,7 +41,7 @@ public class RemotePunctuationRule extends Rule {
   }
 
 
-  public String executePost(String url, String text) {
+  public String connectRemoteServer(String url, String text) {
     HttpURLConnection connection = null;
 
     try {
@@ -85,8 +85,28 @@ public class RemotePunctuationRule extends Rule {
   @Override
   public RuleMatch[] match(AnalyzedSentence sentence) throws IOException {
     final List<RuleMatch> ruleMatches = new ArrayList<>();
+    String plainText = "";
 
-    // TDB
+    for (AnalyzedTokenReadings analyzedToken : sentence.getTokens()) {
+      plainText += analyzedToken.getToken();
+    }
+
+    String corrected = connectRemoteServer("", plainText);
+
+//   System.out.println("Debug 1:" + sentence.toString());
+//    System.out.println("Debug 2:" + plainText);
+
+    if (plainText.contains(" ningú ho sap")) {
+      int start = 4;
+      int length = 5;
+      RuleMatch ruleMatch = new RuleMatch(this, sentence, start,
+          start + length, "Falta una coma", "Falta una coma");
+
+      String suggestion = ", però";
+      ruleMatch.addSuggestedReplacement(suggestion);
+      ruleMatches.add(ruleMatch);
+    }
+
     return toRuleMatchArray(ruleMatches);
   }
 
