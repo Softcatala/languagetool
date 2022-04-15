@@ -100,7 +100,8 @@ public class Catalan extends Language {
             new CatalanRepeatedWordsRule(messages), 
             new SimpleReplaceDNVRule(messages, this),
             new SimpleReplaceDNVColloquialRule(messages, this),
-            new SimpleReplaceDNVSecondaryRule(messages, this)
+            new SimpleReplaceDNVSecondaryRule(messages, this),
+            new RemotePunctuationRule(messages)
     );
   }
 
