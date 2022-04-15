@@ -3,12 +3,10 @@ package org.languagetool.rules.ca;
 import org.languagetool.AnalyzedSentence;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.languagetool.Language;
-import javax.net.ssl.SSLException;
 import java.io.IOException;
 import java.util.*;
 import org.languagetool.rules.*;
-import org.apache.commons.lang3.NotImplementedException;
+import java.net.URLEncoder;
 
 import java.io.*;
 import java.net.HttpURLConnection;
@@ -24,24 +22,37 @@ public class RemotePunctuationRule extends Rule {
   public RemotePunctuationRule(ResourceBundle messages) throws IOException {
   }
 
+  private HttpURLConnection createConnection(URL url) {
+    try {
 
-  public static String executePost(String targetURL, String urlParameters) {
+      HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+      connection.setRequestMethod("POST");
+      connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+      connection.setUseCaches(false);
+      connection.setDoOutput(true);
+      connection.setConnectTimeout(200);
+      return connection;
+    }
+    catch (Exception e) {
+      e.printStackTrace();
+      return null;
+    }
+  }
+
+
+  public String executePost(String url, String text) {
     HttpURLConnection connection = null;
 
     try {
-      //Create connection
-      URL url = new URL(targetURL);
-      connection = (HttpURLConnection) url.openConnection();
-      connection.setRequestMethod("POST");
-      connection.setRequestProperty("Content-Type", 
-          "application/x-www-form-urlencoded");
 
-      connection.setRequestProperty("Content-Length",
-          Integer.toString(urlParameters.getBytes().length));
-      connection.setRequestProperty("Content-Language", "en-US");
+      text = URLEncoder.encode(text);
+      String urlParameters = "text=" + text;
 
-      connection.setUseCaches(false);
-      connection.setDoOutput(true);
+      connection = createConnection(new URL(url));
+      if (connection == null)
+        return "";
+
+      connection.setRequestProperty("Content-Length", Integer.toString(urlParameters.getBytes().length));
 
       //Send request
       DataOutputStream wr = new DataOutputStream (
