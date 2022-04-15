@@ -35,6 +35,7 @@ public class RemotePunctuationRule extends Rule {
     }
     catch (Exception e) {
       e.printStackTrace();
+      logger.error("Could not connect remote service at " + url + " for punctuation service", e);
       return null;
     }
   }
@@ -72,7 +73,7 @@ public class RemotePunctuationRule extends Rule {
       rd.close();
       return response.toString();
     } catch (Exception e) {
-      e.printStackTrace();
+      logger.error("Error while talking to remote service at " + url + " for punctuation service", e);
       return null;
     } finally {
       if (connection != null) {
