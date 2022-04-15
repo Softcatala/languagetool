@@ -19,6 +19,9 @@ public class RemotePunctuationRule extends Rule {
 
   private static final Logger logger = LoggerFactory.getLogger(RemotePunctuationRule.class);
 
+  final String SERVER_URL = "https://api.softcatala.org/punctuation-service/v1/check";
+  final int TIMEOUT_MS = 200;
+
   public RemotePunctuationRule(ResourceBundle messages) throws IOException {
   }
 
@@ -30,7 +33,7 @@ public class RemotePunctuationRule extends Rule {
       connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
       connection.setUseCaches(false);
       connection.setDoOutput(true);
-      connection.setConnectTimeout(200);
+      connection.setConnectTimeout(TIMEOUT_MS);
       return connection;
     }
     catch (Exception e) {
@@ -42,6 +45,14 @@ public class RemotePunctuationRule extends Rule {
 
 
   public String connectRemoteServer(String url, String text) {
+
+ /*    System.out.println("connectRemoteServer: '" + text + "'");
+     if (text.equals("Això però ningú ho sap")) {
+        return "Això, però ningú ho sap";
+      }
+
+    return text;
+*/
     HttpURLConnection connection = null;
 
     try {
@@ -85,28 +96,57 @@ public class RemotePunctuationRule extends Rule {
   @Override
   public RuleMatch[] match(AnalyzedSentence sentence) throws IOException {
     final List<RuleMatch> ruleMatches = new ArrayList<>();
-    String plainText = "";
+    String original = "";
 
     for (AnalyzedTokenReadings analyzedToken : sentence.getTokens()) {
-      plainText += analyzedToken.getToken();
+      original += analyzedToken.getToken();
     }
 
-    String corrected = connectRemoteServer("", plainText);
+    String corrected = connectRemoteServer(SERVER_URL, original);
 
-//   System.out.println("Debug 1:" + sentence.toString());
-//    System.out.println("Debug 2:" + plainText);
+    System.out.println("Original:" + original);
+    System.out.println("Corrected:" + corrected);
 
-    if (plainText.contains(" ningú ho sap")) {
-      int start = 4;
-      int length = 5;
-      RuleMatch ruleMatch = new RuleMatch(this, sentence, start,
-          start + length, "Falta una coma", "Falta una coma");
+    //"Aixo ningú ho sap"
+    //"Aixo, ningú ho sap"     
+    if (original != corrected) {
+      System.out.println("Not equal");
 
-      String suggestion = ", però";
-      ruleMatch.addSuggestedReplacement(suggestion);
-      ruleMatches.add(ruleMatch);
+      int idxC = 0;
+      for (int idxO = 0; idxO < original.length(); idxO++, idxC++) {
+        char chO = original.charAt(idxO);
+        char chC = corrected.charAt(idxC);
+
+        if (chO == chC) {
+          continue;
+        }
+
+        System.out.println("chO:" + chO); 
+        System.out.println("chC:" + chC);
+
+        if (chC == ',') {
+
+          int start = idxO;
+          int length = 2;
+
+          RuleMatch ruleMatch = new RuleMatch(this, sentence, start,
+              start + length, "Falta una coma", "Falta una coma");
+
+          String suggestion = String.valueOf(chO) + String.valueOf(chC);
+          ruleMatch.addSuggestedReplacement(suggestion);
+          ruleMatches.add(ruleMatch);
+          idxC++;
+
+        }  else if (chC == ' ') {
+          System.out.println("Removed");
+          break;
+        }
+        else {
+          System.out.println("Do not know what to do");
+          break;
+        }
+      }      
     }
-
     return toRuleMatchArray(ruleMatches);
   }
 

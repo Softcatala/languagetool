@@ -19,15 +19,19 @@ public class RemotePunctuationRuleTest {
   class RemotePunctuationRuleForTest extends RemotePunctuationRule  {
 
     public RemotePunctuationRuleForTest(ResourceBundle messages) throws IOException {
-      super(messages);
+        super(messages);
     }
 
      public String connectRemoteServer(String url, String text) {
-         if (text == "Aixo ningú ho sap") {
-            return "Aixo, ningú ho sap";
-          }
+        if (text.equals("Això però ningú ho sap")) {
+          return "Això, però ningú ho sap";
+        }
 
-        return "";
+        if (text.equals("Això vol dir una cosa allò una altra")) {
+          return "Això vol dir una cosa, allò, una altra";
+        }
+
+        return text;
       }
   }
 
@@ -44,6 +48,12 @@ public class RemotePunctuationRuleTest {
   public void testRule() throws IOException {
 
     assertEquals(0, rule.match(lt.getAnalyzedSentence("Text sense errors")).length);
-    assertEquals(1, rule.match(lt.getAnalyzedSentence("Aixo ningú ho sap")).length);
+
+    RuleMatch[] matches = rule.match(lt.getAnalyzedSentence("Això però ningú ho sap"));
+    assertEquals(1, matches.length);
+    assertEquals(4, matches[0].getFromPos());
+    assertEquals(6, matches[0].getToPos());
+ 
+    assertEquals(2, rule.match(lt.getAnalyzedSentence("Això vol dir una cosa allò una altra")).length);
   }
 }
