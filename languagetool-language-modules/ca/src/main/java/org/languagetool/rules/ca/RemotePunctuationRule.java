@@ -25,7 +25,7 @@ public class RemotePunctuationRule extends Rule {
   public RemotePunctuationRule(ResourceBundle messages) throws IOException {
   }
 
-  private HttpURLConnection createConnection(URL url) {
+  private HttpURLConnection createConnection(URL url, String urlParameters) {
     try {
 
       HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -34,6 +34,8 @@ public class RemotePunctuationRule extends Rule {
       connection.setUseCaches(false);
       connection.setDoOutput(true);
       connection.setConnectTimeout(TIMEOUT_MS);
+      connection.setReadTimeout(TIMEOUT_MS);
+      connection.setRequestProperty("Content-Length", Integer.toString(urlParameters.getBytes().length));
       return connection;
     }
     catch (Exception e) {
@@ -59,12 +61,11 @@ public class RemotePunctuationRule extends Rule {
 
       text = URLEncoder.encode(text);
       String urlParameters = "text=" + text;
+      System.out.println("urlParameters:" + urlParameters);
 
-      connection = createConnection(new URL(url));
+      connection = createConnection(new URL(url), urlParameters);
       if (connection == null)
         return "";
-
-      connection.setRequestProperty("Content-Length", Integer.toString(urlParameters.getBytes().length));
 
       //Send request
       DataOutputStream wr = new DataOutputStream (
@@ -78,10 +79,12 @@ public class RemotePunctuationRule extends Rule {
       StringBuilder response = new StringBuilder(); // or StringBuffer if Java version 5+
       String line;
       while ((line = rd.readLine()) != null) {
+        System.out.println("Line:" + line);
         response.append(line);
-        response.append('\r');
+        response.append('\n');
       }
       rd.close();
+      System.out.println("Response:" + response.toString());
       return response.toString();
     } catch (Exception e) {
       logger.error("Error while talking to remote service at " + url + " for punctuation service", e);
