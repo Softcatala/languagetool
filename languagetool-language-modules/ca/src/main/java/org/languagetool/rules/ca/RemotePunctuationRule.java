@@ -11,6 +11,7 @@ import org.languagetool.AnalyzedTokenReadings;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  *
@@ -61,7 +62,6 @@ public class RemotePunctuationRule extends Rule {
 
       text = URLEncoder.encode(text);
       String urlParameters = "text=" + text;
-      System.out.println("urlParameters:" + urlParameters);
 
       connection = createConnection(new URL(url), urlParameters);
       if (connection == null)
@@ -79,13 +79,17 @@ public class RemotePunctuationRule extends Rule {
       StringBuilder response = new StringBuilder(); // or StringBuffer if Java version 5+
       String line;
       while ((line = rd.readLine()) != null) {
-        System.out.println("Line:" + line);
         response.append(line);
         response.append('\n');
       }
       rd.close();
-      System.out.println("Response:" + response.toString());
-      return response.toString();
+
+      ObjectMapper mapper = new ObjectMapper();
+      Map map = mapper.readValue(response.toString(), Map.class);
+      String responseText = (String) map.get("text");
+
+      System.out.println("Response:" + responseText.toString());
+      return responseText;
     } catch (Exception e) {
       logger.error("Error while talking to remote service at " + url + " for punctuation service", e);
       return null;
@@ -107,16 +111,13 @@ public class RemotePunctuationRule extends Rule {
 
     String corrected = connectRemoteServer(SERVER_URL, original);
 
-    System.out.println("Original:" + original);
-    System.out.println("Corrected:" + corrected);
+    System.out.println("Original :'" + original + "'");
+    System.out.println("Corrected:'" + corrected + "'");
 
-    //"Aixo ningú ho sap"
-    //"Aixo, ningú ho sap"     
-    if (original != corrected) {
+    if (corrected != null && original.equals(corrected) == false) {
       System.out.println("Not equal");
 
-      int idxC = 0;
-      for (int idxO = 0; idxO < original.length(); idxO++, idxC++) {
+      for (int idxO = 0, idxC = 0; idxO < original.length() && idxC < corrected.length(); idxO++, idxC++) {
         char chO = original.charAt(idxO);
         char chC = corrected.charAt(idxC);
 
@@ -124,7 +125,7 @@ public class RemotePunctuationRule extends Rule {
           continue;
         }
 
-        System.out.println("chO:" + chO); 
+        System.out.println("chO:" + chO);
         System.out.println("chC:" + chC);
 
         if (chC == ',') {
