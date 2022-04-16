@@ -22,8 +22,9 @@ public class RemotePunctuationRule extends TextLevelRule {
 
   private static final Logger logger = LoggerFactory.getLogger(RemotePunctuationRule.class);
 
-  final String SERVER_URL = "https://api.softcatala.org/punctuation-service/v1/check";
-  final int TIMEOUT_MS = 200;
+  //final String SERVER_URL = "https://api.softcatala.org/punctuation-service/v1/check";
+  final String SERVER_URL = "http://localhost:5000/check";
+  final int TIMEOUT_MS = 5000;
 
   public RemotePunctuationRule(ResourceBundle messages) throws IOException {
     super.setCategory(Categories.PUNCTUATION.getCategory(messages));
@@ -96,7 +97,8 @@ public class RemotePunctuationRule extends TextLevelRule {
       Map map = mapper.readValue(response.toString(), Map.class);
       String responseText = (String) map.get("text");
 
-      String responseWithSpaces = restoreTrailingSpacesAtStart(inputText, responseText);
+//      String responseWithSpaces = restoreTrailingSpacesAtStart(inputText, responseText);
+      String responseWithSpaces = responseText;
       System.out.println("Response Text:'" + responseWithSpaces.toString() + "'");
 
       return responseWithSpaces;
@@ -110,29 +112,90 @@ public class RemotePunctuationRule extends TextLevelRule {
     }
   }
 
+  private String getTextFromAnalyzedSentences(List<AnalyzedSentence> sentences) {
+    StringBuilder text = new StringBuilder();
+
+    for (AnalyzedSentence sentence : sentences) {
+
+      for (AnalyzedTokenReadings analyzedToken : sentence.getTokens()) {
+        text.append(analyzedToken.getToken());
+      }
+      text.append("\n");
+    }
+
+    return text.toString();
+  }
+
+  private String getTextFromAnalyzedSentence(AnalyzedSentence sentence) {
+    
+    StringBuilder text = new StringBuilder();
+    for (AnalyzedTokenReadings analyzedToken : sentence.getTokens()) {
+      text.append(analyzedToken.getToken());
+    }
+    return text.toString();
+  }
+
+  private List<AnalyzedSentence> GetSentenceWithNoEmptyLines(List<AnalyzedSentence> sentences) {
+    
+    List<AnalyzedSentence> result = new ArrayList<>();
+
+    for (AnalyzedSentence sentence : sentences) {
+
+      for (AnalyzedTokenReadings analyzedToken : sentence.getTokens()) {
+        if (!analyzedToken.isWhitespace()) {
+          result.add(sentence);
+          break;
+        }
+      }
+    }
+    return result;
+  }
+
   @Override
   public RuleMatch[] match(List<AnalyzedSentence> sentences) throws IOException {
     final List<RuleMatch> ruleMatches = new ArrayList<>();
-
     int sentenceOffset = 0;
     JLanguageTool lt = new JLanguageTool(new Catalan());
 
-    for (AnalyzedSentence sentence : sentences) {
-      String original = "";
+    String allText = getTextFromAnalyzedSentences(sentences);
 
-      for (AnalyzedTokenReadings analyzedToken : sentence.getTokens()) {
-        original += analyzedToken.getToken();
+    String allCorrected = connectRemoteServer(SERVER_URL, allText);
+    System.out.println("Original :'" + allText + "'");
+    System.out.println("Corrected:'" + allCorrected + "'");
+
+    List<AnalyzedSentence> correctedSentences = lt.analyzeText(allCorrected);
+
+    correctedSentences = GetSentenceWithNoEmptyLines(correctedSentences);
+    sentences = GetSentenceWithNoEmptyLines(sentences);
+
+    if (correctedSentences.size() != sentences.size()) {
+      System.out.println("Sentences lists with diferent length:" + correctedSentences.size() + " - " + sentences.size());
+
+      for (AnalyzedSentence sentence : sentences) {
+        System.out.println("Sentence original:" + sentence);
       }
 
-      System.out.println("Original :'" + original + "'");
-      String corrected = connectRemoteServer(SERVER_URL, original);
-      System.out.println("Corrected:'" + corrected + "'");
+      for (AnalyzedSentence sentence : correctedSentences) {
+        System.out.println("Sentence corrected:" + sentence);
+      }
+      return toRuleMatchArray(ruleMatches);
+    }
 
-      if (corrected != null && original.equals(corrected) == false) {
+    System.out.println("Sentences size: " + sentences.size());
+    for (int idx = 0; idx < sentences.size(); idx++) {
+
+      AnalyzedSentence originalSentence = sentences.get(idx);
+      AnalyzedSentence correctedSentence = correctedSentences.get(idx);
+      String originalSentenceText = getTextFromAnalyzedSentence(originalSentence);
+      String correctedSentenceText = getTextFromAnalyzedSentence(correctedSentence);
+  
+      System.out.println("Original  sentence:'" + originalSentenceText + "'");
+      System.out.println("Corrected sentence:'" + correctedSentenceText + "'");
+
+      if (correctedSentenceText != null && originalSentenceText.equals(correctedSentenceText) == false) {
         System.out.println("Not equal");
 
-        AnalyzedSentence correctedSentence = lt.getAnalyzedSentence(corrected);
-        AnalyzedTokenReadings[] originalTokens = sentence.getTokens();
+        AnalyzedTokenReadings[] originalTokens = originalSentence.getTokens();
         AnalyzedTokenReadings[] correctedTokens = correctedSentence.getTokens();
 
         for (int idxO = 0, idxC = 0; idxO < originalTokens.length && idxC < correctedTokens.length; idxO++, idxC++) {
@@ -141,17 +204,11 @@ public class RemotePunctuationRule extends TextLevelRule {
           String originalTokenText = originalTokens[idxO].getToken();
           String correctedTokenText = correctedTokens[idxC].getToken();
 
-//          System.out.println("Original  token:" + originalTokenText + ", start: " + originalToken.getStartPos());
-//          System.out.println("Corrected token:" + correctedTokenText + ", start: " + correctedToken.getStartPos());
+          System.out.println("Original  token: '" + originalTokenText + "' - start: " + originalToken.getStartPos());
+          System.out.println("Corrected token: '" + correctedTokenText + "' - start: " + correctedToken.getStartPos());
 
           if (originalTokenText.equals(correctedTokenText))
             continue;
-
-          /* Case when the original had several spaces eat in the corrected.'Això  és' => 'Això és'*/
-/*          if (originalToken.isWhitespace() && !correctedToken.isWhitespace()) {
-            idxC--;
-            continue;
-          }*/
 
           if (correctedTokenText.equals(",")) {
 
@@ -160,25 +217,38 @@ public class RemotePunctuationRule extends TextLevelRule {
             int start = sentenceOffset + originalToken.getStartPos();
             int length = nextToken.length() + 1;
 
-            RuleMatch ruleMatch = new RuleMatch(this, sentence, start,
+            RuleMatch ruleMatch = new RuleMatch(this, originalSentence, start,
                 start + length, "Falta una coma", "Falta una coma");
 
             String suggestion = correctedTokenText + originalTokenText + nextToken;
             System.out.println("Suggestion:'" + suggestion + "'");
             ruleMatch.addSuggestedReplacement(suggestion);
             ruleMatches.add(ruleMatch);
-            idxC++;
-          }  else if (correctedTokenText.equals(" ")) {
+            continue;
+          }
+          else if (originalTokenText.equals(",")) {
             System.out.println("Removed");
             break;
           }
-          else {
+          /*else {
             System.out.println("Do not know what to do");
             break;
+          }*/
+
+         if (originalToken.isWhitespace() && !correctedToken.isWhitespace()) {
+            System.out.println("Case A"); 
+            idxC--;
+            continue;
           }
-        }
+
+          if (!originalToken.isWhitespace() && correctedToken.isWhitespace()) {
+            System.out.println("Case B"); 
+            idxO--;
+            continue;
+          }
+        } //for
       } //if (corrected != null && original.equals(corrected) == false) {
-      sentenceOffset += original.length();
+      sentenceOffset += originalSentenceText.length();
     }//for (AnalyzedSentence sentence : sentences) {
     return toRuleMatchArray(ruleMatches);
   }
