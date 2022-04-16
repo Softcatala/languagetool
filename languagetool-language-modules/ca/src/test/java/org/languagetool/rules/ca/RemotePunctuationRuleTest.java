@@ -12,7 +12,9 @@ import org.languagetool.language.Catalan;
 import org.languagetool.rules.RuleMatch;
 import org.languagetool.*;
 import java.util.ResourceBundle;
-
+import org.languagetool.AnalyzedSentence;
+import java.util.List;
+import java.util.ArrayList;
 
 public class RemotePunctuationRuleTest {
 
@@ -44,16 +46,24 @@ public class RemotePunctuationRuleTest {
     lt = new JLanguageTool(new Catalan());
   }
 
+  private List<AnalyzedSentence> getAnalyzedSentence(String text) throws IOException {
+    List<AnalyzedSentence> sentences = new ArrayList<>();
+    AnalyzedSentence sentence = lt.getAnalyzedSentence(text);
+    sentences.add(sentence);
+    return sentences;
+  }
+
+
   @Test
   public void testRule() throws IOException {
 
-    assertEquals(0, rule.match(lt.getAnalyzedSentence("Text sense errors")).length);
+    assertEquals(0, rule.match(getAnalyzedSentence("Text sense errors")).length);
 
-    RuleMatch[] matches = rule.match(lt.getAnalyzedSentence("Això però ningú ho sap"));
+    RuleMatch[] matches = rule.match(getAnalyzedSentence("Això però ningú ho sap"));
     assertEquals(1, matches.length);
     assertEquals(4, matches[0].getFromPos());
     assertEquals(6, matches[0].getToPos());
  
-    assertEquals(2, rule.match(lt.getAnalyzedSentence("Això vol dir una cosa allò una altra")).length);
+    assertEquals(2, rule.match(getAnalyzedSentence("Això vol dir una cosa allò una altra")).length);
   }
 }

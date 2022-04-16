@@ -16,7 +16,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 /**
  *
  */
-public class RemotePunctuationRule extends Rule {
+public class RemotePunctuationRule extends TextLevelRule {
 
   private static final Logger logger = LoggerFactory.getLogger(RemotePunctuationRule.class);
 
@@ -101,58 +101,62 @@ public class RemotePunctuationRule extends Rule {
   }
 
   @Override
-  public RuleMatch[] match(AnalyzedSentence sentence) throws IOException {
+  public RuleMatch[] match(List<AnalyzedSentence> sentences) throws IOException {
     final List<RuleMatch> ruleMatches = new ArrayList<>();
-    String original = "";
 
-    for (AnalyzedTokenReadings analyzedToken : sentence.getTokens()) {
-      original += analyzedToken.getToken();
-    }
+    for (AnalyzedSentence sentence : sentences) {
+      String original = "";
 
-    String corrected = connectRemoteServer(SERVER_URL, original);
+      for (AnalyzedTokenReadings analyzedToken : sentence.getTokens()) {
+        original += analyzedToken.getToken();
+      }
 
-    System.out.println("Original :'" + original + "'");
-    System.out.println("Corrected:'" + corrected + "'");
+      String corrected = connectRemoteServer(SERVER_URL, original);
 
-    if (corrected != null && original.equals(corrected) == false) {
-      System.out.println("Not equal");
+      System.out.println("Original :'" + original + "'");
+      System.out.println("Corrected:'" + corrected + "'");
 
-      for (int idxO = 0, idxC = 0; idxO < original.length() && idxC < corrected.length(); idxO++, idxC++) {
-        char chO = original.charAt(idxO);
-        char chC = corrected.charAt(idxC);
+      if (corrected != null && original.equals(corrected) == false) {
+        System.out.println("Not equal");
 
-        if (chO == chC) {
-          continue;
-        }
+        for (int idxO = 0, idxC = 0; idxO < original.length() && idxC < corrected.length(); idxO++, idxC++) {
+          char chO = original.charAt(idxO);
+          char chC = corrected.charAt(idxC);
 
-        System.out.println("chO:" + chO);
-        System.out.println("chC:" + chC);
+          if (chO == chC) {
+            continue;
+          }
 
-        if (chC == ',') {
+          System.out.println("chO:" + chO);
+          System.out.println("chC:" + chC);
 
-          int start = idxO;
-          int length = 2;
+          if (chC == ',') {
 
-          RuleMatch ruleMatch = new RuleMatch(this, sentence, start,
-              start + length, "Falta una coma", "Falta una coma");
+            int start = idxO;
+            int length = 2;
 
-          String suggestion = String.valueOf(chO) + String.valueOf(chC);
-          ruleMatch.addSuggestedReplacement(suggestion);
-          ruleMatches.add(ruleMatch);
-          idxC++;
+            RuleMatch ruleMatch = new RuleMatch(this, sentence, start,
+                start + length, "Falta una coma", "Falta una coma");
 
-        }  else if (chC == ' ') {
-          System.out.println("Removed");
-          break;
-        }
-        else {
-          System.out.println("Do not know what to do");
-          break;
-        }
-      }      
+            String suggestion = String.valueOf(chO) + String.valueOf(chC);
+            ruleMatch.addSuggestedReplacement(suggestion);
+            ruleMatches.add(ruleMatch);
+            idxC++;
+
+          }  else if (chC == ' ') {
+            System.out.println("Removed");
+            break;
+          }
+          else {
+            System.out.println("Do not know what to do");
+            break;
+          }
+        }      
+      }
     }
     return toRuleMatchArray(ruleMatches);
   }
+
 
   @Override
   public final String getId() {
@@ -162,5 +166,10 @@ public class RemotePunctuationRule extends Rule {
  @Override
   public String getDescription() {
     return "Detecta errors de puntuació usant un servei remot";
+  }
+
+ @Override
+  public int minToCheckParagraph() {
+    return -1;
   }
 }
