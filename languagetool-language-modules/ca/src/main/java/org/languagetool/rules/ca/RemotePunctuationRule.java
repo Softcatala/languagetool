@@ -24,6 +24,7 @@ public class RemotePunctuationRule extends TextLevelRule {
   final int TIMEOUT_MS = 200;
 
   public RemotePunctuationRule(ResourceBundle messages) throws IOException {
+    super.setCategory(Categories.PUNCTUATION.getCategory(messages));
   }
 
   private HttpURLConnection createConnection(URL url, String urlParameters) {
@@ -46,21 +47,26 @@ public class RemotePunctuationRule extends TextLevelRule {
     }
   }
 
+  private String restoreTrailingSpacesAtStart(String original, String corrected) {
+      String responseWithSpaces = "";
+      for (char ch: original.toCharArray()) {
+        if (Character.isWhitespace(ch) == false)
+          break;
 
-  public String connectRemoteServer(String url, String text) {
-
- /*    System.out.println("connectRemoteServer: '" + text + "'");
-     if (text.equals("Això però ningú ho sap")) {
-        return "Això, però ningú ho sap";
+        responseWithSpaces += String.valueOf(ch);
       }
+      responseWithSpaces += corrected;
+      return responseWithSpaces;
+  }
 
-    return text;
-*/
+
+  public String connectRemoteServer(String url, String inputText) {
+
     HttpURLConnection connection = null;
 
     try {
 
-      text = URLEncoder.encode(text);
+      String text = URLEncoder.encode(inputText);
       String urlParameters = "text=" + text;
 
       connection = createConnection(new URL(url), urlParameters);
@@ -88,8 +94,10 @@ public class RemotePunctuationRule extends TextLevelRule {
       Map map = mapper.readValue(response.toString(), Map.class);
       String responseText = (String) map.get("text");
 
-      System.out.println("Response:" + responseText.toString());
-      return responseText;
+      String responseWithSpaces = restoreTrailingSpacesAtStart(inputText, responseText);
+      System.out.println("Response Text:'" + responseWithSpaces.toString() + "'");
+
+      return responseWithSpaces;
     } catch (Exception e) {
       logger.error("Error while talking to remote service at " + url + " for punctuation service", e);
       return null;
@@ -104,6 +112,8 @@ public class RemotePunctuationRule extends TextLevelRule {
   public RuleMatch[] match(List<AnalyzedSentence> sentences) throws IOException {
     final List<RuleMatch> ruleMatches = new ArrayList<>();
 
+    int sentenceOffset = 0;
+
     for (AnalyzedSentence sentence : sentences) {
       String original = "";
 
@@ -111,9 +121,8 @@ public class RemotePunctuationRule extends TextLevelRule {
         original += analyzedToken.getToken();
       }
 
-      String corrected = connectRemoteServer(SERVER_URL, original);
-
       System.out.println("Original :'" + original + "'");
+      String corrected = connectRemoteServer(SERVER_URL, original);
       System.out.println("Corrected:'" + corrected + "'");
 
       if (corrected != null && original.equals(corrected) == false) {
@@ -132,13 +141,14 @@ public class RemotePunctuationRule extends TextLevelRule {
 
           if (chC == ',') {
 
-            int start = idxO;
-            int length = 2;
+            int start = sentenceOffset + idxO;
+            int length = 1 + 1;
 
             RuleMatch ruleMatch = new RuleMatch(this, sentence, start,
                 start + length, "Falta una coma", "Falta una coma");
 
-            String suggestion = String.valueOf(chO) + String.valueOf(chC);
+            String suggestion = String.valueOf(chC) + String.valueOf(chO);
+            System.out.println("Suggestion:'" + suggestion + "'");
             ruleMatch.addSuggestedReplacement(suggestion);
             ruleMatches.add(ruleMatch);
             idxC++;
@@ -153,6 +163,7 @@ public class RemotePunctuationRule extends TextLevelRule {
           }
         }      
       }
+      sentenceOffset += original.length();
     }
     return toRuleMatchArray(ruleMatches);
   }
