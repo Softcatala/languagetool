@@ -12,6 +12,8 @@ import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.languagetool.JLanguageTool;
+import org.languagetool.language.Catalan;
 
 /**
  *
@@ -113,6 +115,7 @@ public class RemotePunctuationRule extends TextLevelRule {
     final List<RuleMatch> ruleMatches = new ArrayList<>();
 
     int sentenceOffset = 0;
+    JLanguageTool lt = new JLanguageTool(new Catalan());
 
     for (AnalyzedSentence sentence : sentences) {
       String original = "";
@@ -128,32 +131,44 @@ public class RemotePunctuationRule extends TextLevelRule {
       if (corrected != null && original.equals(corrected) == false) {
         System.out.println("Not equal");
 
-        for (int idxO = 0, idxC = 0; idxO < original.length() && idxC < corrected.length(); idxO++, idxC++) {
-          char chO = original.charAt(idxO);
-          char chC = corrected.charAt(idxC);
+        AnalyzedSentence correctedSentence = lt.getAnalyzedSentence(corrected);
+        AnalyzedTokenReadings[] originalTokens = sentence.getTokens();
+        AnalyzedTokenReadings[] correctedTokens = correctedSentence.getTokens();
 
-          if (chO == chC) {
+        for (int idxO = 0, idxC = 0; idxO < originalTokens.length && idxC < correctedTokens.length; idxO++, idxC++) {
+          AnalyzedTokenReadings originalToken = originalTokens[idxO];
+          AnalyzedTokenReadings correctedToken = correctedTokens[idxC];
+          String originalTokenText = originalTokens[idxO].getToken();
+          String correctedTokenText = correctedTokens[idxC].getToken();
+
+//          System.out.println("Original  token:" + originalTokenText + ", start: " + originalToken.getStartPos());
+//          System.out.println("Corrected token:" + correctedTokenText + ", start: " + correctedToken.getStartPos());
+
+          if (originalTokenText.equals(correctedTokenText))
             continue;
-          }
 
-          System.out.println("chO:" + chO);
-          System.out.println("chC:" + chC);
+          /* Case when the original had several spaces eat in the corrected.'Això  és' => 'Això és'*/
+/*          if (originalToken.isWhitespace() && !correctedToken.isWhitespace()) {
+            idxC--;
+            continue;
+          }*/
 
-          if (chC == ',') {
+          if (correctedTokenText.equals(",")) {
 
-            int start = sentenceOffset + idxO;
-            int length = 1 + 1;
+            System.out.println("Not equal");
+            String nextToken = originalTokens[idxO + 1].getToken();
+            int start = sentenceOffset + originalToken.getStartPos();
+            int length = nextToken.length() + 1;
 
             RuleMatch ruleMatch = new RuleMatch(this, sentence, start,
                 start + length, "Falta una coma", "Falta una coma");
 
-            String suggestion = String.valueOf(chC) + String.valueOf(chO);
+            String suggestion = correctedTokenText + originalTokenText + nextToken;
             System.out.println("Suggestion:'" + suggestion + "'");
             ruleMatch.addSuggestedReplacement(suggestion);
             ruleMatches.add(ruleMatch);
             idxC++;
-
-          }  else if (chC == ' ') {
+          }  else if (correctedTokenText.equals(" ")) {
             System.out.println("Removed");
             break;
           }
@@ -161,13 +176,12 @@ public class RemotePunctuationRule extends TextLevelRule {
             System.out.println("Do not know what to do");
             break;
           }
-        }      
-      }
+        }
+      } //if (corrected != null && original.equals(corrected) == false) {
       sentenceOffset += original.length();
-    }
+    }//for (AnalyzedSentence sentence : sentences) {
     return toRuleMatchArray(ruleMatches);
   }
-
 
   @Override
   public final String getId() {
