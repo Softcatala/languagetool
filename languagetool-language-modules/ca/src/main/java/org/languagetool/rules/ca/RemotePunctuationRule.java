@@ -14,7 +14,7 @@ import java.net.URL;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.languagetool.JLanguageTool;
 import org.languagetool.language.Catalan;
-
+import org.apache.commons.lang3.StringUtils;
 /**
  *
  */
@@ -23,11 +23,13 @@ public class RemotePunctuationRule extends TextLevelRule {
   private static final Logger logger = LoggerFactory.getLogger(RemotePunctuationRule.class);
 
   //final String SERVER_URL = "https://api.softcatala.org/punctuation-service/v1/check";
-  final String SERVER_URL = "http://localhost:5000/check";
-  final int TIMEOUT_MS = 5000;
+  String SERVER_URL;
+  final int TIMEOUT_MS = 2000;
 
   public RemotePunctuationRule(ResourceBundle messages) throws IOException {
     super.setCategory(Categories.PUNCTUATION.getCategory(messages));
+
+    SERVER_URL = System.getenv("CA_PUNCT_SERVER");
   }
 
   private HttpURLConnection createConnection(URL url, String urlParameters) {
@@ -51,6 +53,9 @@ public class RemotePunctuationRule extends TextLevelRule {
   }
 
   public String connectRemoteServer(String url, String inputText) {
+
+    if (StringUtils.isEmpty(SERVER_URL))
+      return inputText;
 
     HttpURLConnection connection = null;
 
@@ -104,7 +109,6 @@ public class RemotePunctuationRule extends TextLevelRule {
       for (AnalyzedTokenReadings analyzedToken : sentence.getTokens()) {
         text.append(analyzedToken.getToken());
       }
-//      text.append("\n");
     }
 
     return text.toString();
@@ -173,10 +177,6 @@ public class RemotePunctuationRule extends TextLevelRule {
       String originalSentenceText = getTextFromAnalyzedSentence(originalSentence);
       String correctedSentenceText = getTextFromAnalyzedSentence(correctedSentence);
 
-      if (originalSentenceText.contains("Això no obstant")) { // Temporary UT fix
-        correctedSentenceText = originalSentenceText;
-      }
-  
       System.out.println("Original  sentence:'" + originalSentenceText + "'");
       System.out.println("Corrected sentence:'" + correctedSentenceText + "'");
 
