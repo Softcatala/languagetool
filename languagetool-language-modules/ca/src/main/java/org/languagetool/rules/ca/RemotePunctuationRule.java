@@ -50,19 +50,6 @@ public class RemotePunctuationRule extends TextLevelRule {
     }
   }
 
-  private String restoreTrailingSpacesAtStart(String original, String corrected) {
-      String responseWithSpaces = "";
-      for (char ch: original.toCharArray()) {
-        if (Character.isWhitespace(ch) == false)
-          break;
-
-        responseWithSpaces += String.valueOf(ch);
-      }
-      responseWithSpaces += corrected;
-      return responseWithSpaces;
-  }
-
-
   public String connectRemoteServer(String url, String inputText) {
 
     HttpURLConnection connection = null;
@@ -96,12 +83,9 @@ public class RemotePunctuationRule extends TextLevelRule {
       ObjectMapper mapper = new ObjectMapper();
       Map map = mapper.readValue(response.toString(), Map.class);
       String responseText = (String) map.get("text");
+      System.out.println("Response Text:'" + responseText.toString() + "'");
 
-//      String responseWithSpaces = restoreTrailingSpacesAtStart(inputText, responseText);
-      String responseWithSpaces = responseText;
-      System.out.println("Response Text:'" + responseWithSpaces.toString() + "'");
-
-      return responseWithSpaces;
+      return responseText;
     } catch (Exception e) {
       logger.error("Error while talking to remote service at " + url + " for punctuation service", e);
       return null;
@@ -120,7 +104,7 @@ public class RemotePunctuationRule extends TextLevelRule {
       for (AnalyzedTokenReadings analyzedToken : sentence.getTokens()) {
         text.append(analyzedToken.getToken());
       }
-      text.append("\n");
+//      text.append("\n");
     }
 
     return text.toString();
@@ -204,8 +188,8 @@ public class RemotePunctuationRule extends TextLevelRule {
           String originalTokenText = originalTokens[idxO].getToken();
           String correctedTokenText = correctedTokens[idxC].getToken();
 
-          System.out.println("Original  token: '" + originalTokenText + "' - start: " + originalToken.getStartPos());
-          System.out.println("Corrected token: '" + correctedTokenText + "' - start: " + correctedToken.getStartPos());
+//          System.out.println("Original  token: '" + originalTokenText + "' - start: " + originalToken.getStartPos());
+//          System.out.println("Corrected token: '" + correctedTokenText + "' - start: " + correctedToken.getStartPos());
 
           if (originalTokenText.equals(correctedTokenText))
             continue;
