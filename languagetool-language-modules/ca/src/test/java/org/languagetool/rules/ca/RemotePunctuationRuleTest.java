@@ -62,7 +62,7 @@ public class RemotePunctuationRuleTest {
     RuleMatch[] matches = rule.match(getAnalyzedSentence("Això però ningú ho sap"));
     assertEquals(1, matches.length);
     assertEquals(4, matches[0].getFromPos());
-    assertEquals(6, matches[0].getToPos());
+    assertEquals(9, matches[0].getToPos());
  
     assertEquals(2, rule.match(getAnalyzedSentence("Això vol dir una cosa allò una altra")).length);
   }
