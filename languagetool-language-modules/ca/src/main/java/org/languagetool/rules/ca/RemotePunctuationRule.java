@@ -200,7 +200,7 @@ public class RemotePunctuationRule extends TextLevelRule {
 
           if (correctedTokenText.equals(",")) {
 
-            System.out.println("Not equal");
+            System.out.println("Added comma");
             String nextToken = originalTokens[idxO + 1].getToken();
             int start = sentenceOffset + originalToken.getStartPos();
             int length = nextToken.length() + 1;
@@ -216,6 +216,20 @@ public class RemotePunctuationRule extends TextLevelRule {
           }
           else if (originalTokenText.equals(",")) {
             System.out.println("Removed");
+
+            String nextToken = originalTokens[idxO + 1].getToken();
+            String nextToken2 = originalTokens[idxO + 2].getToken();
+            int start = sentenceOffset + originalToken.getStartPos();
+            int length = nextToken.length() + nextToken2.length() + 1;
+
+            RuleMatch ruleMatch = new RuleMatch(this, originalSentence, start,
+                start + length, "Sobra la coma", "Sobra la coma");
+
+            String suggestion = correctedTokenText + nextToken + nextToken2;
+            System.out.println("Suggestion:'" + suggestion + "'");
+            ruleMatch.addSuggestedReplacement(suggestion);
+            ruleMatches.add(ruleMatch);
+
             break;
           }
           /*else {

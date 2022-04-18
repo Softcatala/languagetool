@@ -29,6 +29,10 @@ public class RemotePunctuationRuleTest {
           return "Això, però ningú ho sap";
         }
 
+        if (text.equals("Això però ningú, ho sap")) {
+          return"Això però ningú ho sap";
+        }
+
         if (text.equals("Això vol dir una cosa allò una altra")) {
           return "Això vol dir una cosa, allò, una altra";
         }
@@ -53,11 +57,15 @@ public class RemotePunctuationRuleTest {
     return sentences;
   }
 
-
   @Test
-  public void testRule() throws IOException {
+  public void testRuleNoCommas() throws IOException {
 
     assertEquals(0, rule.match(getAnalyzedSentence("Text sense errors")).length);
+  }
+
+
+  @Test
+  public void testRuleAddCommas() throws IOException {
 
     RuleMatch[] matches = rule.match(getAnalyzedSentence("Això però ningú ho sap"));
     assertEquals(1, matches.length);
@@ -66,4 +74,15 @@ public class RemotePunctuationRuleTest {
  
     assertEquals(2, rule.match(getAnalyzedSentence("Això vol dir una cosa allò una altra")).length);
   }
+
+  @Test
+  public void testRuleRemoveCommas() throws IOException {
+
+    RuleMatch[] matches = rule.match(getAnalyzedSentence("Això però ningú, ho sap"));
+    assertEquals(1, matches.length);
+    assertEquals(15, matches[0].getFromPos());
+    assertEquals(19, matches[0].getToPos());
+ 
+  }
+
 }
