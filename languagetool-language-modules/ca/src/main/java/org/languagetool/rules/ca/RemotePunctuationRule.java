@@ -88,7 +88,9 @@ public class RemotePunctuationRule extends TextLevelRule {
       ObjectMapper mapper = new ObjectMapper();
       Map map = mapper.readValue(response.toString(), Map.class);
       String responseText = (String) map.get("text");
+      Double responseTime = (Double) map.get("time");
       System.out.println("Response Text:'" + responseText.toString() + "'");
+      System.out.println("Response Time:'" + responseTime.toString() + "'");
 
       return responseText;
     } catch (Exception e) {
@@ -137,6 +139,10 @@ public class RemotePunctuationRule extends TextLevelRule {
       }
     }
     return result;
+  }
+
+  private void ShowRuleMatch(RuleMatch ruleMatch) {
+    System.out.println("Rule: " + r);
   }
 
   @Override
@@ -192,8 +198,8 @@ public class RemotePunctuationRule extends TextLevelRule {
           String originalTokenText = originalTokens[idxO].getToken();
           String correctedTokenText = correctedTokens[idxC].getToken();
 
-//          System.out.println("Original  token: '" + originalTokenText + "' - start: " + originalToken.getStartPos());
-//          System.out.println("Corrected token: '" + correctedTokenText + "' - start: " + correctedToken.getStartPos());
+          System.out.println("Original  token: '" + originalTokenText + "' - start: " + originalToken.getStartPos());
+          System.out.println("Corrected token: '" + correctedTokenText + "' - start: " + correctedToken.getStartPos());
 
           if (originalTokenText.equals(correctedTokenText))
             continue;
@@ -211,7 +217,9 @@ public class RemotePunctuationRule extends TextLevelRule {
             String suggestion = correctedTokenText + originalTokenText + nextToken;
             System.out.println("Suggestion:'" + suggestion + "'");
             ruleMatch.addSuggestedReplacement(suggestion);
+            ShowRuleMatch(ruleMatch);
             ruleMatches.add(ruleMatch);
+            idxC++;
             continue;
           }
           else if (originalTokenText.equals(",")) {
@@ -228,26 +236,27 @@ public class RemotePunctuationRule extends TextLevelRule {
             String suggestion = correctedTokenText + nextToken + nextToken2;
             System.out.println("Suggestion:'" + suggestion + "'");
             ruleMatch.addSuggestedReplacement(suggestion);
+            ShowRuleMatch(ruleMatch);
             ruleMatches.add(ruleMatch);
-
-            break;
+            idxO++;
+            continue;
           }
           /*else {
             System.out.println("Do not know what to do");
             break;
           }*/
 
-         if (originalToken.isWhitespace() && !correctedToken.isWhitespace()) {
+/*         if (originalToken.isWhitespace() && !correctedToken.isWhitespace()) {
             System.out.println("Case A"); 
-            idxC--;
+            idxO++;
             continue;
           }
 
           if (!originalToken.isWhitespace() && correctedToken.isWhitespace()) {
             System.out.println("Case B"); 
-            idxO--;
+            idxC--;
             continue;
-          }
+          }*/
         } //for
       } //if (corrected != null && original.equals(corrected) == false) {
       sentenceOffset += originalSentenceText.length();
