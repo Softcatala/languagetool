@@ -107,10 +107,7 @@ public class RemotePunctuationRule extends TextLevelRule {
     StringBuilder text = new StringBuilder();
 
     for (AnalyzedSentence sentence : sentences) {
-
-      for (AnalyzedTokenReadings analyzedToken : sentence.getTokens()) {
-        text.append(analyzedToken.getToken());
-      }
+      text.append(getTextFromAnalyzedSentence(sentence));
     }
 
     return text.toString();
@@ -217,18 +214,6 @@ public class RemotePunctuationRule extends TextLevelRule {
           /*else {
             System.out.println("Do not know what to do");
             break;
-          }*/
-
-/*         if (originalToken.isWhitespace() && !correctedToken.isWhitespace()) {
-            System.out.println("Case A"); 
-            idxO++;
-            continue;
-          }
-
-          if (!originalToken.isWhitespace() && correctedToken.isWhitespace()) {
-            System.out.println("Case B"); 
-            idxC--;
-            continue;
           }*/
         } //for
       } //if (corrected != null && original.equals(corrected) == false) {
