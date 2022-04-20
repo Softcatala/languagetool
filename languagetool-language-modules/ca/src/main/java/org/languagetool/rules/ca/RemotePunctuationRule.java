@@ -124,10 +124,22 @@ public class RemotePunctuationRule extends TextLevelRule {
 
   private void ShowRuleMatch(RuleMatch ruleMatch) {
     System.out.println("Rule: " + ruleMatch);
+
   }
 
   @Override
   public RuleMatch[] match(List<AnalyzedSentence> sentences) throws IOException {
+
+    try {
+        return doRule(sentences);
+    }
+    catch (Exception e) {
+      logger.error("Error while processing rule", e);
+      return toRuleMatchArray(new ArrayList<>());
+    }
+  }
+
+  private RuleMatch[] doRule(List<AnalyzedSentence> sentences) throws IOException {
     final List<RuleMatch> ruleMatches = new ArrayList<>();
     int sentenceOffset = 0;
     JLanguageTool lt = new JLanguageTool(new Catalan());
