@@ -24,7 +24,7 @@ public class RemotePunctuationRule extends TextLevelRule {
 
   //final String SERVER_URL = "https://api.softcatala.org/punctuation-service/v1/check";
   String SERVER_URL;
-  final int TIMEOUT_MS = 2000;
+  final int TIMEOUT_MS = 250;
 
   public RemotePunctuationRule(ResourceBundle messages) throws IOException {
     super.setCategory(Categories.PUNCTUATION.getCategory(messages));
