@@ -89,8 +89,8 @@ public class RemotePunctuationRule extends TextLevelRule {
       Map map = mapper.readValue(response.toString(), Map.class);
       String responseText = (String) map.get("text");
       Double responseTime = (Double) map.get("time");
-      System.out.println("Response Text:'" + responseText.toString() + "'");
-      System.out.println("Response Time:'" + responseTime.toString() + "'");
+//      System.out.println("Response Text:'" + responseText.toString() + "'");
+//      System.out.println("Response Time:'" + responseTime.toString() + "'");
 
       return responseText;
     } catch (Exception e) {
@@ -125,24 +125,8 @@ public class RemotePunctuationRule extends TextLevelRule {
     return text.toString();
   }
 
-  private List<AnalyzedSentence> GetSentenceWithNoEmptyLines(List<AnalyzedSentence> sentences) {
-    
-    List<AnalyzedSentence> result = new ArrayList<>();
-
-    for (AnalyzedSentence sentence : sentences) {
-
-      for (AnalyzedTokenReadings analyzedToken : sentence.getTokens()) {
-        if (!analyzedToken.isWhitespace()) {
-          result.add(sentence);
-          break;
-        }
-      }
-    }
-    return result;
-  }
-
   private void ShowRuleMatch(RuleMatch ruleMatch) {
-    System.out.println("Rule: " + r);
+    System.out.println("Rule: " + ruleMatch);
   }
 
   @Override
@@ -159,19 +143,8 @@ public class RemotePunctuationRule extends TextLevelRule {
 
     List<AnalyzedSentence> correctedSentences = lt.analyzeText(allCorrected);
 
-    correctedSentences = GetSentenceWithNoEmptyLines(correctedSentences);
-    sentences = GetSentenceWithNoEmptyLines(sentences);
-
     if (correctedSentences.size() != sentences.size()) {
       System.out.println("Sentences lists with diferent length:" + correctedSentences.size() + " - " + sentences.size());
-
-      for (AnalyzedSentence sentence : sentences) {
-        System.out.println("Sentence original:" + sentence);
-      }
-
-      for (AnalyzedSentence sentence : correctedSentences) {
-        System.out.println("Sentence corrected:" + sentence);
-      }
       return toRuleMatchArray(ruleMatches);
     }
 
@@ -198,8 +171,8 @@ public class RemotePunctuationRule extends TextLevelRule {
           String originalTokenText = originalTokens[idxO].getToken();
           String correctedTokenText = correctedTokens[idxC].getToken();
 
-          System.out.println("Original  token: '" + originalTokenText + "' - start: " + originalToken.getStartPos());
-          System.out.println("Corrected token: '" + correctedTokenText + "' - start: " + correctedToken.getStartPos());
+  //        System.out.println("Original  token: '" + originalTokenText + "' - start: " + originalToken.getStartPos());
+  //        System.out.println("Corrected token: '" + correctedTokenText + "' - start: " + correctedToken.getStartPos());
 
           if (originalTokenText.equals(correctedTokenText))
             continue;
