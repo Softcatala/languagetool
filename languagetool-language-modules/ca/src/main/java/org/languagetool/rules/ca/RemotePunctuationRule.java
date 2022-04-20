@@ -88,7 +88,7 @@ public class RemotePunctuationRule extends TextLevelRule {
       ObjectMapper mapper = new ObjectMapper();
       Map map = mapper.readValue(response.toString(), Map.class);
       String responseText = (String) map.get("text");
-      Double responseTime = (Double) map.get("time");
+      String responseTime = (String) map.get("time");
 //      System.out.println("Response Text:'" + responseText.toString() + "'");
 //      System.out.println("Response Time:'" + responseTime.toString() + "'");
 
