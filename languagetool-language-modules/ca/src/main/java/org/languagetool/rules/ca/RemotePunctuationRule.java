@@ -135,6 +135,10 @@ public class RemotePunctuationRule extends TextLevelRule {
     String allText = getTextFromAnalyzedSentences(sentences);
 
     String allCorrected = connectRemoteServer(SERVER_URL, allText);
+
+    if (allCorrected == null)
+      return toRuleMatchArray(ruleMatches);
+
     System.out.println("Original :'" + allText + "'");
     System.out.println("Corrected:'" + allCorrected + "'");
 
