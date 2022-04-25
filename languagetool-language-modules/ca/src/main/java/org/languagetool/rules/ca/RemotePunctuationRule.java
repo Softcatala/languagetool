@@ -67,8 +67,6 @@ public class RemotePunctuationRule extends TextLevelRule {
       String text = URLEncoder.encode(inputText, "utf-8");
       String urlParameters = "text=" + text;
 
-      System.out.println("URL:'" + url + "?" + urlParameters.toString() + "'");
-
       connection = createConnection(new URL(url), urlParameters);
       if (connection == null)
         return "";
