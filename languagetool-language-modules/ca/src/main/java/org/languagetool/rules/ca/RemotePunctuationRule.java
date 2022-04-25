@@ -15,6 +15,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.languagetool.JLanguageTool;
 import org.languagetool.language.Catalan;
 import org.apache.commons.lang3.StringUtils;
+import java.nio.charset.Charset;
+import org.languagetool.tools.StringTools;
+
+
 /**
  *
  */
@@ -22,7 +26,6 @@ public class RemotePunctuationRule extends TextLevelRule {
 
   private static final Logger logger = LoggerFactory.getLogger(RemotePunctuationRule.class);
 
-  //final String SERVER_URL = "https://api.softcatala.org/punctuation-service/v1/check";
   String SERVER_URL;
   final int TIMEOUT_MS = 2000;
 
@@ -54,15 +57,17 @@ public class RemotePunctuationRule extends TextLevelRule {
 
   public String connectRemoteServer(String url, String inputText) {
 
-    if (StringUtils.isEmpty(SERVER_URL))
+    if (StringUtils.isEmpty(url))
       return inputText;
 
     HttpURLConnection connection = null;
 
     try {
 
-      String text = URLEncoder.encode(inputText);
+      String text = URLEncoder.encode(inputText, "utf-8");
       String urlParameters = "text=" + text;
+
+      System.out.println("URL:'" + url + "?" + urlParameters.toString() + "'");
 
       connection = createConnection(new URL(url), urlParameters);
       if (connection == null)
@@ -76,14 +81,7 @@ public class RemotePunctuationRule extends TextLevelRule {
 
       //Get Response  
       InputStream is = connection.getInputStream();
-      BufferedReader rd = new BufferedReader(new InputStreamReader(is));
-      StringBuilder response = new StringBuilder(); // or StringBuffer if Java version 5+
-      String line;
-      while ((line = rd.readLine()) != null) {
-        response.append(line);
-        response.append('\n');
-      }
-      rd.close();
+      String response = StringTools.streamToString(connection.getInputStream(), "UTF-8");
 
       ObjectMapper mapper = new ObjectMapper();
       Map map = mapper.readValue(response.toString(), Map.class);
@@ -151,6 +149,7 @@ public class RemotePunctuationRule extends TextLevelRule {
     if (allCorrected == null)
       return toRuleMatchArray(ruleMatches);
 
+    System.out.println("Charset: "  + Charset.defaultCharset());
     System.out.println("Original :'" + allText + "'");
     System.out.println("Corrected:'" + allCorrected + "'");
 
