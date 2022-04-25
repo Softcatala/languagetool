@@ -29,7 +29,7 @@ public class RemotePunctuationRule extends TextLevelRule {
   String SERVER_URL;
   final int TIMEOUT_MS = 2000;
 
-  public RemotePunctuationRule(ResourceBundle messages) throws IOException {
+  public RemotePunctuationRule(ResourceBundle messages) {
     super.setCategory(Categories.PUNCTUATION.getCategory(messages));
 
     SERVER_URL = System.getenv("CA_PUNCT_SERVER");
@@ -78,11 +78,9 @@ public class RemotePunctuationRule extends TextLevelRule {
       wr.close();
 
       //Get Response  
-      InputStream is = connection.getInputStream();
       String response = StringTools.streamToString(connection.getInputStream(), "UTF-8");
-
       ObjectMapper mapper = new ObjectMapper();
-      Map map = mapper.readValue(response.toString(), Map.class);
+      Map map = mapper.readValue(response, Map.class);
       String responseText = (String) map.get("text");
       String responseTime = (String) map.get("time");
 //      System.out.println("Response Text:'" + responseText.toString() + "'");
@@ -169,7 +167,7 @@ public class RemotePunctuationRule extends TextLevelRule {
       System.out.println("Original  sentence:'" + originalSentenceText + "'");
       System.out.println("Corrected sentence:'" + correctedSentenceText + "'");
 
-      if (correctedSentenceText != null && originalSentenceText.equals(correctedSentenceText) == false) {
+      if (originalSentenceText.equals(correctedSentenceText) == false) {
         System.out.println("Not equal");
 
         AnalyzedTokenReadings[] originalTokens = originalSentence.getTokens();
@@ -177,7 +175,6 @@ public class RemotePunctuationRule extends TextLevelRule {
 
         for (int idxO = 0, idxC = 0; idxO < originalTokens.length && idxC < correctedTokens.length; idxO++, idxC++) {
           AnalyzedTokenReadings originalToken = originalTokens[idxO];
-          AnalyzedTokenReadings correctedToken = correctedTokens[idxC];
           String originalTokenText = originalTokens[idxO].getToken();
           String correctedTokenText = correctedTokens[idxC].getToken();
 
