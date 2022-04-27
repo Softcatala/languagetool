@@ -37,6 +37,10 @@ public class RemotePunctuationRuleTest {
           return "Això vol dir una cosa, allò, una altra";
         }
 
+        if (text.equals("Apropament a Europa del qual el Kremlin sempre ha recelat.")) {
+          return "Apropament a Europa, del qual el Kremlin sempre ha recelat.";
+        }
+
         return text;
       }
   }
@@ -73,6 +77,15 @@ public class RemotePunctuationRuleTest {
     assertEquals(9, matches[0].getToPos());
  
     assertEquals(2, rule.match(getAnalyzedSentence("Això vol dir una cosa allò una altra")).length);
+  }
+
+  @Test
+  public void testRuleAddCommasTokenSelection() throws IOException {
+
+    RuleMatch[] matches = rule.match(getAnalyzedSentence("Apropament a Europa del qual el Kremlin sempre ha recelat."));
+    assertEquals(1, matches.length);
+    assertEquals(19, matches[0].getFromPos());
+    assertEquals(23, matches[0].getToPos());
   }
 
   @Test

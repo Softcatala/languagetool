@@ -133,6 +133,21 @@ public class RemotePunctuationRule extends TextLevelRule {
     }
   }
 
+  //* Select next word. It can be more than one token (e.g. 'del') */
+  private String getNextWord(AnalyzedTokenReadings[] tokens, int idx) {
+
+    StringBuilder word = new StringBuilder();
+    for (;idx < tokens.length; idx++) {
+      AnalyzedTokenReadings token = tokens[idx];
+
+      if (token.isWhitespace())
+        break;
+
+      word.append(token.getToken());
+    }
+    return word.toString();
+  }
+
   private RuleMatch[] doRule(List<AnalyzedSentence> sentences) throws IOException {
     final List<RuleMatch> ruleMatches = new ArrayList<>();
     int sentenceOffset = 0;
@@ -187,7 +202,7 @@ public class RemotePunctuationRule extends TextLevelRule {
           if (correctedTokenText.equals(",")) {
 
             System.out.println("Added comma");
-            String nextToken = originalTokens[idxO + 1].getToken();
+            String nextToken = getNextWord(originalTokens, idxO + 1);
             int start = sentenceOffset + originalToken.getStartPos();
             int length = nextToken.length() + 1;
 
