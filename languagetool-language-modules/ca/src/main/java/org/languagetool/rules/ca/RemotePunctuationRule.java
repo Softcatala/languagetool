@@ -133,10 +133,20 @@ public class RemotePunctuationRule extends TextLevelRule {
     }
   }
 
-  //* Select next word. It can be more than one token (e.g. 'del') */
-  private String getNextWord(AnalyzedTokenReadings[] tokens, int idx) {
+  //* Select until next word. It can be more than one token (e.g. 'del') */
+  private String getUntilEndOfNextWord(AnalyzedTokenReadings[] tokens, int idx) {
 
     StringBuilder word = new StringBuilder();
+
+    for (;idx < tokens.length; idx++) {
+      AnalyzedTokenReadings token = tokens[idx];
+
+      if (!token.isWhitespace())
+        break;
+
+      word.append(token.getToken());
+    }
+
     for (;idx < tokens.length; idx++) {
       AnalyzedTokenReadings token = tokens[idx];
 
@@ -202,7 +212,7 @@ public class RemotePunctuationRule extends TextLevelRule {
           if (correctedTokenText.equals(",")) {
 
             System.out.println("Added comma");
-            String nextToken = getNextWord(originalTokens, idxO + 1);
+            String nextToken = getUntilEndOfNextWord(originalTokens, idxO + 1);
             int start = sentenceOffset + originalToken.getStartPos();
             int length = nextToken.length() + 1;
 
@@ -219,16 +229,17 @@ public class RemotePunctuationRule extends TextLevelRule {
           }
           else if (originalTokenText.equals(",")) {
             System.out.println("Removed");
+            int COMMA_LENGTH = (",").length();
 
-            String nextToken = originalTokens[idxO + 1].getToken();
-            String nextToken2 = originalTokens[idxO + 2].getToken();
+            String nextWord = getUntilEndOfNextWord(originalTokens, idxO + COMMA_LENGTH);
+
             int start = sentenceOffset + originalToken.getStartPos();
-            int length = nextToken.length() + nextToken2.length() + 1;
+            int length = nextWord.length() + COMMA_LENGTH;
 
             RuleMatch ruleMatch = new RuleMatch(this, originalSentence, start,
                 start + length, "Sobra la coma", "Sobra la coma");
 
-            String suggestion = correctedTokenText + nextToken + nextToken2;
+            String suggestion = correctedTokenText + nextWord;
             System.out.println("Suggestion:'" + suggestion + "'");
             ruleMatch.addSuggestedReplacement(suggestion);
             ShowRuleMatch(ruleMatch);
