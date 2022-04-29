@@ -26,13 +26,13 @@ public class RemotePunctuationRule extends TextLevelRule {
 
   private static final Logger logger = LoggerFactory.getLogger(RemotePunctuationRule.class);
 
-  String SERVER_URL;
+  String server_url;
   final int TIMEOUT_MS = 2000;
 
   public RemotePunctuationRule(ResourceBundle messages) {
     super.setCategory(Categories.PUNCTUATION.getCategory(messages));
 
-    SERVER_URL = System.getenv("CA_PUNCT_SERVER");
+    server_url = System.getenv("CA_PUNCT_SERVER");
   }
 
   private HttpURLConnection createConnection(URL url, String urlParameters) {
@@ -165,7 +165,7 @@ public class RemotePunctuationRule extends TextLevelRule {
 
     String allText = getTextFromAnalyzedSentences(sentences);
 
-    String allCorrected = connectRemoteServer(SERVER_URL, allText);
+    String allCorrected = connectRemoteServer(server_url, allText);
 
     if (allCorrected == null)
       return toRuleMatchArray(ruleMatches);
