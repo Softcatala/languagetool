@@ -28,11 +28,16 @@ public class RemotePunctuationRule extends TextLevelRule {
 
   String server_url;
   final int TIMEOUT_MS = 2000;
+  boolean newOnly = true;
 
   public RemotePunctuationRule(ResourceBundle messages) {
     super.setCategory(Categories.PUNCTUATION.getCategory(messages));
 
     server_url = System.getenv("CA_PUNCT_SERVER");
+  }
+
+  public void setOnlyNew(boolean _newOnly) {
+    newOnly = _newOnly;
   }
 
   private HttpURLConnection createConnection(URL url, String urlParameters) {
@@ -198,13 +203,16 @@ public class RemotePunctuationRule extends TextLevelRule {
         AnalyzedTokenReadings[] originalTokens = originalSentence.getTokens();
         AnalyzedTokenReadings[] correctedTokens = correctedSentence.getTokens();
 
-        for (int idxO = 0, idxC = 0; idxO < originalTokens.length && idxC < correctedTokens.length; idxO++, idxC++) {
+        int pass = 0;
+        for (int idxO = 0, idxC = 0; idxO < originalTokens.length && idxC < correctedTokens.length; idxO++, idxC++, pass++) {
           AnalyzedTokenReadings originalToken = originalTokens[idxO];
+          AnalyzedTokenReadings correctedToken = correctedTokens[idxC];
+
           String originalTokenText = originalTokens[idxO].getToken();
           String correctedTokenText = correctedTokens[idxC].getToken();
 
-  //        System.out.println("Original  token: '" + originalTokenText + "' - start: " + originalToken.getStartPos());
-  //        System.out.println("Corrected token: '" + correctedTokenText + "' - start: " + correctedToken.getStartPos());
+          //System.out.println("Original  token: '" + originalTokenText + "' - start: " + originalToken.getStartPos() + " - pass: " + pass);
+          //System.out.println("Corrected token: '" + correctedTokenText + "' - start: " + correctedToken.getStartPos()+ " - pass: " + pass);
 
           if (originalTokenText.equals(correctedTokenText))
             continue;
@@ -229,28 +237,33 @@ public class RemotePunctuationRule extends TextLevelRule {
           }
           else if (originalTokenText.equals(",")) {
             System.out.println("Removed");
-            int COMMA_LENGTH = (",").length();
+            if (!newOnly) {
+              int COMMA_LENGTH = (",").length();
 
-            String nextWord = getUntilEndOfNextWord(originalTokens, idxO + COMMA_LENGTH);
+              String nextWord = getUntilEndOfNextWord(originalTokens, idxO + COMMA_LENGTH);
 
-            int start = sentenceOffset + originalToken.getStartPos();
-            int length = nextWord.length() + COMMA_LENGTH;
+              int start = sentenceOffset + originalToken.getStartPos();
+              int length = nextWord.length() + COMMA_LENGTH;
 
-            RuleMatch ruleMatch = new RuleMatch(this, originalSentence, start,
-                start + length, "Sobra la coma", "Sobra la coma");
+              RuleMatch ruleMatch = new RuleMatch(this, originalSentence, start,
+                  start + length, "Sobra la coma", "Sobra la coma");
 
-            String suggestion = correctedTokenText + nextWord;
-            System.out.println("Suggestion:'" + suggestion + "'");
-            ruleMatch.addSuggestedReplacement(suggestion);
-            ShowRuleMatch(ruleMatch);
-            ruleMatches.add(ruleMatch);
+              String suggestion = correctedTokenText + nextWord;
+              System.out.println("Suggestion:'" + suggestion + "'");
+              ruleMatch.addSuggestedReplacement(suggestion);
+              ShowRuleMatch(ruleMatch);
+              ruleMatches.add(ruleMatch);
+            }
             idxO++;
             continue;
           }
-          /*else {
-            System.out.println("Do not know what to do");
-            break;
-          }*/
+
+         /* Target may contain less spaces than source*/
+         if (originalToken.isWhitespace() && !correctedToken.isWhitespace()) {
+            System.out.println("Space out sync");
+            idxC--;
+            continue;
+          }
         } //for
       } //if (corrected != null && original.equals(corrected) == false) {
       sentenceOffset += originalSentenceText.length();
