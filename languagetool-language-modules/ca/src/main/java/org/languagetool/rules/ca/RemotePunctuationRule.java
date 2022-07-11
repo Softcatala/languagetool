@@ -17,6 +17,7 @@ import org.languagetool.language.Catalan;
 import org.apache.commons.lang3.StringUtils;
 import java.nio.charset.Charset;
 import org.languagetool.tools.StringTools;
+import org.languagetool.UserConfig;
 
 
 /**

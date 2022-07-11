@@ -21,7 +21,7 @@ public class RemotePunctuationRuleTest {
   class RemotePunctuationRuleForTest extends RemotePunctuationRule  {
 
     public RemotePunctuationRuleForTest(ResourceBundle messages) throws IOException {
-      super(messages);
+      super(messages, null);
       setOnlyNew(false);
     }
 
