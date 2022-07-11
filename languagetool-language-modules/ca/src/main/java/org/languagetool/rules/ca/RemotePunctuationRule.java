@@ -135,9 +135,11 @@ public class RemotePunctuationRule extends TextLevelRule {
 
     try {
     
-        Long textSessionID;
-        textSessionID = userConfig.getTextSessionId();
-        System.out.println("SessionID: " + textSessionID);
+        if (userConfig != null) {
+          Long textSessionID;
+          textSessionID = userConfig.getTextSessionId();
+          System.out.println("SessionID: " + textSessionID);
+        }
 
         return doRule(sentences);
     }

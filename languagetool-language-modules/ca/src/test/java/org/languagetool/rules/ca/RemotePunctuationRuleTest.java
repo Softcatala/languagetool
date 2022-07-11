@@ -20,8 +20,8 @@ public class RemotePunctuationRuleTest {
 
   class RemotePunctuationRuleForTest extends RemotePunctuationRule  {
 
-    public RemotePunctuationRuleForTest(ResourceBundle messages) throws IOException {
-      super(messages, null);
+    public RemotePunctuationRuleForTest(ResourceBundle messages, UserConfig userConfig) throws IOException {
+      super(messages, userConfig);
       setOnlyNew(false);
     }
 
@@ -51,7 +51,7 @@ public class RemotePunctuationRuleTest {
 
   @Before
   public void setUp() throws IOException {
-    rule = new RemotePunctuationRuleForTest(TestTools.getEnglishMessages());
+    rule = new RemotePunctuationRuleForTest(TestTools.getEnglishMessages(), null);
     lt = new JLanguageTool(new Catalan());
   }
 
