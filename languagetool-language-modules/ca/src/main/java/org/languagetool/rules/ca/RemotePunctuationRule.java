@@ -25,15 +25,18 @@ import org.languagetool.tools.StringTools;
 public class RemotePunctuationRule extends TextLevelRule {
 
   private static final Logger logger = LoggerFactory.getLogger(RemotePunctuationRule.class);
+  private UserConfig userConfig;
 
   String server_url;
   final int TIMEOUT_MS = 2000;
   boolean newOnly = true;
 
-  public RemotePunctuationRule(ResourceBundle messages) {
+  public RemotePunctuationRule(ResourceBundle messages, UserConfig userConfig) {
     super.setCategory(Categories.PUNCTUATION.getCategory(messages));
 
+    this.userConfig = userConfig;
     server_url = System.getenv("CA_PUNCT_SERVER");
+
   }
 
   public void setOnlyNew(boolean _newOnly) {
@@ -130,6 +133,11 @@ public class RemotePunctuationRule extends TextLevelRule {
   public RuleMatch[] match(List<AnalyzedSentence> sentences) throws IOException {
 
     try {
+    
+        Long textSessionID;
+        textSessionID = userConfig.getTextSessionId();
+        System.out.println("SessionID: " + textSessionID);
+
         return doRule(sentences);
     }
     catch (Exception e) {
@@ -225,7 +233,7 @@ public class RemotePunctuationRule extends TextLevelRule {
             int length = nextToken.length() + 1;
 
             RuleMatch ruleMatch = new RuleMatch(this, originalSentence, start,
-                start + length, "Falta una coma", "Falta una coma");
+                start + length, "Probablement hi falta una coma", "Probablement hi falta una coma");
 
             String suggestion = correctedTokenText + originalTokenText + nextToken;
             System.out.println("Suggestion:'" + suggestion + "'");
