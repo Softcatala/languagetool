@@ -1,5 +1,35 @@
 #Catalan multiwords file used for chunking
 #separatorRegExp=[\t;]
+a Déu sien dades;LOC_ADV
+Nikola Mirotic;NPMSSP0
+Sarunas Jasikevicius;NPMSSP0
+dades massives;NCFP000
+Times Square;NPCSG00
+Antònia Vicens;NPFSSP0
+mocador de fer farcells;NCMS000
+mocadors de fer farcells;NCMP000
+Pier Paolo;NCMSSP0
+Top Gun;NPCNO00
+Tony Soprano;NPMSSP0
+Rolling Stone;NPCNO00
+Rolling Stones;NPMPO00
+The Rolling Stones;NPMPO00
+García Lorca;NPMSSP0
+Federico García Lorca;NPMSSP0
+Freddie Mercury;NPMSSP0
+Alex Salmond;NPMSSP0
+Verds-Equo;NPMPO00
+Fran Ferri;NPMSSP0
+Manolo Mata;NPMSSP0
+Alberto Núñez Feijóo;NPMSSP0
+Elisenda Paluzie;NPFSSP0
+Citizen Lab;NPMSO00
+cartó pedra;NCMS000
+cartró pedra;NCMS000
+programari espia;NCMS000
+programa espia;NCMS000
+Son Santjoan;NPMSG00
+Emiliano Zapata;NPMSSP0
 Liza Minnelli;NPFSSP0
 arreu del món;LOC_ADV
 Maurice Maeterlinck;NPMSSP0

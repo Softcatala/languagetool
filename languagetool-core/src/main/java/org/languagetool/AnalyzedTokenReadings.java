@@ -319,6 +319,23 @@ public final class AnalyzedTokenReadings implements Iterable<AnalyzedToken> {
     }
     return null;
   }
+  
+  /**
+   * Returns the first reading that matches a given lemma.
+   * @since 5.8
+   */
+  public AnalyzedToken readingWithLemma(String lemma) {
+    boolean found;
+    for (AnalyzedToken reading : anTokReadings) {
+      if (reading.getLemma() != null) {
+        found = reading.getLemma().equals(lemma);
+        if (found) {
+          return reading;
+        }
+      }
+    }
+    return null;
+  }
 
   /**
    * Add a new reading.

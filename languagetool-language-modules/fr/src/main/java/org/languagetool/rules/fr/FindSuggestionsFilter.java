@@ -32,13 +32,17 @@ import org.languagetool.JLanguageTool;
 import org.languagetool.language.French;
 import org.languagetool.rules.AbstractFindSuggestionsFilter;
 import org.languagetool.rules.RuleMatch;
-import org.languagetool.rules.fr.MorfologikFrenchSpellerRule;
+import org.languagetool.synthesis.FrenchSynthesizer;
+import org.languagetool.synthesis.Synthesizer;
 import org.languagetool.tagging.Tagger;
 import org.languagetool.tagging.fr.FrenchTagger;
+import org.languagetool.tools.StringTools;
 
 public class FindSuggestionsFilter extends AbstractFindSuggestionsFilter {
 
   private static MorfologikFrenchSpellerRule morfologikRule;
+  
+  private final FrenchSynthesizer synth = new FrenchSynthesizer(new French());
 
   public FindSuggestionsFilter() throws IOException {
     if (morfologikRule == null) {
@@ -52,9 +56,20 @@ public class FindSuggestionsFilter extends AbstractFindSuggestionsFilter {
   protected Tagger getTagger() {
     return FrenchTagger.INSTANCE;
   }
+  
+  @Override
+  protected Synthesizer getSynthesizer() {
+    return synth;
+  }
 
   @Override
-  protected List<String> getSpellingSuggestions(String w) throws IOException {
+  protected List<String> getSpellingSuggestions(AnalyzedTokenReadings atr) throws IOException {
+    String w;
+    if (atr.isTagged()) {
+      w = StringTools.makeWrong(atr.getToken());
+    } else {
+      w = atr.getToken();
+    }
     List<String> suggestions = new ArrayList<>();
     List<String> wordsToCheck = new ArrayList<>();
     wordsToCheck.add(w);

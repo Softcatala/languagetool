@@ -208,6 +208,10 @@ public class TokenAgreementAdjNounRuleTest {
 //    assertEquals(1, matches.length);
 //    assertTrue("Missing message for «не» пишеться окремо", matches[0].getMessage().contains("писати окремо"));
      
+    // nv no plural
+//    assertHasError("спортивні ЦРУ");
+    assertEmptyMatch("спортивні ЦРУ");
+    assertEmptyMatch("Сумське НПО");
 
     // false :nv
     assertEquals(1, rule.match(lt.getAnalyzedSentence("затверджений народним віче")).length);
@@ -251,6 +255,8 @@ public class TokenAgreementAdjNounRuleTest {
     assertEmptyMatch("надання болгарській статусу");
 
     assertEmptyMatch("старший зміни");
+
+    assertEmptyMatch("Наступні півроку.");
 
     // pron
     assertEmptyMatch("одної шостої світу");
@@ -789,6 +795,8 @@ public class TokenAgreementAdjNounRuleTest {
     assertEmptyMatch("називає й традиційні корупцію, «відкати», хабарі");
     assertEmptyMatch("державні Ощадбанк, «Укргазбанк»");
     assertEmptyMatch("коринфський з іонійським ордери");
+    assertEmptyMatch("від однієї й другої сторін");
+    assertEmptyMatch("під’їздить один, другий автобуси");
 //    assertEmptyMatch("можуть зробити доступнішими фосфор чи калій");
     assertEmptyMatch("зв'язаних ченця з черницею");
     assertEmptyMatch("на зарубаних матір з двома синами");

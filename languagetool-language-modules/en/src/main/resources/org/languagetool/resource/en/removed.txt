@@ -333,6 +333,7 @@ sampling	sampling	NNS
 sang-froid	sang-froid	NN
 sanitizer	sanitizer	NN
 sanitiser	sanitiser	NN
+Sargent	Sargent	NNP
 sayed	sayed	NN
 scholarly	scholarly	RB
 score	score	NNS
@@ -861,3 +862,7 @@ feasible	feasible	RB
 upper	up	JJR
 proc	proc	NN
 flimsies	flimsies	JJ
+shott	shott	NN
+pele	pele	NN
+peles	pele	NNS
+responsible	responsible	NN

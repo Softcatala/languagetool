@@ -237,6 +237,8 @@ Ugandan
 *UGU
 *UGX
 *UHCD
+*UHD
+*UHDTV
 *UI
 *UIA
 *UIC
@@ -536,6 +538,8 @@ uterine
 uterus
 *UTF
 *UTG
+util
+utils
 utilisable
 utilisation
 utilised

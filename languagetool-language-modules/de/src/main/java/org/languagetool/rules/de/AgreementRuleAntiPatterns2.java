@@ -443,7 +443,7 @@ class AgreementRuleAntiPatterns2 {
       new PatternTokenBuilder().tokenRegex("pdf|zip|jpe?g|gif|png|rar|mp[34]|mpe?g|avi|docx?|xlsx?|pptx?|html?").setIsWhiteSpaceBefore(false).build()
     ),
     Arrays.asList( // "Ich mache eine Ausbildung zur Junior Digital Marketing Managerin"
-      new PatternTokenBuilder().tokenRegex("Junior|Senior").setSkip(3).build(),
+      new PatternTokenBuilder().tokenRegex("Junior|Senior|Account").setSkip(3).build(),
       tokenRegex("Manager[ns]?|Managerin(nen)?|Developer(in)?")
     ),
     Arrays.asList(
@@ -566,6 +566,11 @@ class AgreementRuleAntiPatterns2 {
       token("Museum")
     ),
     Arrays.asList(
+      token("Auto"),
+      token("Club"),
+      token("Europa")
+    ),
+    Arrays.asList(
       token("Queen"),
       posRegex("EIG:.*")
     ),
@@ -607,7 +612,12 @@ class AgreementRuleAntiPatterns2 {
     Arrays.asList(
       csRegex("das|es|dies"),
       csRegex("bedeutete?"),
-      token("Krieg")
+      csRegex("Krieg|Ärger")
+    ),
+    Arrays.asList(
+      // In der aktuellen Niedrigzinsphase bedeutet das sehr geringe Zinsen, die aber deutlich ansteigen können.
+      csRegex("bedeutete?"),
+      csRegex("das|dies")
     ),
     Arrays.asList(
       csRegex("das|es|dies"),

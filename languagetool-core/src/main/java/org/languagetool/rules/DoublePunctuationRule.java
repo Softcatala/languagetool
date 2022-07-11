@@ -24,6 +24,7 @@ import java.util.ResourceBundle;
 
 import org.languagetool.AnalyzedSentence;
 import org.languagetool.AnalyzedTokenReadings;
+import org.languagetool.tools.Tools;
 
 /**
  * A rule that matches ".." (but not "..." etc) and ",,".
@@ -36,6 +37,7 @@ public class DoublePunctuationRule extends Rule {
     super(messages);
     super.setCategory(Categories.PUNCTUATION.getCategory(messages));
     setLocQualityIssueType(ITSIssueType.Typographical);
+    setUrl(Tools.getUrl("https://languagetool.org/insights/post/punctuation-guide/#what-are-periods"));
   }
 
   @Override
@@ -78,7 +80,7 @@ public class DoublePunctuationRule extends Rule {
         dotCount = 0;
         startPos = tokens[i].getStartPos();
       }
-      if (dotCount == 2 && !".".equals(nextToken) && !"?".equals(prevToken) && !"!".equals(prevToken)) {
+      if (dotCount == 2 && !".".equals(nextToken) && !"?".equals(prevToken) && !"!".equals(prevToken) && !"…".equals(prevToken)) {
         int fromPos = Math.max(0, startPos - 1);
         RuleMatch ruleMatch = new RuleMatch(this, sentence, fromPos, startPos + 1,
             getDotMessage(), messages.getString("double_dots_short"));

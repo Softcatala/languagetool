@@ -4,6 +4,7 @@
 # Format: three tab-separated fields: fullform baseform postags
 #from Freeling
 #separatorRegExp=;
+Balladur;Balladur;Z e sp
 Vitreuil;Vitreuil; Z e sp
 Winamax;Winamax; Z e sp
 Belmont;Belmont; Z e sp
@@ -219,3 +220,802 @@ susu;susu;S
 CIC;CIC;Z m sp
 flop;flop;N m s
 flops;flop;N m p
+Cic;Cic;S
+XD;XD;S
+souque;souque; N f s
+souques;souque;N f p
+ACTP;ACTP;S
+AFGSU;AFGSU;S
+AFPA;AFPA;S
+AOTU;AOTU;S
+APA;APA;S
+APL;APL;S
+APUL;APUL;S
+ATIACL;ATIACL;S
+BP;BP;S
+CASF;CASF;S
+CCAS;CCAS;S
+CCEC;CCEC;S
+CDA;CDA;S
+CDI;CDI;S
+CDCI;CDCI;S
+CEF;CEF;S
+CFL;CFL;S
+CGCT;CGCT;S
+CIADT;CIADT;S
+CIAS;CIAS;S
+CIF;CIF;S
+CLIC;CLIC;S
+CNFTP;CNFTP;S
+CNRACL;CNRACL;S
+CNSA;CNSA;S
+CODERPA;CODERPA;S
+COM;COM;S
+CPS;CPS;S
+CSA;CSA;S
+CSG;CSG;S
+CU;CU;S
+DCTE;DCTE;S
+DDEC;DDEC;S
+DDR;DDR;S
+DDU;DDU;S
+DESL;DESL;S
+DETR;DETR;S
+DFM;DFM;S
+Play;Play; Z e sp
+Adjani;Adjani; Z e sp
+Dion;Dion;Z e sp
+Seastar;Seastar;Z e sp
+Talkdesk;Talkdesk;Z e sp
+TiSsi;TiSsi;Z e sp
+LoopNet;LoopNet;Z e sp
+GetRopoweb;GetRopoweb; Z e sp
+OpenSea;OpenSea;Z e sp
+NFT;NFT;Z e sp
+Freenaute;Freenaute;N m s
+Freenautes;Freenaute;N m p
+multimarque;multimarque; J e sp
+Eneba;Eneba;Z e sp
+Fortnite;Fortnite;Z e sp
+Minecraft;Minecraft;Z e sp
+Annamie;Annamie; Z e sp
+Belmondo;Belmondo;Z e sp
+NPD;NPD;S
+BO;BO;S
+Cattier;Cattier;Z e sp
+EPI;EPI; S
+emailing;emailing;N m sp
+ECT;ECT;S
+ECTS;ECTS;S
+FCFA;FCFA;S
+PE;PE;S
+IR;IR;S
+BL;BL;S
+Kbis;Kbis;Z e sp
+Casselman;Casselman;Z e sp
+DD;DD;Z e sp
+DDHC;DDHC; S
+Dion;Dion;Z e sp
+Garcia;Garcia;Z e sp
+Lovebox;Lovebox;Z e sp
+copywriting;copywriting;N m sp
+IM;IM;S
+IDF;IDF;S
+market;market;N m sp
+AAA;AAA;S
+Ads;Ads;N m sp
+asso;asso;N m s
+assos;asso;N m p
+CMA;CMA;S
+Duval;Duval;Z e sp
+GEA;GEA;Z e sp
+Tools;Tools;Z e sp
+BB;BB;S
+Cdt;Cdt;S
+Insta;Insta;S
+BPA;BPA;S
+CVEC;CVEC;S
+Gold;Gold;Z e sp
+dev;dev;S
+APA;APA;S
+Boursorama;Boursorama;Z e sp
+adj;adj;S
+Ouellette;Ouellette;Z e sp
+bi;bi;S
+Dorenlot;Dorenlot;Z e sp
+CERFA;CERFA;Z e sp
+Photobox;Photobox;Z e sp
+BIM;BIM;Z e sp
+pass;pass;S
+CSA;CSA;S
+AGRIPPA;AGRIPPA;S
+Duperrier;Duperrier;Z e sp
+Dupontel;Dupontel;Z e sp
+Lellouche;Lellouche;Z e sp
+Gabin;Gabin;Z e sp
+Delon;Delon;Z e sp
+Auteuil;Auteuil;Z e sp
+Lucchini;Lucchini;Z e sp
+Dujardin;Dujardin;Z e sp
+Depardieu;Depardieu;Z e sp
+Reno;Reno;Z e sp
+Cassel;Cassel;Z e sp
+Baffie;Baffie;Z e sp
+Nagui;Nagui;Z e sp
+Hanouna;Hanouna;Z e sp
+Poelvoorde;Poelvoorde;Z e sp
+Chazal;Chazal;Z e sp
+Mbappé;Mbappé;Z e sp
+Chabal;Chabal;Z e sp
+PLS;PLS; S
+Villecresnes;Villecresnes;Z e sp
+UFR;UFR; Z e sp
+UEO;UEO; Z e sp
+UCPA;UCPA;Z e sp
+Ronsard;Ronsard; Z e sp
+Pinel;Pinel; Z e sp
+Lemercier;Lemercier;Z e sp
+Frémont;Frémont;Z e sp
+Fugain;Fugain; Z e sp
+FAO;FAO; Z e sp
+Cortez;Cortez;Z e sp
+Ruquier;Ruquier;Z e sp
+démousser;démousser; V inf
+démoussé;démousser;V ppa m s
+démoussée;démousser;V ppa f s
+démoussés;démousser;V ppa m p
+démoussées;démousser;V ppa f p
+White;White; Z e sp
+Wang;Wang;Z e sp
+Xiao;Xiao;Z e sp
+Woods;Woods;Z e sp
+Stahl;Stahl; Z e sp
+Sénac;Sénac; Z e sp
+ROE;ROE;S
+OSQ;OSQ;S
+Badi;Badi; Z e sp
+Zimmer;Zimmer; Z e sp
+Yossef;Yossef; Z e sp
+Werner;Werner; Z e sp
+Ségur;Ségur;Z e sp
+Solberg;Solberg; Z e sp
+Savoy;Savoy;Z e sp
+SMA;SMA;S
+Rougé;Rougé;Z e sp
+OUA;OUA;Z e sp
+OIPR;OIPR;Z e sp
+OCLTIC;OCLTIC;Z e sp
+OCAM;OCAM;Z e sp
+Matthis;Matthis; Z e sp
+Lézignan;Lézignan; Z e sp
+Leconte;Leconte; Z e sp
+Honfleur;Honfleur; Z e sp
+Ferrat;Ferrat;Z e sp
+Cabrel;Cabrel; Z e sp
+Brontë;Brontë; Z e sp
+Bergman;Bergman; Z e sp
+Atwood;Atwood; Z e sp
+ARBS;ARBS;S
+ASV;ASV;S
+McDo;McDo;Z e sp
+AgroSup;AgroSup; Z e sp
+Bretton;Bretton; Z e sp
+AstroNomades;AstroNomades; Z e sp
+BlizzCon;BlizzCon; Z e sp
+BloodRayne;BloodRayne; Z e sp
+BlueMotion;BlueMotion;Z e sp
+CouchSurfing;CouchSurfing;Z e sp
+DayDream;DayDream; Z e sp
+EvalPop;EvalPop; Z e sp
+EyeLights;EyeLights; Z e sp
+GlissAttitude;GlissAttitude; Z e sp
+McAllen;McAllen;Z e sp
+McAllister;McAllister;Z e sp
+McArthur;McArthur;Z e sp
+McBain;McBain; Z e sp
+McBride;McBride;Z e sp
+McCabe;McCabe; Z e sp
+McCain;McCain;Z e sp
+McCarthy;McCarthy; Z e sp
+McClane;McClane; Z e sp
+McDavid;McDavid; Z e sp
+McCoy;McCoy;Z e sp
+McDougal;McDougal;Z e sp
+McGeever;McGeever;Z e sp
+McGill;McGill;Z e sp
+McGregor;McGregor;Z e sp
+McGuire;McGuire;Z e sp
+McKenzie;McKenzie;Z e sp
+McMahon;McMahon; Z e sp
+dildo;dildo;N m s
+dildos;dildo;N m p
+mochi;mochi;N m s
+mochis;mochi;N m p
+onigiri;onigiri; N m s
+onigiris;onigiri; N m p
+nori;nori;N m sp
+pince-sans-rire;pince-sans-rire;J e sp
+Bangladesh;Bangladesh;Z e sp
+personnes-ressources;personnes-ressources;N f p
+personne-ressource;personne-ressource;N f s
+Jace;Jace;Z e sp
+Jacron;Jacron;N m sp
+Jaga;Jaga;Z e sp
+Jipé;Jipé;S
+Jonze;Jonze;Z e sp
+Joyant;Joyant;Z e sp
+Jégo;Jégo;Z e sp
+Saint-Ambroix;Saint-Ambroix;Z e sp
+St-Ambroix;St-Ambroix;S
+Saint-Anthème;Saint-Anthème;Z e sp
+St-Anthème;St-Anthème;S
+Saint-Aygulf;Saint-Aygulf;Z e sp
+St-Aygulf;St-Aygulf;S
+Saint-Barth; Saint-Barth;Z e sp
+St-Benin;St-Benin;S
+Saint-Benin;Saint-Benin;Z e sp
+St-Brieuc;St-Brieuc;S
+Saint-Brieuc;Saint-Brieuc;Z e sp
+St-Chamond;St-Chamond;S
+Saint-Chamond;Saint-Chamond;Z e sp
+Saint-Cyr;Saint-Cyr;Z e sp
+St-Exupéry;St-Exupéry;S
+St-Ferréol;St-Ferréol;Z e sp
+Saint-Ferréol;Saint-Ferréol;Z e sp
+Ste-Foy ;Ste-Foy ;S
+Sainte-Foy;Sainte-Foy;Z e sp
+St-Gall;St-Gall;S
+Saint-Gall;Saint-Gall;Z e sp
+Saint-Gaudens;Saint-Gaudens;Z e sp
+Saint-Gingolph;Saint-Gingolph;Z e sp
+Saint-Imier;Saint-Imier;Z e sp
+St-Gaudens;St-Gaudens;S
+St-Gingolph;St-Gingolph;S
+St-Imier;St-Imier;S
+Saint-Jory;Saint-Jory;Z e sp
+St-Lô;St-Lô;S
+St-Malo;St-Malo;S
+St-Merri;St-Merri;S
+St-Pétersbourg;St-Pétersbourg;S
+St-Quay;St-Quay;S
+St-Sulpice;St-Sulpice;S
+St-Tropez;St-Tropez;S
+New-Yorkais;New-Yorkais;N m s
+New-Yorkaise;New-Yorkais;N f s
+New-Yorkaises;New-Yorkais;N f p
+St-Émilion;St-Émilion;S
+back-end;back-end;N m sp
+check-out;check-out;N m sp
+front-end;front-end;N m sp
+houlà;houlà;I
+programme-cadre;programme-cadre;N m s
+programmes-cadres;programme-cadre;N m p
+plan-cadre;plan-cadre;N m s
+plans-cadres;plan-cadre;N m p
+entente-cadre;entente-cadre;N m s
+ententes-cadres;entente-cadre;N m p
+Jupiter;Jupiter;Z f sp
+Neptune;Neptune;Z f sp
+Saturne;Saturne;Z f sp
+Uranus;Uranus;Z f sp
+Orion;Orion;Z f sp
+Jupiter;Jupiter;Z m sp
+Neptune;Neptune;Z m sp
+Saturne;Saturne;Z m sp
+Uranus;Uranus;Z m sp
+Orion;Orion;Z m sp
+accords-cadres;accord-cadre;N m p
+accord-cadre;accord-cadre;N m s
+mal-être;mal-être;N m sp
+Poiret;Poiret;Z e sp
+Éluard;Éluard;Z e sp
+Bovary;Bovary;Z e sp
+sex-symbol;sex-symbol;N e s
+sex-symbols;sex-symbol;N e p
+PECO;PECO;Z e sp
+après-shampoing;après-shampoing;N m s
+après-shampoing;après-shampoing;N m p
+après-shampooing;après-shampooing;N m s
+après-shampooing;après-shampooing;N m p
+double-face;double-face;N f s
+double-face;double-face;J e s
+doubles-faces;double-face;N f p
+doubles-faces;double-face;J e p
+e-banking;e-banking;N e sp
+e-commercants;e-commercant;N m p
+e-commercantes;e-commercant;N f p
+e-commercante;e-commercant;N f s
+e-commercant;e-commercant;N f s
+cow-girl;cow-girl;N f s
+cow-girls;cow-girl;N f p
+cowgirl;cowgirl;N f s
+cowgirls;cowgirl;N f p
+achat-revente;achat-revente;N f sp
+acteur-réseau;acteur-réseau;N e sp
+afro-arabe;afro-arabe;J e s
+afro-arabes;afro-arabe;J e p
+afro-latine;afro-latine;J e s
+afro-latines;afro-latine;J e p
+agence-conseil;agence-conseil;N f s
+agences-conseils;agence-conseil;N f p
+arrière-arrière-petit-fils;arrière-arrière-petit-fils;N m s
+arrière-arrière-grand-père;arrière-arrière-grand-père;N m s
+arrière-grands-parents;arrière-grands-parents;N e sp
+art-thérapie;art-thérapie;N f s
+attentats-suicides;attentats-suicides;N m p
+attentat-suicide;attentat-suicide;N m s
+attrape-rêves;attrape-rêves;N m sp
+auteur-compositeur;auteur-compositeur;N m s
+auteurs-compositeurs;auteur-compositeur;N m p
+auteure-compositrice;auteur-compositeur;N f s
+auteures-compositrices;auteur-compositeur;N f p
+bas-normand;bas-normand;J m s
+bas-normands;bas-normand;J m p
+bas-normande;bas-normand;J f s
+bas-normandes;bas-normand;J f p
+cabernet-sauvignon;cabernet-sauvignon;N m sp
+capital-actions;capital-actions;N m sp
+carte-cadeau;carte-cadeau;N f s
+cartes-cadeaux;carte-cadeau;N f p
+centre-gauche;centre-gauche;N e sp
+centre-droit;centre-droit;N e sp
+chasseurs-cueilleurs;chasseur-cueilleur;N m p
+chasseur-cueilleur;chasseur-cueilleur;N m s
+chauffeur-livreur;chauffeur-livreur;N m s
+chauffeurs-livreurs;chauffeur-livreur;N m p
+chèque-cadeau;chèque-cadeau;N m s
+chèques-cadeaux;chèque-cadeau;N m p
+chèque-voyage;chèque-voyage;N m s
+chèques-voyages;chèque-voyage;N m p
+chèque-repas;chèque-repas;N m s
+chèques-repas;chèque-repas;N m p
+clocher-porche;clocher-porche;N m s
+clochers-porches;clocher-porche;N m p
+contre-offre;contre-offre;N f s
+contre-offres;contre-offre;N f p
+contre-argumentaire;contre-argumentaire;N m s
+contre-argumentaires;contre-argumentaire;N m p
+contre-argument;contre-argument;N m s
+contre-arguments;contre-argument;N m p
+contre-argumentation;contre-argumentation;N f s
+contre-argumentations;contre-argumentation;N f p
+contes-types;conte-type;N m p
+conte-type;conte-type;N m s
+contre-analyse;contre-analyse;N f s
+contre-analyses;contre-analyse;N f p
+contre-don;contre-don;N m s
+contre-modèle; contre-modèle;N m s
+contre-modèles; contre-modèle;N m p
+copie-colle;copie-colle;V ind pres 1 s
+copie-colle;copie-colle;V ind pres 3 s
+fou-rire;fou-rire;N m s
+fou-rires;fou-rire;N m p
+fourire;fourire;N m s
+fourires;fourire;N m p
+physique-chimie;physique-chimie; N f sp
+tout-en-un;tout-en-un;N m sp
+trace-lettre;trace-lettre;N m s
+trace-lettres;trace-lettre;N m p
+orang-outan;orang-outan;N m s
+orang-outans;orang-outan; N m p
+logic-immo;logic-immo;Z e sp
+Conjuring;Conjuring;Z e sp
+ci-bas;ci-bas;A
+Holbein;Holbein;Z e sp
+Houssaye;Houssaye;Z e sp
+Pothier;Pothier;Z e sp
+TICE;TICE;S
+CECRL;CECRL;S
+Macbeth;Macbeth;Z e sp
+asyntaxique;asyntaxique;J e s
+asyntaxiques;asyntaxique;J e p
+OIF;OIF;S
+Transvision;Transvision;Z e sp
+transpersonnel;transpersonnel;J m s
+transpersonnels;transpersonnel;J m p
+transpersonnelle;transpersonnel;J f s
+transpersonnelles;transpersonnel;J f p
+Shrek;Shrek;Z e sp
+sakura;sakura;N e sp
+Polak;Polak;Z e sp
+Pika;Pika;Z e sp
+multisport;multisport;J e sp
+multipales;multipales;J e sp
+Matrix;Matrix;Z e sp
+Mango;Mango;Z e sp
+OHADA;OHADA;Z e sp
+OAS;OAS;S
+ICRC;ICRC;S
+Euroland;Euroland;Z e sp
+IPPF;IPPF;S
+AEE;AEE;S
+league;league;N e sp
+Hadopi;Hadopi;Z e sp
+Farmer;Farmer;Z e sp
+Essaouira;Essaouira;Z e sp
+Ogasawara;Ogasawara;Z e sp
+Ossau;Ossau;Z e sp
+Canebière;Canebière;Z e sp
+Yoplait;Yoplait;Z e sp
+Yamada;Yamada;Z e sp
+Wyatt;Wyatt; Z e sp
+Wright;Wright; Z e sp
+Winter;Winter; Z e sp
+Wilks;Wilks;Z e sp
+West;West;Z e sp
+Woofing;Woofing;Z e sp
+Véran;Véran;Z e sp
+Venel;Venel;Z e sp
+UDF;UDF;Z e sp
+Tyr;Tyr;Z e sp
+Twilight;Twilight;Z e sp
+Times;Times;Z e sp
+Thorne;Thorne;Z e sp
+Teissier;Teissier;Z e sp
+Stewart;Stewart;Z e sp
+Stardust;Stardust;Z e sp
+Sorano;Sorano;Z e sp
+Solaris;Solaris;Z e sp
+Skyscanner;Skyscanner;Z e sp
+Sall;Sall;Z e sp
+Rushdie;Rushdie;Z e sp
+Romus;Romus;Z e sp
+Ramsay;Ramsay;Z e sp
+Rion;Rion;Z e sp
+Popov;Popov;Z e sp
+Piot;Piot;Z e sp
+Perry;Perry;Z e sp
+Pattaya;Pattaya;Z e sp
+PMI;PMI;S
+PGCE;PGCE;S
+PESC;PESC;S
+ortho;ortho;S
+Nostradamus;Nostradamus;Z e sp
+Niang;Niang;Z e sp
+NSO;NSO;S
+Murano;Murano;Z e sp
+Montmirail;Montmirail;Z e sp
+Monteil;Monteil;Z e sp
+Mollier;Mollier;Z e sp
+Mocha;Mocha;Z e sp
+Maurier;Maurier;Z e sp
+Maule;Maule;Z e sp
+Masson;Masson;Z e sp
+Mahey;Mahey;Z e sp
+Macias;Macias;Z e sp
+MAAF;MAAF;Z e sp
+Lush;Lush;Z e sp
+Ludo;Ludo;Z e sp
+Loisel;Loisel;Z e sp
+Lockhart;Lockhart;Z e sp
+Lifestyle;Lifestyle;Z e sp
+Leucate;Leucate;Z e sp
+Lamy;Lamy;Z e sp
+Kenyon;Kenyon;Z e sp
+Julliard;Julliard;Z e sp
+Joly;Joly;Z e sp
+Intruder;Intruder;Z e sp
+Intermedis;Intermedis;Z e sp
+Huang;Huang;Z e sp
+Hook;Hook;Z e sp
+Hill;Hill;Z e sp
+Haworth;Haworth;Z e sp
+Hanus;Hanus;Z e sp
+Gérin;Gérin;Z e sp
+Goutal;Goutal;Z e sp
+Gotham;Gotham;Z e sp
+Gibson;Gibson;Z e sp
+Gaskell;Gaskell;Z e sp
+Fulop;Fulop;Z e sp
+Fillon;Fillon;Z e sp
+FNARS;FNARS;S
+Didon;Didon;Z e sp
+Delporte;Delporte;Z e sp
+Cunningham;Cunningham;Z e sp
+Cullen;Cullen;Z e sp
+Coretti;Coretti;Z e sp
+Cixi;Cixi;Z e sp
+Chen;Chen;Z e sp
+Brillon;Brillon;Z e sp
+Brassens;Brassens;Z e sp
+Bousquet;Bousquet;Z e sp
+Beaudevin;Beaudevin;Z e sp
+Barthès;Barthès;Z e sp
+Barker;Barker;Z e sp
+Babelio;Babelio;Z e sp
+Arena;Arena;Z e sp
+bourrina;bourriner;V ind psim 3 s
+bourrinai;bourriner;V ind psim 1 s
+bourrinaient;bourriner;V ind impa 3 p
+bourrinais;bourriner;V ind impa 1 s
+bourrinais;bourriner;V ind impa 2 s
+bourrinait;bourriner;V ind impa 3 s
+bourrinant;bourriner;V ppr
+bourrinas;bourriner;V ind psim 2 s
+bourrinasse;bourriner;V sub impa 1 s
+bourrinassent;bourriner;V sub impa 3 p
+bourrinasses;bourriner;V sub impa 2 s
+bourrinassiez;bourriner;V sub impa 2 p
+bourrinassions;bourriner;V sub impa 1 p
+bourrine;bourriner;V imp pres 2 s
+bourrine;bourriner;V ind pres 1 s
+bourrine;bourriner;V ind pres 3 s
+bourrine;bourriner;V sub pres 1 s
+bourrine;bourriner;V sub pres 3 s
+bourrinent;bourriner;V ind pres 3 p
+bourrinent;bourriner;V sub pres 3 p
+bourriner;bourriner;V inf
+bourrinera;bourriner;V ind futu 3 s
+bourrinerai;bourriner;V ind futu 1 s
+bourrineraient;bourriner;V con pres 3 p
+bourrinerais;bourriner;V con pres 1 s
+bourrinerais;bourriner;V con pres 2 s
+bourrinerait;bourriner;V con pres 3 s
+bourrineras;bourriner;V ind futu 2 s
+bourrinerez;bourriner;V ind futu 2 p
+bourrineriez;bourriner;V con pres 2 p
+bourrinerions;bourriner;V con pres 1 p
+bourrinerons;bourriner;V ind futu 1 p
+bourrineront;bourriner;V ind futu 3 p
+bourrines;bourriner;V ind pres 2 s
+bourrines;bourriner;V sub pres 2 s
+bourrinez;bourriner;V imp pres 2 p
+bourrinez;bourriner;V ind pres 2 p
+bourriniez;bourriner;V ind impa 2 p
+bourriniez;bourriner;V sub pres 2 p
+bourrinions;bourriner;V ind impa 1 p
+bourrinions;bourriner;V sub pres 1 p
+bourrinons;bourriner;V imp pres 1 p
+bourrinons;bourriner;V ind pres 1 p
+bourrinâmes;bourriner;V ind psim 1 p
+bourrinât;bourriner;V sub impa 3 s
+bourrinâtes;bourriner;V ind psim 2 p
+bourrinè;bourriner;V ind pres 1 s
+bourrinèrent;bourriner;V ind psim 3 p
+bourriné;bourriner;J m s
+bourriné;bourriner;V ppa m s
+bourrinée;bourriner;J f s
+bourrinée;bourriner;V ppa f s
+bourrinées;bourriner;J f p
+bourrinées;bourriner;V ppa f p
+bourrinés;bourriner;J m p
+bourrinés;bourriner;V ppa m p
+Walker;Walker;Z e sp
+Outlook;Outlook;Z e sp
+Gmail;Gmail;Z e sp
+Overleaf;Overleaf;Z e sp
+fic;fic;S
+flic;flic;N e s
+Numbers;Numbers;Z e sp
+Neuro;Neuro;Z e sp
+CUI;CUI;Z e sp
+CAE;CAE;Z e sp
+Danzig;Danzig;Z e sp
+Lesser;Lesser;Z e sp
+ULB;ULB;Z e sp
+iOS;iOS;Z e sp
+Smecta;Smecta;Z e sp
+Prozac;Prozac;Z e sp
+fluoxétine;fluoxétine;N f sp
+Kenyatta;Kenyatta; Z e sp
+Borne;Borne;Z e sp
+BEI;BEI;S
+Imaginarium;Imaginarium;Z e sp
+WTF;WTF;S
+sensei;sensei;N e sp
+contre-nature;contre-nature;J e sp
+CDE;CDE;S
+Pepper;Pepper;Z e sp
+MILF;MILF;S
+Moldu;Moldu;Z e sp
+contrindication;contreindication;N f s
+contrindications;contreindication;N f p
+sinon;sinon;A
+moyen-métrage;moyen-métrage;N m s
+moyens-métrages;moyen-métrage;N m s
+contre-forme;contre-forme;N f s
+contre-moules;contre-moule;N m p
+contre-moule;contre-moule;N m s
+contre-guérilla;contre-guérilla;N f s
+contre-achats;contre-achat;N m p
+contre-acculturation;contre-acculturation;N f s
+contre-électomoteurs;contre-électomoteur;N m p
+contre-écharnages;contre-écharnage;N e p
+contre-changement;contre-changement;N m s
+contre-fruit;contre-fruit;N m s
+contre-moulages;contre-moulage;N m p
+contre-guérillas;contre-guérilla;N f p
+contre-écharnage;contre-écharnage;N e s
+contre-alizées;contre-alizée;N m p
+contre-acculturations;contre-acculturation;N f p
+contre-dénontiation;ontre-dénontiation;N f s
+contre-alizée;contre-alizée;N m s
+contre-électomoteur;contre-électomoteur;N m s
+contre-formes;contre-forme;N f p
+contre-accusation;contre-accusation;N f s
+contre-dépouille;contre-dépouille;N f s
+contre-garde;contre-garde;N m s
+contre-sens;contre-sens;N m sp
+contre-mailles;contre-maille;N f p
+contre-fossé;contre-fossé;N m s
+contre-changements;contre-changement;N m p
+contre-bord;contre-bord;A
+contre-altistes;contre-altiste;N e p
+contre-manoeuvre;contre-manoeuvre;N e s
+contre-gardes;contre-garde;N m p
+contre-aiguille;contre-aiguille;N m s
+contre-fruits;contre-fruit;N m p
+contre-maille;contre-maille;N m s
+contre-achat;contre-achat;N m s
+contre-altiste;contre-altiste;N e s
+contre-dépouilles;contre-dépouille;N f p
+contre-batteurs;contre-batteur;N m p
+contre-étude;contre-étude;N f s
+contre-dénontiations;contre-dénontiation;N f p
+contre-dons;contre-don;N m p
+contre-aiguilles;contre-aiguille;N f p
+double-faces;double-face;N f p
+contre-fossés;contre-fossé;N m p
+contre-études;contre-étude;N f p
+contre-batteur;contre-batteur;N m s
+contre-expert;contre-expert;N m s
+contre-accusations;contre-accusation;N f p
+contre-manoeuvres;contre-manoeuvre;N e p
+contre-experts;contre-expert;N m p
+plein-air;plein-air;N m sp
+plein-emploi;plein-emploi;N m sp
+plein-jeu;plein-jeu;N m sp
+plein-temps;plein-temps;J e sp
+plein-temps;plein-temps;N m s
+pleins-temps;plein-temps;N m p
+plein-vent;plein-vent;N m s
+pleins-vents;plein-vent;N m p
+pleint-sur-joint;pleint-sur-joint;J e sp
+trop-plein;trop-plein;N m s
+trop-pleins;trop-plein;N m s
+terre-plein;terre-plein;N m s
+terre-pleins;terre-plein;N m p
+terreplein;terreplein;N m s
+pile-poil;pile-poil;A
+rebrousse-poil;rebrousse-poil;A
+Juppé;Juppé;Z e sp
+Lorie;Lorie;Z e sp
+Lula;Lula;Z e sp
+Lusignan;Lusignan;Z e sp
+MOBA;MOBA;Z e sp
+Malone;Malone; Z e sp
+QSE;QSE;Z e sp
+Romy;Romy;Z e sp
+Rossi;Rossi;Z e sp
+Conforama;Conforama;Z e sp
+SRU;SRU;Z e sp
+RIC;RIC;Z e sp
+AMAP;AMAP;Z e sp
+ATOS;ATOS;Z e sp
+ERSH;ERSH;Z e sp
+primo-ministériel;primo-ministériel;J m s
+primo-ministérielle;primo-ministériel;J f s
+primo-ministériels;primo-ministériel;J m p
+primo-ministérielles;primo-ministériel;J f p
+IOP;IOP;Z e sp
+AGEFIPH;AGEFIPH;Z e sp
+DEBOE;DEBOE;Z e sp
+OETH;OETH;Z e sp
+Barbie;Barbie;Z e sp
+primo-demandeurs;primo-demandeurs;N e p
+primo-demandeur;primo-demandeurs;N e s
+primo-vaccination;primo-vaccination;N f sp
+primo-romancier;primo-romancier;N m s
+primo-romanciers;primo-romancier;N m p
+éco-organisme;éco-organisme;N e s
+éco-organismes;éco-organisme;N e p
+Pont-Neuf;Pont-Neuf;Z e sp
+Guilbaud;Guilbaud;Z e sp
+Reynier;Reynier;Z e sp
+Aubry;Aubry;Z e sp
+Bosc;Bosc;Z e sp
+masterclass;masterclass;N f sp
+CD;CD;N m sp
+clignotant;clignotant;N m s
+clignotants;clignotant;N m p
+bienfaisant;bienfaisant;N m s
+bienfaisante;bienfaisant;N f s
+bienfaisants;bienfaisant;N m p
+bienfaisantes;bienfaisant;N f p
+follower;follower;N e s
+followers;follower;N e p
+Kazuko;Kazuko;Z e sp
+Kenji;Kenji;Z e sp
+Malaurie;Malaurie;Z e sp
+Michaëla;Michaëla;Z e sp
+agro;agro;S
+léchouille;léchouille;N f s
+léchouilles;léchouille;N f p
+Mbps;Mbps;S
+Mentos;Mentos;Z e sp
+roadtrip;roadtrip;N m s
+roadtrips;roadtrip;N m p
+NCI;NCI;S
+VAD;VAD;N f s
+contremaitre;contremaitre;N e s
+add-on;add-on;N m s
+add-ons;add-on;N m p
+Berzin;Berzin;Z e sp
+Boltro;Boltro;Z e sp
+Meerwala;Meerwala;Z e sp
+Brooks;Brooks;Z e sp
+Aragon;Aragon;Z e sp
+Atlas;Atlas;Z e sp
+Illinois;Illinois;Z e sp
+Ibis;Ibis;Z e sp
+Cassis;Cassis;Z e sp
+Kentucky;Kentucky;Z e sp
+Saint-Marin;Saint-Marin;Z e sp
+Sakura;Sakura;Z e sp
+Yang;Yang;Z e sp
+Adobe;Adobe;Z e sp
+Bristol;Bristol;Z e sp
+Camaïeu;Camaïeu;Z e sp
+Harpagon;Harpagon;Z e sp
+Hunter;Hunter;Z e sp
+Spoutnik;Spoutnik;Z e sp
+Cendrillon;Cendrillon;Z e sp
+Quasimodo;Quasimodo;Z e sp
+bouléguer;bouléguer;V inf
+bouléguer;bouléguer;V ppa m s
+bouléguée;bouléguer;V ppa f s
+boulégués;bouléguer;V ppa m p
+bouléguées;bouléguer;V ppa f p
+bouléguant;bouléguer;V ppr
+boulègue;bouléguer;V ind pres 1 s
+boulègues;bouléguer;V ind pres 2 s
+boulègue;bouléguer;V ind pres 3 s
+bouléguons;bouléguer;V ind pres 1 p
+bouléguez;bouléguer;V ind pres 2 p
+boulèguent;bouléguer;V ind pres 3 p
+boulègue;bouléguer;V sub pres 1 s
+boulègues;bouléguer;V sub pres 2 s
+boulègue;bouléguer;V sub pres 3 s
+bouléguions;bouléguer;V sub pres 1 p
+bouléguiez;bouléguer;V sub pres 2 p
+boulèguent;bouléguer;V sub pres 3 p
+boulèguais;bouléguer;V ind impa 1 s
+boulèguais;bouléguer;V ind impa 2 s
+boulèguait;bouléguer;V ind impa 3 s
+bouléguions;bouléguer;V ind impa 1 p
+bouléguiez;bouléguer;V ind impa 2 p
+boulèguaient;bouléguer;V ind impa 3 p
+boulèguerai;bouléguer;V ind futu 1 s
+boulèguerais;bouléguer;V ind futu 2 s
+boulèguerait;bouléguer;V ind futu 3 s
+bouléguerons;bouléguer;V ind futu 1 p
+bouléguerez;bouléguer;V ind futu 2 p
+boulègueront;bouléguer;V ind futu 3 p
+boulèguai;bouléguer;V ind psim 1 s
+boulèguas;bouléguer;V ind psim 2 s
+boulègua;bouléguer;V ind psim 3 s
+bouléguâmes;bouléguer;V ind psim 1 p
+bouléguâtes;bouléguer;V ind psim 2 p
+boulèguèrent;bouléguer;V ind psim 3 p
+boulèguerais;bouléguer;V con pres 1 s
+boulèguerais;bouléguer;V con pres 2 s
+boulèguerait;bouléguer;V con pres 3 s
+bouléguerions;bouléguer;V con pres 1 p
+boulégueriez;bouléguer;V con pres 2 p
+boulègueraint;bouléguer;V con pres 3 p
+bouléguasse;bouléguer;V sub impa 1 s
+bouléguasses;bouléguer;V sub impa 2 s
+bouléguerât;bouléguer;V sub impa 3 s
+bouléguassions;bouléguer;V sub impa 1 p
+bouléguassiez;bouléguer;V sub impa 2 p
+bouléguassent;bouléguer;V sub impa 3 p
+boulègue;bouléguer;V imp pres 1 s
+bouléguons;bouléguer;V imp pres 1 p
+bouléguez;bouléguer;V imp pres 2 p
+crème;crème;N f s
+com;com;N e s
+com;com;N e p
+Newbery;Newbery;Z e sp
+Terrasson;Terrasson;Z e sp
+
+

@@ -44,6 +44,14 @@ final class TokenAgreementAdjNounExceptionHelper {
 
     AnalyzedTokenReadings adjAnalyzedTokenReadings = tokens[adjPos];
 
+    // наступні півроку
+//    if( PosTagHelper.hasPosTag(tokens[adjPos], Pattern.compile("adj:p:v_(naz|zna:rinanim).*"))
+//        && tokens[nounPos].getCleanToken().toLowerCase().startsWith("пів")
+//        && PosTagHelper.hasPosTagPart(tokens[nounPos], ":v_zna") ) {
+//      logException();
+//      return true;
+//    }
+
 
     if( adjPos > 1
         && LemmaHelper.isCapitalized(tokens[adjPos].getCleanToken())
@@ -74,12 +82,12 @@ final class TokenAgreementAdjNounExceptionHelper {
 //      logException();
 //      return true;
 //    }
-
-    if( LemmaHelper.hasLemma(tokens[adjPos], "північний")
-        && LemmaHelper.hasLemma(tokens[nounPos], "Рейн-Вестфалія") ) {
-      logException();
-      return true;
-    }
+//
+//    if( LemmaHelper.hasLemma(tokens[adjPos], "північний")
+//        && LemmaHelper.hasLemma(tokens[nounPos], "Рейн-Вестфалія") ) {
+//      logException();
+//      return true;
+//    }
 
     //  в день Хрещення Господнього священики
     if( LemmaHelper.hasLemma(tokens[adjPos], Arrays.asList("божий", "господній", "Христовий"))
@@ -352,7 +360,7 @@ final class TokenAgreementAdjNounExceptionHelper {
         && PosTagHelper.hasPosTag(tokens[nounPos], "noun:.*:p:.*")
         && (reverseConjFind(tokens, adjPos-1, 3) || reverseConjAdvFind(tokens, adjPos-1, 3))
         && hasOverlapIgnoreGender(masterInflections, slaveInflections, null, "p") 
-        && LemmaHelper.reverseSearch(tokens, adjPos-2, 100, null, Pattern.compile("adj.*")) ) {
+        && LemmaHelper.reverseSearch(tokens, adjPos-2, 100, null, Pattern.compile("(adj|numr).*")) ) {
       logException();
       return true;
     }
@@ -693,6 +701,7 @@ final class TokenAgreementAdjNounExceptionHelper {
         && PosTagHelper.hasPosTagPart(tokens[adjPos-1], "num")
         && PosTagHelper.hasPosTag(tokens[adjPos], "adj.*num.*")
         ) {
+
       // п'ять шостих світу
       if( PosTagHelper.hasPosTag(tokens[adjPos-1], "(noun|numr).*") 
           && PosTagHelper.hasPosTag(tokens[adjPos], "adj:p:v_rod.*") ) {
@@ -705,11 +714,12 @@ final class TokenAgreementAdjNounExceptionHelper {
         logException();
         return true;
       }
+
       // одній восьмій
-      if( PosTagHelper.hasPosTag(tokens[adjPos-1], "adj:f:.*pron.*")
-          && LemmaHelper.hasLemma(tokens[adjPos-1], "один")
+      if( // PosTagHelper.hasPosTag(tokens[adjPos-1], "adj:f:.*pron.*")
+          LemmaHelper.hasLemma(tokens[adjPos-1], Arrays.asList("один"), Pattern.compile("numr:f:.*") )
           && ! Collections.disjoint(
-              InflectionHelper.getAdjInflections(tokens[adjPos-1].getReadings()),
+              InflectionHelper.getNumrInflections(tokens[adjPos-1].getReadings()),
               InflectionHelper.getAdjInflections(tokens[adjPos].getReadings())) ) {
         logException();
         return true;
@@ -1081,7 +1091,7 @@ final class TokenAgreementAdjNounExceptionHelper {
       if( CONJ_FOR_PLURAL_WITH_COMMA.contains(tokens[i].getToken().toLowerCase()) ) {
 
         if( i < 2
-            || (! PosTagHelper.hasPosTag(tokens[i-1], Pattern.compile("(adj|conj:coord).*")) ) )
+            || (! PosTagHelper.hasPosTag(tokens[i-1], Pattern.compile("(adj|numr|conj:coord).*")) ) )
                 
           return false;
 

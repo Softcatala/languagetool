@@ -57,7 +57,6 @@ public class AgreementRule2 extends Rule {
     asList(pos("SENT_START"), pos("ADJ:PRD:GRU"), posRegex("SUB:NOM:SIN:NEU:INF")),  // "Ruhig Schlafen & Zentral Wohnen"
     asList(tokenRegex("voll|voller"), posRegex("SUB:NOM:SIN:.*")),  // "Voller Mitleid", "Voller Mitleid"
     asList(token("einzig"), posRegex("SUB:NOM:.*")),  // "Einzig Fernschüsse brachten Erfolgsaussichten"
-    asList(token("Smart"), token("Updates")),
     asList(token("Intelligent"), token("Design")),
     asList(token("Alternativ"), token("Berufserfahrung")),  // "Alternativ Berufserfahrung im Bereich ..."
     asList(token("Maritim"), token("Hotel")),
@@ -71,7 +70,7 @@ public class AgreementRule2 extends Rule {
     asList(token("sportlich"), regex("Aktiven?")),
     asList(token("politisch"), regex("Interessierten?")),
     asList(token("voraussichtlich"), regex("Ende|Anfang")),
-    asList(regex("gesetzlich|privat"), regex("Versicherten?")),
+    asList(regex("gesetzlich|privat|freiwillig"), regex("(Kranken)?Versicherten?")),
     asList(token("typisch"), posRegex("SUB:.*"), regex("[!?.]")),  // "Typisch November!"
     asList(token("lecker"), token("Essen")),  // "Lecker Essen an Weihnachten."
     asList(token("erneut"), posRegex("SUB:.*")),  // "Erneut Ausgangssperre beschlossen"
@@ -83,6 +82,7 @@ public class AgreementRule2 extends Rule {
     asList(token("gemeinsam")),   // "Gemeinsam Sportler anfeuern"
     asList(token("wenig")),      // "Wenig Geld - ..."
     asList(token("weniger")),      // "Weniger Geld - ..."
+    asList(token("unaufgefordert")),      // Unaufgefordert Dinge erledigen
     asList(token("richtig")),    // "Richtig Kaffee kochen ..."
     asList(token("weiß")),       // "Weiß Papa, dass ..."
     asList(token("speziell")),   // "Speziell Flugfähigkeit hat sich unabhängig voneinander ..."
@@ -118,8 +118,8 @@ public class AgreementRule2 extends Rule {
     asList(token("Russisch"), token("Roulette")),
     asList(token("Clever"), tokenRegex("Shuttles?")), // name
     asList(token("Personal"), tokenRegex("(Computer|Coach|Trainer|Brand).*")),
-    asList(tokenRegex("Digital|Regional|Global|Bilingual|International|National|Visual|Final|Rapid|Dual|Golden"), tokenRegex("(Initiative|Connection|Bootcamp|Leadership|Sales|Community|Service|Management|Board|Identity|City|Paper|Transfer|Transformation|Power|Shopping|Brand|Master|Gate|Drive).*")),
-    asList(token("Smart"), tokenRegex("(Service|Home|Meter|City|Hall|Shopper|Shopping).*")),
+    asList(tokenRegex("Digital|Fair|Regional|Global|Bilingual|International|National|Visual|Final|Rapid|Dual|Golden|Human"), tokenRegex("(Initiative|Office|Connection|Bootcamp|Leadership|Sales|Community|Service|Management|Board|Identity|City|Paper|Transfer|Transformation|Power|Shopping|Brand|Master|Gate|Drive|Learning|Publishing|Signage|Value|Entertainment|Museum|Register|Society|Union|Institute|Symposium|Style|Design).*")),
+    asList(token("Smart")),
     asList(token("International"), tokenRegex("Society|Olympic|Space")),
     asList(token("GmbH"))
   );
@@ -139,7 +139,7 @@ public class AgreementRule2 extends Rule {
 
   @Override
   public String getDescription() {
-    return "Kongruenz von Adjektiv und Nomen (unvollständig!), z.B. 'kleiner(kleines) Haus'";
+    return "Kongruenz von Adjektiv und Nomen (unvollständig!), z.B. 'kleiner (kleines) Haus'";
   }
 
   @Override

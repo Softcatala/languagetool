@@ -2295,6 +2295,19 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
       <example>паркова лавка</example>
     </rule>
 
+    <rule id="khalatnyi" name="халатний">
+      <pattern>
+        <token inflected="yes" regexp="yes">халатн(ий|ість)</token>
+      </pattern>
+      <message>Хоча в українському законодавстві вживають «халатний/халатність» правильним варіантом є «недбалий/недбалість»</message>
+      <suggestion><match no="1" regexp_match="(?iu)халатн(.*)" regexp_replace="недбал$1"/></suggestion>
+      <!--
+      <suggestion><match no="1" postag_regexp="yes" postag="(noun.*?|adj):f:(.*)" postag_replace="$1:n:$2">недбальство</match></suggestion>
+      -->
+      <example correction="недбалістю">службовою <marker>халатністю</marker></example>
+      <example correction="Недбале"><marker>Халатне</marker> відношення</example>
+    </rule>
+
 <!-- "ставити питання" є в АС та словнику Виргана, Пилинської -->
     <rulegroup id="ZADAVATY_PYTANNIA" name="Задавати питання">
       <rule>
@@ -2652,7 +2665,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
       <rule>
         <pattern>
           <token inflected="yes" regexp="yes">звертати|звернути</token>
-          <token postag_regexp="yes" postag="adj:.:v_rod.*pron.*" min="0"/>
+          <token postag_regexp="yes" postag="adj:f:v_zna.*pron.*" min="0"/>
           <token>увагу</token>
           <token>на</token>
           <token>себе</token>
@@ -2669,7 +2682,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
           <token inflected="yes" regexp="yes">звертати|звернути</token>
           <token>на</token>
           <token>себе</token>
-          <token postag_regexp="yes" postag="adj:.:v_rod.*pron.*" min="0"/>
+          <token postag_regexp="yes" postag="adj:f:v_zna.*pron.*" min="0"/>
           <token>увагу</token>
         </pattern>
         <message>У значенні «зацікавлювати собою» краще вживати дієслово «привертати».</message>
@@ -3054,7 +3067,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
       <pattern>
         <or>
           <token postag=".*num.*" postag_regexp="yes">
-            <exception inflected="yes" regexp="yes">один|обидва|два</exception>
+            <exception inflected="yes" regexp="yes">один|один-єдиний|обидва|два</exception>
             <exception postag_regexp="yes" postag="adj:m:.*"/>
           </token>
           <token>%</token>
@@ -3305,6 +3318,54 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
       <message>Правильно: <suggestion>віддавати</suggestion></message>
       <example correction="віддавати">Він <marker>надавав</marker> перевагу іншому способу.</example>
     </rule>
+
+    <rule id="pryyemnogo_apetytu" name="Приємного апетиту і самчного">
+      <pattern>
+        <token>приємного</token>
+        <token>апетиту</token>
+      </pattern>
+      <message>Краще: <suggestion>смачного</suggestion></message>
+      <example correction="смачного">сказав: <marker>приємного апетиту</marker></example>
+    </rule>
+
+    <rule id="pryvodyty_pryklad" name="Приводити і наводити приклад">
+      <pattern>
+        <token regexp="yes" inflected="yes">приводити|привести|пиводячи</token>
+        <token postag_regexp="yes" postag="(adj|numr):[mp]:v_zna.*" min="0"/>
+        <token regexp="yes">приклади?</token>
+      </pattern>
+      <message>Краще: <suggestion>наводити \2 \3</suggestion></message>
+      <example correction="наводити приклад"><marker>приведіть приклад</marker></example>
+      <example correction="наводити гарний приклад"><marker>приведіть гарний приклад</marker></example>
+    </rule>
+
+    <rulegroup id="vybachatysya" name="Вибачатися">
+      <rule>
+        <pattern>
+          <marker>
+            <token regexp="yes">вибачаюс[яь]</token>
+          </marker>
+          <!--
+                 <token regexp="yes">[,:]</token>
+            -->
+        </pattern>
+        <message>Краще: <suggestion>вибачте мені</suggestion>, <suggestion>пробачте</suggestion>, <suggestion>даруйте</suggestion>, <suggestion>перепрошую</suggestion></message>
+        <example correction="вибачте мені|пробачте|даруйте|перепрошую">Це <marker>вибачаюсь</marker>, зовсім негарно.</example>
+      </rule>
+
+      <rule>
+        <pattern>
+          <marker>
+            <token inflected="yes" regexp="yes">вибачатися|вибачитися
+              <exception regexp="yes">вибачаюс[яь]</exception>
+            </token>
+          </marker>
+        </pattern>
+        <message>Краще: <suggestion>перепрошувати</suggestion>, <suggestion>просити вибачення</suggestion></message>
+        <example correction="перепрошувати|просити вибачення">Я <marker>вибачився</marker> і пішов.</example>
+        <example>Я вибачаюсь і йду</example>
+      </rule>
+    </rulegroup>
 
 <!--
     схоже, «відсутній» не має такого чіткого розділення

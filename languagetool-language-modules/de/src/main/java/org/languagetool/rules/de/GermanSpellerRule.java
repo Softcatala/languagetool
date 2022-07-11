@@ -76,13 +76,14 @@ public class GermanSpellerRule extends CompoundAwareHunspellRule {
     "rassejude", "rassejuden", "rassejüdin", "rassejüdinnen",
     "möse", "mösen", "fotze", "fotzen",
     "judenfrei", "judenfreie", "judenfreier", "judenfreies", "judenfreien", "judenfreiem",
-    "judenrein", "judenreine", "judenreiner", "judenreines", "judenreinen", "judenreinem"
+    "judenrein", "judenreine", "judenreiner", "judenreines", "judenreinen", "judenreinem",
+    "judenmord", "judenmorden", "judenmörder"
   ));
   
   // some exceptions for changes to the spelling in 2017 - just a workaround so we don't have to touch the binary dict:
   private static final Pattern PREVENT_SUGGESTION = Pattern.compile(
           ".*(Majonäse|Bravur|Anschovis|Belkanto|Campagne|Frotté|Grisli|Jockei|Joga|Kalvinismus|Kanossa|Kargo|Ketschup|" +
-          "Kollier|Kommunikee|Masurka|Negligee|Nessessär|Poulard|Varietee|Wandalismus|kalvinist).*");
+          "Kollier|Kommunikee|Masurka|Negligee|Nessessär|Poulard|Varietee|Wandalismus|kalvinist|[Ff]ick).*");
   
   private static final int MAX_TOKEN_LENGTH = 200;
 
@@ -125,6 +126,7 @@ public class GermanSpellerRule extends CompoundAwareHunspellRule {
     putRepl("wiedersetz(e|t|en|te|ten)?", "wieder", "wider");
     putRepl("wiederstreb(e|st|t|en|te|ten)?", "wieder", "wider");
     put("bekomms", "bekomm es");
+    put("liegts", "liegt es");
     put("gesynct", "synchronisiert");
     put("gesynced", "synchronisiert");
     put("gesyncht", "synchronisiert");
@@ -151,7 +153,7 @@ public class GermanSpellerRule extends CompoundAwareHunspellRule {
     put("Oke", "Okay");
     put("Mü", "My");
     put("abschiednehmen", "Abschied nehmen");
-    put("wars", w -> Arrays.asList("war's", "war es", "warst"));
+    put("wars", w -> Arrays.asList("war es", "warst"));
     put("[aA]wa", w -> Arrays.asList("AWA", "ach was", "aber"));
     put("[aA]lsallerersten?s", w -> Arrays.asList(w.replaceFirst("lsallerersten?s", "ls allererstes"), w.replaceFirst("lsallerersten?s", "ls Allererstes")));
     putRepl("(an|auf|ein|zu)gehangen(e[mnrs]?)?$", "hangen", "hängt");
@@ -324,7 +326,7 @@ public class GermanSpellerRule extends CompoundAwareHunspellRule {
     put("Opelarena", "Opel Arena");
     put("Toll-Collect", "Toll Collect");
     put("[pP][qQ]-Formel", "p-q-Formel");
-    put("desweitere?[nm]", "des Weiteren");
+    put("desweitere?m", "des Weiteren");
     put("handzuhaben", "zu handhaben");
     put("nachvollzuziehe?n", "nachzuvollziehen");
     put("Porto?folien", "Portfolios");
@@ -859,7 +861,6 @@ public class GermanSpellerRule extends CompoundAwareHunspellRule {
     putRepl("Ballets?", "llet", "llett");
     putRepl("Saudiarabiens?", "Saudiarabien", "Saudi-Arabien");
     putRepl("eMail-Adressen?", "eMail-", "E-Mail-");
-    putRepl("[hH]ats", "ats", "at es");
     putRepl("[Ww]ieviele?", "ieviel", "ie viel");
     putRepl("[Aa]dhoc", "dhoc", "d hoc");
     put("As", "Ass");
@@ -1064,6 +1065,153 @@ public class GermanSpellerRule extends CompoundAwareHunspellRule {
     putRepl("Belastungsekgs?", "ekg", "-EKG");
     putRepl("Flektion(en)?", "Flektion", "Flexion");
     putRepl("Off-[Ss]hore-[A-Z].+", "Off-[Ss]hore-", "Offshore");
+    put("Deis", "Dies");
+    put("fr", "für");
+    put("abe", w -> Arrays.asList("habe", "aber", "ab"));
+    put("Oster", w -> Arrays.asList("Ostern", "Osten"));
+    put("richen", w -> Arrays.asList("riechen", "reichen", "richten"));
+    put("deien", w -> Arrays.asList("deine", "dein"));
+    put("meien", w -> Arrays.asList("meine", "mein", "meinen"));
+    put("berüht", w -> Arrays.asList("berühmt", "berührt", "bemüht"));
+    put("herlich", w -> Arrays.asList("ehrlich", "herrlich"));
+    put("erzeiht", w -> Arrays.asList("erzieht", "verzeiht"));
+    put("schalfen", w -> Arrays.asList("schlafen", "schaffen", "scharfen"));
+    put("Anfage", w -> Arrays.asList("Anfrage", "Anlage"));
+    put("Formulares", "Formulars");
+    put("Danl", "Dank");
+    put("umbennen", "umbenennen");
+    put("bevorzugs", "bevorzugst");
+    put("einhergend", "einhergehend");
+    put("dos", w -> Arrays.asList("das", "des", "DOS", "DoS"));
+    put("mch", w -> Arrays.asList("mich", "ich", "ach"));
+    put("Ihc", w -> Arrays.asList("Ich", "Ihr", "Ihm"));
+    put("ihc", w -> Arrays.asList("ich", "ihr", "ihm"));
+    put("ioch", "ich");
+    put("of", "oft");
+    put("mi", w -> Arrays.asList("im", "mit", "mir"));
+    put("wier", w -> Arrays.asList("wie", "wir", "vier", "hier", "wer"));
+    put("ander", w -> Arrays.asList("an der", "andere", "änder", "anders"));
+    put("ech", w -> Arrays.asList("euch", "ich"));
+    put("letzt", w -> Arrays.asList("letzte", "jetzt"));
+    put("beu", w -> Arrays.asList("bei", "peu", "neu"));
+    put("darn", w -> Arrays.asList("daran", "darin", "dann", "dar"));
+    put("zwie", w -> Arrays.asList("zwei", "wie", "sie", "sowie"));
+    put("gebten", w -> Arrays.asList("gebeten", "gaben", "geboten", "gelten"));
+    put("dea", w -> Arrays.asList("der", "den", "des", "dem"));
+    put("neune", w -> Arrays.asList("neuen", "neue", "Neune"));
+    put("geren", w -> Arrays.asList("gegen", "gerne", "gären"));
+    put("wuerden", w -> Arrays.asList("würden", "wurden"));
+    put("wuerde", w -> Arrays.asList("würde", "wurde"));
+    put("git", w -> Arrays.asList("gut", "gibt", "gilt", "mit"));
+    put("voher", w -> Arrays.asList("vorher", "woher", "hoher"));
+    put("hst", w -> Arrays.asList("hast", "ist", "hat"));
+    put("Hst", w -> Arrays.asList("Hast", "Ist", "Hat"));
+    put("herlichen", w -> Arrays.asList("herzlichen", "ehrlichen", "herrlichen"));
+    put("Herlichen", w -> Arrays.asList("Herzlichen", "Ehrlichen", "Herrlichen"));
+    put("herliche", w -> Arrays.asList("herzliche", "ehrliche", "herrliche"));
+    put("Herliche", w -> Arrays.asList("Herzliche", "Ehrliche", "Herrliche"));
+    put("it", w -> Arrays.asList("ist", "IT", "in", "im"));
+    put("ads", w -> Arrays.asList("das", "ADS", "Ads", "als", "aus"));
+    put("hats", w -> Arrays.asList("hat es", "hast", "hat"));
+    put("Hats", w -> Arrays.asList("Hat es", "Hast", "Hat"));
+    put("och", w -> Arrays.asList("ich", "noch", "doch"));
+    put("bein", w -> Arrays.asList("Bein", "beim", "ein", "bei"));
+    put("ser", w -> Arrays.asList("der", "sehr", "er", "sei"));
+    put("Monatg", w -> Arrays.asList("Montag", "Monate", "Monats"));
+    put("leiben", w -> Arrays.asList("lieben", "bleiben", "leben"));
+    put("grad", w -> Arrays.asList("grade", "Grad", "gerade"));
+    put("dnn", w -> Arrays.asList("dann", "denn", "den"));
+    put("vn", w -> Arrays.asList("von", "an", "in"));
+    put("sin", w -> Arrays.asList("ein", "sind", "sie", "in"));
+    put("schein", w -> Arrays.asList("scheine", "Schein", "scheint", "schien"));
+    put("wil", w -> Arrays.asList("will", "wie", "weil", "wir"));
+    put("Ihen", w -> Arrays.asList("Ihren", "Ihnen", "Ihn", "Iren"));
+    put("Iher", w -> Arrays.asList("Ihre", "Ihr"));
+    put("neunen", w -> Arrays.asList("neuen", "neunten"));
+    put("wiel", w -> Arrays.asList("weil", "wie", "viel"));
+    put("brauchts", w -> Arrays.asList("braucht es", "brauchst", "braucht"));
+    put("schöen", w -> Arrays.asList("schönen", "schön"));
+    put("ihne", w -> Arrays.asList("ihn", "ihnen"));
+    put("af", w -> Arrays.asList("auf", "an", "an", "als"));
+    put("mächte", w -> Arrays.asList("möchte", "Mächte"));
+    put("öffen", w -> Arrays.asList("öffnen", "offen"));
+    put("fernsehgucken", w -> Arrays.asList("fernsehen", "Fernsehen gucken"));
+    put("Mien", w -> Arrays.asList("Mein", "Wien", "Miene"));
+    put("abgeharkt", w -> Arrays.asList("abgehakt", "abgehackt"));
+    put("beiten", w -> Arrays.asList("beiden", "bieten"));
+    put("ber", w -> Arrays.asList("über", "per", "der", "BER"));
+    put("ehr", w -> Arrays.asList("eher", "mehr", "sehr", "er"));
+    put("Meien", w -> Arrays.asList("Meine", "Meinen", "Mein", "Medien"));
+    put("neus", w -> Arrays.asList("neues", "neue", "neu"));
+    put("Sunden", w -> Arrays.asList("Sünden", "Stunden", "Kunden"));
+    put("Bitt", w -> Arrays.asList("Bitte", "Bett", "Bist"));
+    put("bst", w -> Arrays.asList("bist", "ist"));
+    put("ds", w -> Arrays.asList("des", "das", "es"));
+    put("mn", w -> Arrays.asList("man", "in", "an"));
+    put("hilt", w -> Arrays.asList("gilt", "hilft", "hielt", "hält"));
+    put("nei", w -> Arrays.asList("bei", "nie", "ein", "neu"));
+    put("riesen", w -> Arrays.asList("riesigen", "diesen", "Riesen", "reisen"));
+    put("geduld", w -> Arrays.asList("Geduld", "gedulde"));
+    put("bits", w -> Arrays.asList("bist", "bis", "Bits"));
+    put("aheb", w -> Arrays.asList("habe", "aber"));
+    put("versand", w -> Arrays.asList("versandt", "Versand"));
+    put("os", w -> Arrays.asList("so", "es", "OS"));
+    put("Kriese", w -> Arrays.asList("Krise", "Kreise"));
+    put("Kriesen", w -> Arrays.asList("Krisen", "Kreisen"));
+    put("aufteil", w -> Arrays.asList("aufteile", "aufteilt", "auf Teil"));
+    put("fürn", w -> Arrays.asList("für ein", "für", "fürs", "fern"));
+    put("Aliegen", w -> Arrays.asList("Anliegen", "Fliegen"));
+    put("gaz", w -> Arrays.asList("ganz", "gab"));
+    put("vllt", w -> Arrays.asList("vielleicht", "vllt."));
+    put("rauch", w -> Arrays.asList("Rauch", "rauche"));
+    put("liebs", w -> Arrays.asList("liebe es", "liebes", "liebe"));
+    put("mags", w -> Arrays.asList("mag es"));
+    put("gefielts", "gefielt es");
+    put("gefiels", "gefielt es");
+    put("gefällts", "gefällt es");
+    put("nummer", "Nummer");
+    put("mitgetielt", "mitgeteilt");
+    put("Artal", "Ahrtal");
+    put("wuste", "wusste");
+    put("Kuden", "Kunden");
+    put("austehenden", "ausstehenden");
+    put("eingelogt", "eingeloggt");
+    put("kapput", "kaputt");
+    put("geeehrte", "geehrte");
+    put("geeehrter", "geehrter");
+    put("startup", "Start-up");
+    put("startups", "Start-ups");
+    put("Biite", "Bitte");
+    put("Gutn", "Guten");
+    put("gutn", "guten");
+    put("Ettiket", "Etikett");
+    put("iht", "ihr");
+    put("ligt", "liegt");
+    put("gester", "gestern");
+    put("veraten", "verraten");
+    put("dienem", "deinem");
+    put("Bite", "Bitte");
+    put("Serh", "Sehr");
+    put("serh", "sehr");
+    put("fargen", "fragen");
+    put("abrechen", "abbrechen");
+    put("aufzeichen", "aufzeichnen");
+    put("Geraet", "Gerät");
+    put("Geraets", "Geräts");
+    put("Geraete", "Geräte");
+    put("Geraeten", "Geräten");
+    put("Fals", "Falls");
+    put("soche", "solche");
+    put("verückt", "verrückt");
+    put("austellen", "ausstellen");
+    put("klapt", w -> Arrays.asList("klappt", "klagt"));
+    put("denks", w -> Arrays.asList("denkst", "denkt", "denke", "denk"));
+    put("geerhte", "geehrte");
+    put("geerte", "geehrte");
+    put("gehn", "gehen");
+    put("Spß", "Spaß");
+    put("kanst", "kannst");
+    put("fregen", "fragen");
     put("Bingerloch", "Binger Loch");
     put("[nN]or[dt]rh?einwest(f|ph)alen", "Nordrhein-Westfalen");
     put("abzusolvieren", "zu absolvieren");
@@ -1173,7 +1321,8 @@ public class GermanSpellerRule extends CompoundAwareHunspellRule {
     put("Refelektion", "Reflexion");
     put("Refelektionen", "Reflexionen");
     put("[sS]chanse", "Chance");
-    put("nich", "nicht");
+    put("nich", w -> Arrays.asList("nicht", "noch"));
+    put("Nich", w -> Arrays.asList("Nicht", "Noch"));
     put("wat", "was");
     put("[Ee][Ss]ports", "E-Sports");
     put("gerelaunch(ed|t)", "relauncht");
@@ -1226,7 +1375,7 @@ public class GermanSpellerRule extends CompoundAwareHunspellRule {
     put("Müllhalte", "Müllhalde");
     put("Entäuschung", "Enttäuschung");
     put("Entäuschungen", "Enttäuschungen");
-    put("kanns", "kann es");
+    put("kanns", w -> Arrays.asList("kann es", "kannst"));
     put("funktionierts", "funktioniert es");
     put("hbat", "habt");
     put("ichs", "ich es");
@@ -1270,7 +1419,6 @@ public class GermanSpellerRule extends CompoundAwareHunspellRule {
   private final LineExpander lineExpander = new LineExpander();
   private final GermanCompoundTokenizer compoundTokenizer;
   private final Synthesizer synthesizer;
-  private final Tagger tagger;
 
   public GermanSpellerRule(ResourceBundle messages, German language) {
     this(messages, language, null, null);
@@ -1291,7 +1439,6 @@ public class GermanSpellerRule extends CompoundAwareHunspellRule {
     addExamplePair(Example.wrong("LanguageTool kann mehr als eine <marker>nromale</marker> Rechtschreibprüfung."),
                    Example.fixed("LanguageTool kann mehr als eine <marker>normale</marker> Rechtschreibprüfung."));
     compoundTokenizer = language.getStrictCompoundTokenizer();
-    tagger = language.getTagger();
     synthesizer = language.getSynthesizer();
   }
 
@@ -1553,7 +1700,7 @@ public class GermanSpellerRule extends CompoundAwareHunspellRule {
 
   private boolean isNounOrUnknown(String word) {
     try {
-      List<AnalyzedTokenReadings> readings = tagger.tag(singletonList(word));
+      List<AnalyzedTokenReadings> readings = getTagger().tag(singletonList(word));
       return readings.stream().anyMatch(reading -> reading.hasPosTagStartingWith("SUB") || reading.isPosTagUnknown());
     } catch (IOException e) {
       throw new RuntimeException(e);
@@ -1562,7 +1709,7 @@ public class GermanSpellerRule extends CompoundAwareHunspellRule {
 
   private boolean isOnlyNoun(String word) {
     try {
-      List<AnalyzedTokenReadings> readings = tagger.tag(singletonList(word));
+      List<AnalyzedTokenReadings> readings = getTagger().tag(singletonList(word));
       for (AnalyzedTokenReadings reading : readings) {
         boolean accept = reading.getReadings().stream().allMatch(k -> k.getPOSTag() != null && k.getPOSTag().startsWith("SUB:"));
         if (!accept) {
@@ -1577,7 +1724,7 @@ public class GermanSpellerRule extends CompoundAwareHunspellRule {
 
   private boolean isAdjOrNounOrUnknown(String word) {
     try {
-      List<AnalyzedTokenReadings> readings = tagger.tag(singletonList(word));
+      List<AnalyzedTokenReadings> readings = getTagger().tag(singletonList(word));
       return readings.stream().anyMatch(reading -> reading.hasPosTagStartingWith("SUB") || reading.hasPosTagStartingWith("ADJ") || reading.isPosTagUnknown());
     } catch (IOException e) {
       throw new RuntimeException(e);
@@ -1586,7 +1733,7 @@ public class GermanSpellerRule extends CompoundAwareHunspellRule {
 
   private boolean isNounOrProperNoun(String word) {
     try {
-      List<AnalyzedTokenReadings> readings = tagger.tag(singletonList(word));
+      List<AnalyzedTokenReadings> readings = getTagger().tag(singletonList(word));
       return readings.stream().anyMatch(reading -> reading.hasPosTagStartingWith("SUB") || reading.hasPosTagStartingWith("EIG"));
     } catch (IOException e) {
       throw new RuntimeException(e);
@@ -1877,18 +2024,12 @@ public class GermanSpellerRule extends CompoundAwareHunspellRule {
     } else if (word.equals("nanten")) {
       return singletonList("nannten");
     } else if (word.endsWith("ies")) {
-      if (word.equals("Stories")) {
-        return singletonList("Storys");
-      } else if (word.equals("Lobbies")) {
+      if (word.equals("Lobbies")) {
         return singletonList("Lobbys");
-      } else if (word.equals("Hobbies")) {
-        return singletonList("Hobbys");
       } else if (word.equals("Parties")) {
         return singletonList("Partys");
       } else if (word.equals("Babies")) {
         return singletonList("Babys");
-      } else if (word.equals("Ladies")) {
-        return singletonList("Ladys");
       } else if (word.endsWith("derbies")) {
         suggestion = word.replaceFirst("derbies$", "derbys");
         if (hunspell.spell(suggestion)) {
@@ -1919,8 +2060,6 @@ public class GermanSpellerRule extends CompoundAwareHunspellRule {
       return Arrays.asList("Abschleppdienst", "Abschleppwagen");
     } else if (word.equals("par")) {
       return singletonList("paar");
-    } else if (word.equals("vllt")) {
-      return singletonList("vielleicht");
     } else if (word.equals("iwie")) {
       return singletonList("irgendwie");
     } else if (word.equals("bzgl")) {
@@ -2048,7 +2187,7 @@ public class GermanSpellerRule extends CompoundAwareHunspellRule {
 
   @Nullable
   private String baseForThirdPersonSingularVerb(String word) throws IOException {
-    List<AnalyzedTokenReadings> readings = tagger.tag(singletonList(word));
+    List<AnalyzedTokenReadings> readings = getTagger().tag(singletonList(word));
     for (AnalyzedTokenReadings reading : readings) {
       if (reading.hasPosTagStartingWith("VER:3:SIN")) {
         return reading.getReadings().get(0).getLemma();
@@ -2088,7 +2227,7 @@ public class GermanSpellerRule extends CompoundAwareHunspellRule {
 
   private String getAbbreviationSuggestion(String word) throws IOException {
     if (word.length() < 5) {
-      List<AnalyzedTokenReadings> readings = tagger.tag(singletonList(word));
+      List<AnalyzedTokenReadings> readings = getTagger().tag(singletonList(word));
       for (AnalyzedTokenReadings reading : readings) {
         if (reading.hasPosTagStartingWith("ABK")) {
           return word+".";
@@ -2210,6 +2349,10 @@ public class GermanSpellerRule extends CompoundAwareHunspellRule {
     return hasIgnoredWord;
   }
 
+  private Tagger getTagger() {
+    return language.getTagger();
+  }
+
   static class ExpandingReader extends BufferedReader {
 
     private final List<String> buffer = new ArrayList<>();
@@ -2280,6 +2423,9 @@ public class GermanSpellerRule extends CompoundAwareHunspellRule {
       case "daß": return topMatch("dass");
       case "Daß": return topMatch("Dass");
       case "mußt": return topMatch("musst");
+      case "Mußt": return topMatch("Musst");
+      case "müßt": return topMatch("müsst");
+      case "Müßt": return topMatch("Müsst");
       case "mußten": return topMatch("mussten");
       case "mußte": return topMatch("musste");
       case "mußtest": return topMatch("musstest");
@@ -2338,6 +2484,7 @@ public class GermanSpellerRule extends CompoundAwareHunspellRule {
       case "hälst": return topMatch("hältst");
       case "Rythmus": return topMatch("Rhythmus");
       case "Rhytmus": return topMatch("Rhythmus");
+      case "Rhytmen": return topMatch("Rhythmen");
       case "Hobbies": return topMatch("Hobbys");
       case "Stehgreif": return topMatch("Stegreif");
       case "brilliant": return topMatch("brillant");
@@ -2348,6 +2495,7 @@ public class GermanSpellerRule extends CompoundAwareHunspellRule {
       case "brilliantem": return topMatch("brillantem");
       case "Billiard": return topMatch("Billard");
       case "garnicht": return topMatch("gar nicht");
+      case "garnich": return topMatch("gar nicht");
       case "garnichts": return topMatch("gar nichts");
       case "assozial": return topMatch("asozial");
       case "assoziale": return topMatch("asoziale");
@@ -2392,9 +2540,141 @@ public class GermanSpellerRule extends CompoundAwareHunspellRule {
       case "jedesmal": return topMatch("jedes Mal");
       case "Lybien": return topMatch("Libyen");
       case "Lybiens": return topMatch("Libyens");
+      case "Youtube": return topMatch("YouTube");
+      case "Youtuber": return topMatch("YouTuber");
+      case "Youtuberin": return topMatch("YouTuberin");
+      case "Youtuberinnen": return topMatch("YouTuberinnen");
+      case "Youtubers": return topMatch("YouTubers");
       case "Reflektion": return topMatch("Reflexion");
       case "Reflektionen": return topMatch("Reflexionen");
       case "unrelevant": return topMatch("irrelevant");
+      case "inflagranti": return topMatch("in flagranti");
+      case "Storie": return topMatch("Story");
+      case "Stories": return topMatch("Storys");
+      case "Ladies": return topMatch("Ladys");
+      case "Parties": return topMatch("Partys");
+      case "Lobbies": return topMatch("Lobbys");
+      case "Nestle": return topMatch("Nestlé");
+      case "Nestles": return topMatch("Nestlés");
+      case "vollzeit": return topMatch("Vollzeit");
+      case "teilzeit": return topMatch("Teilzeit");
+      case "Dnake": return topMatch("Danke");
+      case "Muehe": return topMatch("Mühe");
+      case "Muehen": return topMatch("Mühen");
+      case "Torschusspanik": return topMatch("Torschlusspanik");
+      case "ggf": return topMatch("ggf.");
+      case "Ggf": return topMatch("Ggf.");
+      case "zzgl": return topMatch("zzgl.");
+      case "Zzgl": return topMatch("Zzgl.");
+      case "aufgehangen": return topMatch("aufgehängt");
+      case "Pieks": return topMatch("Piks");
+      case "Piekse": return topMatch("Pikse");
+      case "Piekses": return topMatch("Pikses");
+      case "Pieksen": return topMatch("Piksen");
+      case "Annektion": return topMatch("Annexion");
+      case "Annektionen": return topMatch("Annexionen");
+      case "unkonsistent": return topMatch("inkonsistent");
+      case "Weißheitszahn": return topMatch("Weisheitszahn");
+      case "Weissheitszahn": return topMatch("Weisheitszahn");
+      case "Weißheitszahns": return topMatch("Weisheitszahns");
+      case "Weissheitszahns": return topMatch("Weisheitszahns");
+      case "Weißheitszähne": return topMatch("Weisheitszähne");
+      case "Weissheitszähne": return topMatch("Weisheitszähne");
+      case "Weißheitszähnen": return topMatch("Weisheitszähnen");
+      case "Weissheitszähnen": return topMatch("Weisheitszähnen");
+      case "raufschauen": return topMatch("draufschauen");
+      case "raufzuschauen": return topMatch("draufzuschauen");
+      case "raufgeschaut": return topMatch("draufgeschaut");
+      case "raufschaue": return topMatch("draufschaue");
+      case "raufschaust": return topMatch("draufschaust");
+      case "raufschaut": return topMatch("draufschaut");
+      case "raufschaute": return topMatch("draufschaute");
+      case "raufschauten": return topMatch("draufschauten");
+      case "raufgucken": return topMatch("draufgucken");
+      case "raufzugucken": return topMatch("draufzugucken");
+      case "raufgeguckt": return topMatch("draufgeguckt");
+      case "raufgucke": return topMatch("draufgucke");
+      case "raufguckst": return topMatch("draufguckst");
+      case "raufguckt": return topMatch("draufguckt");
+      case "raufguckte": return topMatch("draufguckte");
+      case "raufguckten": return topMatch("draufguckten");
+      case "raufhauen": return topMatch("draufhauen");
+      case "raufzuhauen": return topMatch("draufzuhauen");
+      case "raufgehaut": return topMatch("draufgehaut");
+      case "raufhaue": return topMatch("draufhaue");
+      case "raufhaust": return topMatch("draufhaust");
+      case "raufhaut": return topMatch("draufhaut");
+      case "raufhaute": return topMatch("draufhaute");
+      case "raufhauten": return topMatch("draufhauten");
+      case "wohlmöglich": return topMatch("womöglich");
+      case "Click": return topMatch("Klick");
+      case "Clicks": return topMatch("Klicks");
+      case "jenachdem": return topMatch("je nachdem");
+      case "bsp": return topMatch("bspw");
+      case "vorallem": return topMatch("vor allem");
+      case "draussen": return topMatch("draußen");
+      case "ürbigens": return topMatch("übrigens");
+      case "Whatsapp": return topMatch("WhatsApp");
+      case "kucken": return topMatch("gucken");
+      case "kuckten": return topMatch("guckten");
+      case "kucke": return topMatch("gucke");
+      case "aelter": return topMatch("älter");
+      case "äussern": return topMatch("äußern");
+      case "äusserst": return topMatch("äußerst");
+      case "Dnk": return topMatch("Dank");
+      case "schleswig-holstein": return topMatch("Schleswig-Holstein");
+      case "Stahlkraft": return topMatch("Strahlkraft");
+      case "trümmern": return topMatch("Trümmern");
+      case "gradeaus": return topMatch("geradeaus");
+      case "Anschliessend": return topMatch("Anschließend");
+      case "anschliessend": return topMatch("anschließend");
+      case "Abschliessend": return topMatch("Abschließend");
+      case "abschliessend": return topMatch("abschließend");
+      case "Ruckmeldung": return topMatch("Rückmeldung");
+      case "Gepaeck": return topMatch("Gepäck");
+      case "Grüsse": return topMatch("Grüße");
+      case "Grüssen": return topMatch("Grüßen");
+      case "entgültig": return topMatch("endgültig");
+      case "entgültige": return topMatch("endgültige");
+      case "entgültiges": return topMatch("endgültiges");
+      case "entgültiger": return topMatch("endgültiger");
+      case "entgültigen": return topMatch("endgültigen");
+      case "desöfteren": return topMatch("des Öfteren");
+      case "desweiteren": return topMatch("des Weiteren");
+      case "weitesgehend": return topMatch("weitestgehend");
+      case "Tiktok": return topMatch("TikTok");
+      case "Tiktoks": return topMatch("TikToks");
+      case "sodaß": return topMatch("sodass");
+      case "regelmässig": return topMatch("regelmäßig");
+      case "Carplay": return topMatch("CarPlay");
+      case "Tiktoker": return topMatch("TikToker");
+      case "Tiktokerin": return topMatch("TikTokerin");
+      case "Tiktokerinnen": return topMatch("TikTokerinnen");
+      case "Tiktokers": return topMatch("TikTokers");
+      case "Tiktokern": return topMatch("TikTokern");
+      case "languagetool": return topMatch("LanguageTool");
+      case "languagetools": return topMatch("LanguageTools");
+      case "Languagetool": return topMatch("LanguageTool");
+      case "Languagetools": return topMatch("LanguageTools");
+      case "liket": return topMatch("likt");
+      case "nagut": return topMatch("na gut");
+      case "Nagut": return topMatch("Na gut");
+      case "HAllo": return topMatch("Hallo");
+      case "HEy": return topMatch("Hey");
+      case "SEhr": return topMatch("Sehr");
+      case "abhol": return topMatch("abhole");
+      case "amazon": return topMatch("Amazon");
+      case "irgendeins": return topMatch("irgendeines");
+      case "Communities": return topMatch("Communitys");
+      case "Spass": return topMatch("Spaß");
+      case "garkein": return topMatch("gar kein");
+      case "garkeine": return topMatch("gar keine");
+      case "garkeinen": return topMatch("gar keinen");
+      case "wieviel": return topMatch("wie viel");
+      case "Wieviel": return topMatch("Wie viel");
+      case "gets": return topMatch("gehts");
+      case "Quillbot": return topMatch("QuillBot");
+      case "umgangsprachlich": return topMatch("umgangssprachlich");
     }
     return Collections.emptyList();
   }

@@ -76,7 +76,7 @@ public class JLanguageTool {
   private static final Logger logger = LoggerFactory.getLogger(JLanguageTool.class);
 
   /** LanguageTool version as a string like {@code 2.3} or {@code 2.4-SNAPSHOT}. */
-  public static final String VERSION = "5.8-SNAPSHOT";
+  public static final String VERSION = "5.8";
   /** LanguageTool build date and time like {@code 2013-10-17 16:10} or {@code null} if not run from JAR. */
   @Nullable public static final String BUILD_DATE = getBuildDate();
   /**
@@ -234,7 +234,11 @@ public class JLanguageTool {
     ACADEMIC,
     CLARITY,
     PROFESSIONAL,
-    CREATIVE
+    CREATIVE,
+    CUSTOMER,
+    JOBAPP,
+    OBJECTIVE,
+    ELEGANT
   }
 
   private static final List<File> temporaryFiles = new ArrayList<>();
@@ -937,7 +941,7 @@ public class JLanguageTool {
     List<String> sentences = getSentences(annotatedText, tokenizeText);
     List<AnalyzedSentence> analyzedSentences = analyzeSentences(sentences);
     CheckResults checkResults = checkInternal(annotatedText, paraMode, listener, mode, level, textSessionID, sentences, analyzedSentences);
-    checkResults.setSentenceRanges(sentences);
+    checkResults.addSentenceRanges(SentenceRange.getRangesFromSentences(annotatedText, sentences));
     return checkResults;
   }
 
@@ -954,19 +958,19 @@ public class JLanguageTool {
 
   private AnnotatedText cleanText(AnnotatedText annotatedText) {
     AnnotatedTextBuilder atb = new AnnotatedTextBuilder();
-    annotatedText.getGlobalMetaData().forEach((key, value) -> atb.addGlobalMetaData(key, value));
-    annotatedText.getCustomMetaData().forEach((key, value) -> atb.addGlobalMetaData(key, value));
+    annotatedText.getGlobalMetaData().forEach(atb::addGlobalMetaData);
+    annotatedText.getCustomMetaData().forEach(atb::addGlobalMetaData);
     List<TextPart> parts = annotatedText.getParts();
     for (TextPart part : parts) {
       if (part.getType() == TextPart.Type.TEXT) {
         String byteOrderMark = "\uFEFF";  // BOM or zero-width non-breaking space
-        StringTokenizer st = new StringTokenizer(part.getPart(), byteOrderMark, true);
-        while (st.hasMoreElements()) {
-          Object next = st.nextElement();
-          if (next.equals(byteOrderMark)) {
+        // split by byteOrderMark and let the delimiter also be part of the array
+        String[] split = part.getPart().split("(?<=\uFEFF)|(?=\uFEFF)");
+        for (String text : split) {
+          if ("\uFEFF".equals(text)) {
             atb.addMarkup(byteOrderMark);
           } else {
-            atb.addText(next.toString());
+            atb.addText(text);
           }
         }
       } else {
@@ -975,8 +979,8 @@ public class JLanguageTool {
     }
     return atb.build();
   }
-  
-  private CheckResults checkInternal(AnnotatedText annotatedText, ParagraphHandling paraMode, RuleMatchListener listener,
+
+  protected CheckResults checkInternal(AnnotatedText annotatedText, ParagraphHandling paraMode, RuleMatchListener listener,
                                      Mode mode, Level level,
                                      @Nullable Long textSessionID, List<String> sentences, List<AnalyzedSentence> analyzedSentences) throws IOException {
     RuleSet rules = getActiveRulesForLevel(level);

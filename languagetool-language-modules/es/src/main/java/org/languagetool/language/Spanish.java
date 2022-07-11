@@ -214,6 +214,7 @@ public class Spanish extends Language implements AutoCloseable {
       case "SE_CREO": return 35; // greater than DIACRITICS --> or less than DIACRITICS_VERB_N_ADJ ????
       case "DIACRITICS": return 30;
       case "POR_CIERTO": return 30;
+      case "DEGREE_CHAR": return 30; // greater than SPACE_UNITIES
       case "LO_LOS": return 30;
       case "ES_SIMPLE_REPLACE": return 30; // greater than typography rules
       case "ETCETERA": return 30; // greater than other typography rules
@@ -230,6 +231,7 @@ public class Spanish extends Language implements AutoCloseable {
       case "AGREEMENT_DET_ADJ": return 10;
       case "HALLA_HAYA": return 10;
       case "VALLA_VAYA": return 10;
+      case "SI_AFIRMACION": return 10; // less than DIACRITICS
       case "TE_TILDE2": return 10; // less than PRONOMBRE_SIN_VERBO
       case "SINGLE_CHARACTER": return 5;
       case "SEPARADO": return 1;
@@ -244,6 +246,7 @@ public class Spanish extends Language implements AutoCloseable {
       case "AGREEMENT_PARTICIPLE_NOUN": return -30;
       case "AGREEMENT_POSTPONED_ADJ": return -30;
       case "MULTI_ADJ": return -30;
+      case "SUBJUNTIVO_INCORRECTO": return -40;
       case "COMMA_SINO": return -40;
       case "VOSEO": return -40;
       case "REPETITIONS_STYLE": return -50;
@@ -254,10 +257,7 @@ public class Spanish extends Language implements AutoCloseable {
     }
 
     if (id.startsWith("AI_ES_HYDRA_LEO")) { // prefer more specific rules (also speller)
-      if (id.startsWith("AI_ES_HYDRA_LEO_MISSING_COMMA")) {
-        return -51; // prefer comma style rules.
-      }
-      return -11;
+      return -101;
     }
 
     //STYLE is -50

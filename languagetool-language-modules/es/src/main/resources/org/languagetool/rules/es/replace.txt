@@ -1,3 +1,6 @@
+malhumores=malos humores
+Paquistán=Pakistán
+cuantimás|contimás|contrimás=cuanto más
 porel=por el|pueril|Sorel
 Kazajstán=Kazajistán
 kazakhstano=kazajo
@@ -136,6 +139,14 @@ encuenta=en cuenta
 hobbie=hobby|hobbies
 demas=demás
 algun=algún
+dia=día
+dias=días
+aqui=aquí
+habia=había
+informacion=información
+estava=estaba
+està=está
+gustaria=gustaría
 #################################################
 # Errors in the dictionary 
 # (can be removed after updating the dictionary)

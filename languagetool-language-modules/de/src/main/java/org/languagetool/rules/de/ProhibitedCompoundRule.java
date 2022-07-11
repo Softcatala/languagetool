@@ -50,6 +50,8 @@ public class ProhibitedCompoundRule extends Rule {
   private static final List<Pair> lowercasePairs = Arrays.asList(
           // NOTE: words here must be all-lowercase
           // NOTE: no need to add words from confusion_sets.txt, they will be used automatically (if starting with uppercase char)
+          new Pair("eigen", "'selbst', z.B. 'Eigenzitat'", "eingen", "Möglicher Tippfehler"),
+          new Pair("stümpfe", "Rest eines Körpergliedes", "strümpfe", "Bekleidungsstück für den Fuß"),
           new Pair("gelände", "Gebiet", "geländer", "Konstruktion zum Festhalten entlang von Treppen"),
           new Pair("tropen", "feuchtwarme Gebiete am Äquator", "tropfen", "kleine Menge Flüssigkeit"),
           new Pair("enge", "Mangel an Platz", "menge", "Anzahl an Einheiten"),
@@ -123,14 +125,12 @@ public class ProhibitedCompoundRule extends Rule {
           new Pair("haft", "Freiheitsentzug", "schaft", "-schaft (Element zur Wortbildung)"),
           new Pair("stande", "zu 'Stand'", "stange", "länglicher Gegenstand")
   );
-  public static final GermanyGerman german = new GermanyGerman();
-  private static GermanSpellerRule spellerRule;
   private static LinguServices linguServices;
   private static final List<String> ignoreWords = Arrays.asList("Die", "De");
   private static final List<String> blacklistRegex = Arrays.asList(
     "stromkreis",  // vs. reis/reise
     "Lande(basis|basen|region|gebiets?|gebieten?|regionen|betriebs?|betrieben?|offizieren?|bereichs?|bereichen?|einrichtung|einrichtungen|massen?|plans?|versuchs?|versuchen?)",  // vs. Landes
-    "Model(vertrags?|verträgen?|erfahrung|erfahrungen|szene)",
+    "Model(vertrags?|verträgen?|erfahrung|erfahrungen|szene|welt)",
     "(Raum|Surf|Jazz|Herbst|Gymnastik|Normal)schuhen?",
     "preis",  // Getränkepreis etc.
     "reisähnlich(e|e[nmrs])?",
@@ -143,9 +143,39 @@ public class ProhibitedCompoundRule extends Rule {
     "gra(ph|f)in",  // Demographin/Demografin
     "gra(ph|f)ik",  // Kunstgrafik
     "gra(ph|f)ie",  // Geographie
-    "Gra(ph|f)it"   // Grafit/Graphit
+    "Gra(ph|f)its?",   // Grafit/Graphit
+    ".+gra(ph|f)its?"   // ...grafit/graphit
   );
   private static final Set<String> blacklist = new HashSet<>(Arrays.asList(
+          "Trendgericht",  // vs. bericht
+          "Balkonfront",  // vs. Balkan
+          "Balkonbereich",  // vs. Balkan
+          "Anlaufleistung",  // vs. Ablauf
+          "Haushaltstuch",  // vs. buch
+          "Arztdiagnose",  // vs. Art
+          "Wickelbereich",  // vs. Winkel
+          "Trassenkonflikt",  // vs. Rassen
+          "Trassenkonflikte",  // vs. Rassen
+          "befüllende",  // vs. fallend
+          "Echsenauge",  // vs. Ochsen
+          "Echsenaugen",  // vs. Ochsen
+          "Lackpulver",  // vs. Back
+          "Lackpulvers",  // vs. Back
+          "Mikrolage",  // vs. alge
+          "Mikrolagen",  // vs. algen
+          "Sichtnutzer",  // vs. Nicht
+          "Sichtnutzers",  // vs. Nicht
+          "Sichtnutzern",  // vs. Nicht
+          "Jugendrad",  // vs. rat
+          "Jugendrads",  // vs. rat
+          "Lizenzname",  // vs. nahme
+          "Lizenznamen",  // vs. nahme
+          "Rhein-Nahe",  // vs. Nähe
+          "Geleinlage",  // vs. Geld
+          "Geleinlagen",  // vs. Geld
+          "Leerbestände",  // vs. Lehr
+          "Rechnungszeile",  // vs. ziele
+          "Speichenschutz",  // vs. Speichern
           "Notfunk",  // vs. Rot
           "Notfunks",  // vs. Rot
           "Leerteile",  // vs. Lehr
@@ -1144,7 +1174,9 @@ public class ProhibitedCompoundRule extends Rule {
           "Themenboxen", // vs bogen
           "Superyacht", // vs macht
           "Testbestellung", // vs fest
-          "Testbestellungen" // vs fest
+          "Testbestellungen", // vs fest
+          "Reisbeilage", // vs Reise
+          "Reisbeilagen" // vs Reise
   ));
 
   // have per-class static list of these and reference that in instance
@@ -1189,7 +1221,7 @@ public class ProhibitedCompoundRule extends Rule {
     try {
       ResourceDataBroker dataBroker = JLanguageTool.getDataBroker();
       try (InputStream confusionSetStream = dataBroker.getFromResourceDirAsStream(confusionSetsFile)) {
-        ConfusionSetLoader loader = new ConfusionSetLoader(german);
+        ConfusionSetLoader loader = new ConfusionSetLoader(GermanyGerman.INSTANCE);
         Map<String, List<ConfusionPair>> confusionPairs = loader.loadConfusionPairs(confusionSetStream);
         for (Map.Entry<String, List<ConfusionPair>> entry : confusionPairs.entrySet()) {
           for (ConfusionPair pair : entry.getValue()) {
@@ -1244,7 +1276,6 @@ public class ProhibitedCompoundRule extends Rule {
     this.ahoCorasickDoubleArrayTrie = prohibitedCompoundRuleSearcher;
     this.pairMap = prohibitedCompoundRulePairMap;
     linguServices = userConfig != null ? userConfig.getLinguServices() : null;
-    spellerRule = linguServices == null ? new GermanSpellerRule(JLanguageTool.getMessageBundle(), german, null, null) : null;
     addExamplePair(Example.wrong("Da steht eine <marker>Lehrzeile</marker> zu viel."),
                    Example.fixed("Da steht eine <marker>Leerzeile</marker> zu viel."));
   }
@@ -1288,8 +1319,11 @@ public class ProhibitedCompoundRule extends Rule {
     return toRuleMatchArray(ruleMatches);
   }
 
-  private boolean isMisspelled (String word) {
-    return (linguServices == null ? spellerRule.isMisspelled(word) : !linguServices.isCorrectSpell(word, german));
+  private static boolean isMisspelled(String word) {
+    if (linguServices == null) {
+      return GermanyGerman.INSTANCE.getDefaultSpellingRule().isMisspelled(word);
+    }
+    return !linguServices.isCorrectSpell(word, GermanyGerman.INSTANCE);
   }
 
   private int getMatches(AnalyzedSentence sentence, List<RuleMatch> ruleMatches, AnalyzedTokenReadings readings, int partsStartPos, String wordPart, int toPosCorrection) {

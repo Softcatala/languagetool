@@ -36,6 +36,17 @@ class AgreementRuleAntiPatterns1 {
       posRegex("SUB:.*")
     ),
     Arrays.asList(
+      posRegex("PRO.*"),  // "Es gibt viele Stock Screener."
+      posRegex("SUB:.*"),
+      new PatternTokenBuilder().pos("UNKNOWN").csTokenRegex("[A-ZÖÄÜ][a-zöäüß-]+").build()
+    ),
+    Arrays.asList(
+      posRegex("PRO.*"),  // "Es gibt viele verschiedene Stock Screener."
+      posRegex("(ADJ|PA2).*"),
+      posRegex("SUB:.*"),
+      new PatternTokenBuilder().pos("UNKNOWN").csTokenRegex("[A-ZÖÄÜ][a-zöäüß-]+").build()
+    ),
+    Arrays.asList(
       tokenRegex("[(\\[]"),   // "... (ich meine Pfeil, nicht Raute) ..."
       token("ich"),
       token("meine"),
@@ -121,9 +132,9 @@ class AgreementRuleAntiPatterns1 {
       posRegex("ADJ:.*")
     ),
     Arrays.asList(
-      // "Die ersten Drei bekommen einen Preis."
+      // "Die ersten Drei bekommen einen Preis." / "Die geheimen Sechs"
       tokenRegex("den|die"),
-      tokenRegex("ersten|nächsten|vorherigen|letzten"),
+      tokenRegex(".+n"),
       csRegex("Zwei|Drei|Vier|Fünf|Sechs|Sieben|Acht|Neun|Zehn|Elf|Zwölf|Zwanzig|Dreißig|Vierzig|Fünzig|Hundert|Tausend")
     ),
     Arrays.asList(
@@ -182,7 +193,7 @@ class AgreementRuleAntiPatterns1 {
     ),
     Arrays.asList(
       posRegex("PRO:DEM:.*"),  // "Diese definiert einzelne Genres ..."
-      posRegex("VER:[23]:.*"),
+      new PatternTokenBuilder().posRegexWithStringException("VER:[23]:.*", "eine").build(),
       posRegex("ADJ:.*"),
       posRegex("SUB:.*")
     ),
@@ -289,6 +300,17 @@ class AgreementRuleAntiPatterns1 {
     Arrays.asList(
       token("die"),  // "Die Müllers aus Hamburg"
       new PatternTokenBuilder().posRegex("EIG.*").tokenRegex(".*s").build()
+    ),
+    Arrays.asList(
+      token("die"),  // "Die Xi Jinping Ära ist …" -- should be 'Xi-Jinping-Ära', but don't detect here because of confusing error message
+      posRegex("EIG:.*"),
+      posRegex("SUB:.*")
+    ),
+    Arrays.asList(
+      token("die"),  // "Die Xi Ära ist …"  -- should be 'Xi-Ära', but don't detect here because of confusing error message
+      posRegex("EIG:.*"),
+      posRegex("EIG:.*"),
+      posRegex("SUB:.*")
     ),
     Arrays.asList(
       tokenRegex("ist|war|sei|wäre"),  // "war das Absicht"
@@ -650,6 +672,12 @@ class AgreementRuleAntiPatterns1 {
       token("?")
     ),
     Arrays.asList(
+      csRegex("w[äa]r|ist"),
+      token("das"),
+      csRegex("Zufall|Spa(ß|ss)"),
+      token(".")
+    ),
+    Arrays.asList(
        // "War das Zufall, dass es ging?"
       token("das"),
       csRegex("Zufall|Sinn|Spa(ß|ss)"),
@@ -911,6 +939,13 @@ class AgreementRuleAntiPatterns1 {
       token("die")
     ),
     Arrays.asList(
+      // Wir sind immer offen für Mitarbeiter die Teil eines der traditionellsten Malerbetriebe auf dem Platz Zürich werden möchten.
+      posRegex("PRP.*"),
+      posRegex("SUB.*PLU.*"),
+      token("die"),
+      posRegex("SUB.*SIN.*")
+    ),
+    Arrays.asList(
       posRegex("SUB.*MAS.*|EIG.*MAS.*|UNKNOWN"),
       token("("),
       token("de[rm]")
@@ -1004,6 +1039,42 @@ class AgreementRuleAntiPatterns1 {
       csToken("veranlasste"),
       posRegex("SUB.*")
     ),
+    Arrays.asList( // In einem Eins gegen Eins
+      tokenRegex("ein|einem"),
+      token("Eins"),
+      csToken("gegen"),
+      token("Eins")
+    ),
+    Arrays.asList( // Dann musst du das Schritt für Schritt …
+      tokenRegex("das|dies"),
+      token("Schritt"),
+      csToken("für"),
+      token("Schritt")
+    ),
+    Arrays.asList( // Das hat etliche Zeit in Anspruch genommen
+      token("etliche"),
+      token("Zeit")
+    ),
+    Arrays.asList( // Ich habe auf vieles Lust
+      token("auf"),
+      token("vieles"),
+      tokenRegex("Lust|Bock")
+    ),
+    Arrays.asList( // Ich habe für vieles Zeit
+      token("für"),
+      token("vieles"),
+      token("Zeit")
+    ),
+    Arrays.asList(
+      // …, kann das Infektionen möglicherweise verhindern
+      posRegex("KON.*|PKT|SENT_START"),
+      new PatternTokenBuilder().posRegex("ADV.*").min(0).build(),
+      posRegex("VER:MOD:3:SIN.*"),
+      csToken("das"),
+      posRegex("SUB.*"),
+      new PatternTokenBuilder().posRegex("ADV.*").min(0).max(2).build(),
+      posRegex("VER:INF:.*")
+    ),
     // TODO: comment in
     // Arrays.asList(
     //   // die gegnerischen Shooting Guards
@@ -1075,9 +1146,15 @@ class AgreementRuleAntiPatterns1 {
       posRegex("VER:3:SIN.*")
     ),
     Arrays.asList(
+      tokenRegex("Ende|Mitte|Anfang"), // "Der Ende der achtziger Jahre umgestaltete ..."
+      new PatternTokenBuilder().posRegex("ART:DEF:GEN:.*").min(0).build(),
+      new PatternTokenBuilder().posRegex("ADJ.*:(GEN|DAT):.*|ZAL").build(),
+      tokenRegex("Woche|Monats|Jahr(es?|zehnts|hunderts|tausends)")
+    ),
+    Arrays.asList(
       tokenRegex("Ende|Mitte|Anfang"), // "Ende letzten Jahres" "Ende der 50er Jahre"
       new PatternTokenBuilder().posRegex("ART:DEF:GEN:.*").min(0).build(),
-      new PatternTokenBuilder().posRegex("ADJ.*:(GEN|DAT):.*|ZAL").matchInflectedForms().tokenRegex("dieser|(vor)?letzter|[0-9]+er").build(),
+      new PatternTokenBuilder().matchInflectedForms().tokenRegex("dieser|(vor)?letzter|[0-9]+er").build(),
       tokenRegex("Woche|Monats|Jahr(es?|zehnts|hunderts|tausends)")
     ),
     Arrays.asList(
@@ -1100,6 +1177,27 @@ class AgreementRuleAntiPatterns1 {
     Arrays.asList(
       csToken("BMW"),
       token("ConnectedDrive")
-    ));
+    ),
+    Arrays.asList(
+      // https://www.jungewirtschaft.at/
+      token("die"),
+      csToken("Junge"),
+      csToken("Wirtschaft")
+    ),
+    Arrays.asList(
+      token("der"),
+      csToken("Jungen"),
+      csToken("Wirtschaft")
+    ),
+    Arrays.asList(
+      // "Inwiefern soll denn das romantische Hoffnungen begründen?"
+      new PatternTokenBuilder().pos("ADV:MOD+INR").setSkip(-1).build(),
+      new PatternTokenBuilder().posRegex("VER.*:[123]:SIN:.*").setSkip(1).build(),
+      posRegex("PRO:DEM:.*SIN.*"),
+      new PatternTokenBuilder().posRegex("ADJ:.*PLU.*").min(0).build(),
+      posRegex("SUB:.*PLU.*"),
+      posRegex("VER.*INF:.*")
+    )
+  );
 
 }

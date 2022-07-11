@@ -329,13 +329,22 @@ public class PatternRuleTest extends AbstractPatternRuleTest {
   protected void testMessages(Language lang, List<AbstractPatternRule> rules) {
     System.out.println("Checking messages for 'TBD' etc of " + rules.size() + " rules for " + lang + "...");
     for (AbstractPatternRule rule : rules) {
+      String msg = rule.getMessage().trim();
+      if (msg.trim().isEmpty()) {
+        fail("Empty message of rule " + rule.getFullId());
+      }
       if (rule.isDefaultTempOff() || rule.isDefaultOff()) {
         continue;
       }
-      String msg = rule.getMessage().trim();
-      if (msg.equalsIgnoreCase("tbd") || msg.equalsIgnoreCase("todo")) {
-        fail("Unfinished message of rule " + rule.getFullId() + ": '" + msg + "'");
+      if (msg.equalsIgnoreCase("todo") || msg.equalsIgnoreCase("lorem ipsum")) {
+        fail("Unfinished message ('todo' or 'lorem ipsum') of rule " + rule.getFullId() + ": '" + msg + "'");
       }
+      if (msg.toLowerCase().contains("tbd")) {
+        fail("Unfinished message (contains 'tbd') of rule " + rule.getFullId() + ": '" + msg + "'");
+      }
+      //if (msg.matches(".*[^\"'>)?!.]$")) {
+      //  System.err.println("Warning: Message of " + rule.getFullId() + " doesn't end in [.!?]: " + msg);
+      //}
     }
   }
   

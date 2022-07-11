@@ -187,8 +187,9 @@ public class TokenAgreementAdjNounRule extends Rule {
       
       if( // ! PosTagHelper.hasPosTagPart(tokens[i+1], "noun:")
           PosTagHelper.hasPosTagPart(tokens[i], PosTagHelper.NO_VIDMINOK_SUBSTR)
-         || PosTagHelper.hasPosTagPart(tokens[i], "&pron")
-         || PosTagHelper.hasPosTagPart(tokens[i], "<") ) {
+          || PosTagHelper.hasPosTagPart(tokens[i], "&pron")
+         // || PosTagHelper.hasPosTagPart(tokens[i], "<") 
+         ) {
         
         state.reset();
         continue;
@@ -204,8 +205,8 @@ public class TokenAgreementAdjNounRule extends Rule {
           continue;
         }
 
-        if( nounPosTag.startsWith("noun") 
-            && ! nounPosTag.contains(PosTagHelper.NO_VIDMINOK_SUBSTR) ) {
+        if( nounPosTag.startsWith("noun") ) { 
+//            && ! nounPosTag.contains(PosTagHelper.NO_VIDMINOK_SUBSTR) ) {
 
           nounTokenReadings.add(token);
         }
@@ -233,7 +234,7 @@ public class TokenAgreementAdjNounRule extends Rule {
 
       List<InflectionHelper.Inflection> masterInflections = InflectionHelper.getAdjInflections(state.adjTokenReadings);
 
-      List<InflectionHelper.Inflection> slaveInflections = InflectionHelper.getNounInflections(nounTokenReadings, "v_zna:var");
+      List<InflectionHelper.Inflection> slaveInflections = InflectionHelper.getNounInflections(nounTokenReadings, Pattern.compile("v_zna:var"));
 
       if( Collections.disjoint(masterInflections, slaveInflections) ) {
 
@@ -350,7 +351,7 @@ public class TokenAgreementAdjNounRule extends Rule {
     return toRuleMatchArray(ruleMatches);
   }
 
-  private static String formatInflections(List<Inflection> inflections, boolean adj) {
+  static String formatInflections(List<Inflection> inflections, boolean adj) {
 
     Collections.sort(inflections);
     

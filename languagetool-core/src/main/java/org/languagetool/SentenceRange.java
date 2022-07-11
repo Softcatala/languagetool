@@ -18,6 +18,10 @@
  */
 package org.languagetool;
 
+import org.languagetool.markup.AnnotatedText;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -32,6 +36,37 @@ public class SentenceRange {
   SentenceRange(int fromPos, int toPos) {
     this.fromPos = fromPos;
     this.toPos = toPos;
+  }
+
+  public static List<SentenceRange> getRangesFromSentences(AnnotatedText annotatedText, List<String> sentences) {
+    List<SentenceRange> sentenceRanges = new ArrayList<>();
+    int pos = 0;
+    int diff = annotatedText.getTextWithMarkup().length() - annotatedText.getPlainText().length();
+    for (String sentence : sentences) {
+      if (sentence.trim().isEmpty()) {
+        //No content no sentence
+        pos += sentence.length();
+        continue;
+      }
+      //trim whitespaces
+      String sentenceNoBeginnWhitespace = sentence.replaceFirst("^\\s*", "");
+      String sentenceNoEndWhitespace = sentence.replaceFirst("\\s++$", "");
+      //Get position without tailing and leading whitespace
+      int fromPos = pos + (sentence.length() - sentenceNoBeginnWhitespace.length());
+      int toPos = pos + sentenceNoEndWhitespace.length();
+
+      int fromPosOrig = fromPos + diff;
+      int toPosOrig = toPos + diff;
+      if (fromPosOrig != annotatedText.getTextWithMarkup().length()) {
+        fromPosOrig = annotatedText.getOriginalTextPositionFor(fromPos, false);
+      }
+      if (toPosOrig != annotatedText.getTextWithMarkup().length()) {
+        toPosOrig = annotatedText.getOriginalTextPositionFor(toPos, true);
+      }
+      sentenceRanges.add(new SentenceRange(fromPosOrig, toPosOrig));
+      pos += sentence.length();
+    }
+    return sentenceRanges;
   }
 
   public int getFromPos() {

@@ -23,6 +23,7 @@ import org.jetbrains.annotations.Nullable;
 import org.languagetool.*;
 import org.languagetool.broker.ResourceDataBroker;
 import org.languagetool.rules.*;
+import org.languagetool.rules.spelling.SpellingCheckRule;
 import org.languagetool.rules.uk.*;
 import org.languagetool.synthesis.Synthesizer;
 import org.languagetool.synthesis.uk.UkrainianSynthesizer;
@@ -122,6 +123,12 @@ public class Ukrainian extends Language {
     };
   }
 
+  @Nullable
+  @Override
+  protected SpellingCheckRule createDefaultSpellingRule(ResourceBundle messages) throws IOException {
+    return new MorfologikUkrainianSpellerRule(messages, this, null, null);
+  }
+
   @Override
   public List<Rule> getRelevantRules(ResourceBundle messages, UserConfig userConfig, Language motherTongue, List<Language> altLanguages) throws IOException {
     MorfologikUkrainianSpellerRule morfologikSpellerRule = new MorfologikUkrainianSpellerRule(messages, this, userConfig, altLanguages);
@@ -158,6 +165,7 @@ public class Ukrainian extends Language {
         new TokenAgreementNounVerbRule(messages),
         new TokenAgreementAdjNounRule(messages),
         new TokenAgreementPrepNounRule(messages),
+        new TokenAgreementNumrNounRule(messages),
 
         new MixedAlphabetsRule(messages),
 

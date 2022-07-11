@@ -22,6 +22,8 @@ License along with this library; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
 -->
 <!DOCTYPE rules [
+    <!ENTITY nbsp "&#x00A0;"> <!-- no-break space -->
+    <!ENTITY nnbsp "&#x202F;"> <!-- narrow no-break space -->
     <!ENTITY msg_semicolon_comma "Esta locución se escribe normalmente entre comas. Use un punto y coma para empezar una nueva frase que contrasta con la anterior.">
     <!ENTITY dashes "[–—―‒-]"> 
     <!ENTITY msg_repeated_pattern "Esta expresión ya ha aparecido antes. Puede sustituirla por otra para hacer más variado el texto.">
@@ -41,10 +43,10 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
 <!-- d, K -->
 <!ENTITY meses_ano_may "Enero|Febrero|Marzo|Abril|Mayo|Junio|Julio|Agosto|Sep?tiembre|Octubre|Noviembre|Diciembre">
 <!ENTITY meses_ano "enero|febrero|marzo|abril|mayo|junio|julio|agosto|sep?tiembre|octubre|noviembre|diciembre">
-<!ENTITY meses_ano_abrv "ene|feb|mar|abrl|may|jun|jul|ago|sep|set|oct|nov|dic">
+<!ENTITY meses_ano_abrv "ene|feb|mar|abr|may|jun|jul|ago|sep|set|oct|nov|dic">
 <!ENTITY estaciones_ano "primavera|verano|otoño|invierno">
 <!ENTITY exceptions_DECIMAL_COMMA "bluetooth|paso|anejo|anexo|cláusula|cuadro|epígrafe|revisión|versión|resolución|decreto|ley|sección|capítulo|apartado|partida|tabla|imagen|fotografía|gráfica|gráfico|foto|mapa|punto|artículo|ver|figura|iPhone|firmware|hardware|software|doi|(?-i).*OS|X">
-<!ENTITY unidades "GB|TB|MB|MBps|Mbps|AM|PM|M|am|pm|m?[lL]|mmHg|dB|mm|cm|dm|m|km|h|min|s|seg|g|kg|Hz|[kM]Hz|°[FC]|pts|ptas|M?[£€$]|(mm|cm|dm|m|km)[23²³]">
+<!ENTITY unidades "CV|GB|TB|MB|MBps|Mbps|AM|PM|M|am|pm|m?[lL]|mmHg|dB|mm|cm|dm|m|km|h|min|s|seg|g|kg|Hz|[kM]Hz|°[FC]|pts|ptas|M?[£€$]|(mm|cm|dm|m|km)[23²³]">
 <!ENTITY unidades_SI "(da|h|k|M|G|T|P|E|Z|Y|d|c|m|µ|n|p|f|a|z|y)?(m|g|s|A|K|cd|mol|Hz|N|Pa|J|W|Wh|C|V|Ω|S|F|T|Wb|H|rad|sr|lm|lx|Bq|Gy|Sv|kat|l|L)[²³23]?">
 <!--TODO: check case of abbreviations-->
 <!ENTITY abreviaturas "[Ee]xt|EXT|Dir|Dr|Dra|Abg|[Aa]cept|[Aa]dm|[Aa]dmón|[Aa]fma|[Aa]fmo|Alfz|Almte|[Aa]p|[Aa]pdo|[Aa]prox|Arq|[Aa]rt|Arz|[Aa]tta|Ayto|[Aa]tte|[Aa]tto|[Aa]v|[Aa]vd|[Aa]vda|Barna|Bco|Bibl|Bma|Bmo|Bo|Brig|Bta|Bto|[Cc]aj|[Cc]ap|Cdad|[Cc]ent|[Cc]f|[Cc]fr|[Cc]go|[Cc]je|[Cc]l|Cmdt|Cmte|Cnel|[Cc]ol|Comod|Comp|Comte|Contralmte|[Cc]oord|[Cc]p|[Cc]rec|[Cc]ta|Cte|[Cc]ts|[Cc]tv|[Cc]tvo|[Cc]ént|Cía|[Cc]ód|[Cc]ónf|[Cc]ónfr|[Dd]cha|[Dd]cho|[Dd]epto|[Dd]iag|[Dd]icc|[Dd]oc|[Dd]pto|[Dd]to|[Dd]updo|[Ee]d|[Ee]dit|[Ee]do|[Ee]f|[Ee]j|Emmo|[Ee]ntlo|[Ee]tc|[Ee]xcl|Excma|Excmo|[Ff]asc|[Ff]ca|Fdo|[Ff]ig|[Ff]ol|Fr|[Ff]ra|[Ff]éc|Gdor|Gdora|Gob|Gral|Hna|Hno|[Ii]b|[Ii]bíd|Il|Ilma|Ilmo|Iltre|[Ii]mp|[Ii]mpr|[Ii]mpto|incl|Ing|Inst|[Ii]zda|[Ii]zdo|[Ii]zq|[Ii]zqda|[Ii]zqdo|Jhs|Lcda|Lcdo|Lda|Ldo|Lic|Ltd|Ltda|Ltdo|Magfca|Magfco|Mons|[Mm]r|[Mm]s|[Mm]áx|[Mm]ín|[Nn]ro|[Nn]úm|Ob|Pat|Pbro|pdo|Pdta|Pdte|[Pp]g|[Pp]l|[Pp]lza|Pnt|[Pp]pal|[Pp]ral|Presb|Prof|[Pp]rov|[Pp]ról|[Pp]za|[Pp]ág|[Pp]árr|Rda|Rdo|[Rr]eg|Rep|Rev|Rte|Rvd|Rvda|Rvdma|Rvdmo|Rvdo|Sdad|Sgto|[Ss]ig|Soc|Sr|Sra|Srs|Sres|Sras|Srta|Sta|Sto|[Tt]el|[Tt]eléf|[Tt]fno|[Tt]rad|Tte|[Tt]ít|Ud|Uds|Univ|Valmte|Vd|Vda|Vdo|Vds|[Vv]id|[Vv]ol|[Vv]s|[Vv]ta|[Vv]to|Xto|[Íí]d">
@@ -78,7 +80,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
     <!ENTITY ordinales_unidades "primero|segundo|tercero|cuarto|quinto|sexto|séptimo|octavo|noveno">
     <!ENTITY unusually_noun "piden|aman">
     <!ENTITY pronombre_personal_sujeto "yo|tú|él|ella|usted|nosotros|nosotras|vosotros|vosotras|ellos|ellas|ustedes|vos">
-    <!ENTITY palabras_guion "aleación|antagonismo|asociación|binomio|ciclo|concordancia|conexión|contraposición|corpus|corrección|corrector|debate|diccionario|dualidad|eje|figura|interpretación|mesa|par|paralelo|pareja|ratio|razón|relación|traducción|traductor|equivalente|equivalencia|columna"> 
+    <!ENTITY palabras_guion "aleación|antagonismo|asociación|binomio|ciclo|concordancia|conexión|contraposición|corpus|corrección|corrector|debate|diccionario|dualidad|eje|figura|interpretación|mesa|par|paralelo|pareja|ratio|razón|relación|traducción|traductor|equivalente|equivalencia|columna|reacción"> 
     <!ENTITY exceptions_sujeto_singular "mayoría|número|puñado|porcentaje|cien|mil|millón|millones|billones|enjambre|grupo|parte|docena|mitad|cincuenta|cuarenta|multitud|treinta|veinte|sesenta|resto|diez">
     <!ENTITY exceptions_sujeto_singular2 "grupo|género|totalidad|serie|concentración|infinito|montón|cantidad|tercero|familia|equipo">
     <!ENTITY context_mama "ablación|adiposo|areola|arteria|bulto|calostro|carcinoma|carne|chupar|cirugía|culo|cáncer|célula|desarrollar|desarrollo|diagnóstico|embarazo|epitelio|estrógeno|femenino|ginecológico|ginecólogo|glandular|glándula|herida|hinchazón|hipertrofia|hormona|implante|inervación|infección|infectar|inflamación|lactancia|leche|lobulillo|mamario|mamífero|mastectomía|mastitis|mastología|neonato|parto|patológico|pecho|pectoral|pelvis|pezón|piel|progesterona|ptosis|pubertad|quirúrgico|sangre|sarcoma|seno|sexo|sexual|silicona|tejido|teta|tratamiento|turgencia|turgente|ubre|vena">
@@ -139,6 +141,14 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
         </phrase>
     </phrases>
     <category id="CASING" name="Mayúsculas y minúsculas" type="typographical">
+        <rule id="DOBLE_ESPACIO" name="doble espacio">
+            <regexp type="exact" mark="1">[A-Za-záéíóúÁÉÍÓÚñÑ\p{P}]([&nbsp; ]{2})[A-Za-záéíóúÁÉÍÓÚñÑ\p{P}]</regexp>
+            <!-- TODO: add "nnbsp" -->
+            <message>Sobra un espacio.</message>
+            <suggestion> </suggestion>
+            <example correction=" ">Esto es una<marker>  </marker>frase con dos espacios.</example>
+            <example correction=" ">Esto es una frase,<marker>  </marker>que tiene dos espacios.</example>
+        </rule>
         <rule id="MAYUSCULAS_INICIO_FRASE" name="mayúsculas a principio de frase">
             <antipattern>
                 <token regexp="yes">\p{Lu}\p{Lu}\p{Lu}?</token>
@@ -169,11 +179,24 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <token>/</token>
                 <token regexp="yes">\d+</token>
             </antipattern>
+            <antipattern case_sensitive="yes">
+                <token>SOS</token>
+                <token regexp="yes">\p{Lu}.*</token>
+            </antipattern>
+            <antipattern case_sensitive="yes">
+                <token>VI</token>
+                <token postag="[NA].*|UNKNOWN" postag_regexp="yes"/>
+            </antipattern>
+            <antipattern>
+                <token regexp="yes">\(|\[|\{</token>
+                <token regexp="yes">\p{Lu}\p{Lu}\p{Lu}?</token>
+                <token regexp="yes">\)|\]|\}</token>
+            </antipattern>
             <pattern>
                 <token postag="SENT_START"/>
                 <token min="0" max="3" regexp="yes">\p{P}</token>
                 <marker>
-                    <token postag="[DCSR].*|LOC_.*" postag_regexp="yes" regexp="yes">\p{Lu}\p{Lu}\p{Lu}?<exception postag="NP.*|SENT_END" postag_regexp="yes"/></token>
+                    <token postag="[DCSRV].*|LOC_.*" postag_regexp="yes" regexp="yes">\p{Lu}\p{Lu}\p{Lu}?<exception postag="NP.*|SENT_END" postag_regexp="yes"/></token>
                 </marker>
             </pattern>
             <message>Revise las mayúsculas a principio de frase.</message>
@@ -182,6 +205,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             <example correction="El"><marker>EL</marker> 2 de dicimebre.</example>
             <example correction="Un"><marker>UN</marker> 2 de dicimebre.</example>
             <example correction="No"><marker>NO</marker> lo veo.</example>
+            <example correction="Es"><marker>ES</marker> lo más importante.</example>
             <example>EL 2 DE DICIEMBRE.</example>
             <example>LA SEMANA PASADA NO VINO.</example>
             <example>BBC, 3-4-2019</example>
@@ -206,6 +230,9 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             <example>HOY A LAS 7 PM.</example>
             <example>LA 1ª PERSONA.</example>
             <example>LOS E-BOOKS</example>
+            <example>SOS Albaicín asegura que llega para solucionar los problemas del barrio</example>
+            <example>VI Coloquio de Historia de la Educación</example>
+            <example>VI edición</example>
         </rule>
         <rule id="ESO" name="ESO (Educación Secundaria Obligatoria">
             <antipattern>
@@ -1575,6 +1602,12 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
         </rule>
         <rulegroup id="FALTA_ELEMENTO_ENTRE_VERBOS" name="Falta un elemento entre verbos: hay algo *(que) es claro">
             <antipattern>
+                <token regexp="yes" inflected="yes">esperar|desear|rogar|solicitar|agradecer|acordar|ofrecer</token>
+                <token postag="&pronombre_personal_atono_POS;" postag_regexp="yes" min="0"/>
+                <token postag="V.S[IP](3S|3P|2S)0" postag_regexp="yes"/>
+                <example>Solicito se tengan como pruebas.</example>
+            </antipattern>
+            <antipattern>
                 <token>ya</token>
                 <token regexp="yes">sea|fuera|fuese</token>
                 <token skip="4"/>
@@ -1648,6 +1681,10 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             <example correction="como">Páginas con nombres ridículos <marker>cómo</marker> esta.</example>
         </rule>
         <rulegroup id="DIACRITICS_VERB_N_ADJ" name="nombres y adjetivos con tilde">
+            <antipattern case_sensitive="yes">
+                <token>Echo</token>
+                <token postag="UNKNOWN" regexp="yes">\p{Lu}.+</token>
+            </antipattern>
             <antipattern>
                 <!-- the error is: tu>tú -->
                 <token>tu</token>
@@ -1734,6 +1771,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example correction="El público"><marker>El publico</marker> deberá tener.</example>
                 <example correction="el auténtico">Se puede observar <marker>el autentico</marker> y sincero compromiso.</example>
                 <example>Indíqueme el camino hasta la estación.</example>
+                <example>Esto también pasa en el Echo Show.</example>
             </rule>
             <rule>
                 <!-- Un termino -->
@@ -2739,6 +2777,10 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <token postag="NCM.*|NCFS000" postag_regexp="yes"/>
                 <token>practicas</token>
             </antipattern>
+            <antipattern>
+                <token skip="2">prestamos</token>
+                <token>atención</token>
+            </antipattern>
             <pattern>
                 <!-- NOT: domino, decimos, domine, escalamos, , echo, llamaron, piden, paramos, cede, solicita, solicito, termino, verifica, vienes, aman, borren, calan, capitula, crias, critica, criticas, critico |critica, cuajaron, cupe, calculo, envió, escalamos, estipula, habito, participe, platica, platicas, predica, predicas, patina, regulo, solicita, solicitas, solicito, suplico, suplica, suplicas, termino, verifica, indica, ulula publica|publicas|publico prospera|prosperas|prospero  especifica|especificas|especifico| |fabrica|fabricas |limite|limites
                          ???: pio, moran, indico, opera, anima, animas, replica, replicas,-->
@@ -2768,6 +2810,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             <example>María publica continuamente fotos de ella misma en Instagram.</example>
             <example>Lee mucho y practica mucho.</example>
             <example>¿Qué clase de deportes practicas?</example>
+            <example>Con frecuencia no prestamos ni atención.</example>
         </rule>
         <rulegroup name="diacríticos" id="DIACRITICS_BY_GROUPS">
             <antipattern>
@@ -3488,6 +3531,19 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             </rule>
             <!--exclamativos-->
             <rule>
+                <pattern>
+                    <token postag="SENT_START|_PUNCT.*" postag_regexp="yes"/>
+                    <marker>
+                        <token>que</token>
+                    </marker>
+                    <token postag="N.*" postag_regexp="yes"/>
+                    <token>tan</token>
+                </pattern>
+                <message>Si es una exclamación, se escribe con tilde.</message>
+                <suggestion>qué</suggestion>
+                <example correction="Qué">—¡<marker>Que</marker> pregunta tan absurda!</example>
+            </rule>
+            <rule>
                 <antipattern>
                     <token>a</token>
                     <token>que</token>
@@ -3534,13 +3590,14 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                         <token>que</token>
                     </marker>
                     <token postag="AQ.*|NC.*" postag_regexp="yes"/>
-                    <token inflected="yes">ser</token>
+                    <token inflected="yes" regexp="yes">ser|tener</token>
                 </pattern>
                 <message>Si es una exclamación, se escribe con tilde.</message>
                 <!--<url>https://blog.lengua-e.com/2011/que-con-tilde-y-que-sin-tilde/</url>-->
                 <suggestion>qué</suggestion>
                 <example correction="Qué">¡<marker>Que</marker> estúpido es!</example>
                 <example correction="Qué">¡<marker>Que</marker> bonito es!</example>
+                <example correction="Qué">¡<marker>Que</marker> suerte tienes!</example>
             </rule>
             <rule>
                 <pattern>
@@ -3680,6 +3737,12 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example correction="qué">Quiero saber a cambio de <marker>que</marker>.</example>
             </rule>
             <rule>
+                <antipattern>
+                    <token inflected="yes">tener</token>
+                    <token regexp="yes">&pronombre_personal_sujeto;</token>
+                    <token>que</token>
+                    <example>¿Y bien, Antonio, qué tiene usted que decir?</example>
+                </antipattern>
                 <pattern>
                     <token regexp="yes">&pronombre_personal_sujeto;</token>
                     <marker>
@@ -3692,6 +3755,34 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <suggestion>qué</suggestion>
                 <example correction="qué">Yo <marker>que</marker> sé, no me gusta nada.</example>
                 <example correction="qué">¿I tú <marker>que</marker> cuentas?</example>
+            </rule>
+            <rule>
+                <antipattern>
+                    <token regexp="yes">el|la|lo|los|las</token>
+                    <token>que</token>
+                </antipattern>
+                <antipattern>
+                    <token inflected="yes" regexp="yes">haber|tener</token>
+                    <token>que</token>
+                    <token postag="V.N.*" postag_regexp="yes"/>
+                </antipattern>
+                <pattern>
+                    <marker>
+                        <token>que</token>
+                    </marker>
+                    <token postag="NC.*" postag_regexp="yes"><exception postag="RG.*" postag_regexp="yes"/></token>
+                    <token postag="V.N.*" postag_regexp="yes"/>
+                    <token regexp="yes">\p{P}</token>
+                </pattern>
+                <message>Como adjetivo interrogativo, se escribe con tilde.</message>
+                <suggestion>qué</suggestion>
+                <example correction="qué">Me preguntaba <marker>que</marker> medidas tomar.</example>
+                <example correction="qué">Debes ser prudente al elegir <marker>que</marker> camino seguir.</example>
+                <example>Tengo mi propia filosofía de vida, con muchos valores que intento potenciar (porque todavía me queda recorrido).</example>
+                <example>¿Por qué no logro acordarme del nombre de la chica que intento olvidar?</example>
+                <example>Más vale callar que mal hablar.</example>
+                <example>Nunca escucha lo que intento decirle.</example>
+                <example>Unos momentos que hay que saber capturar.</example>
             </rule>
         </rulegroup>
         <rulegroup id="QUE_SIN_TILDE" name="qué -> que">
@@ -4081,6 +4172,27 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example>Total envío:</example>
                 <example>Silencio mientras termino.</example>
             </rule>
+            <rule>
+                <antipattern>
+                    <token>creo</token>
+                    <token>que</token>
+                </antipattern>
+                <pattern>
+                    <token postag="SENT_START"/>
+                    <token postag="_QM_OPEN"/>
+                    <phraseref idref="_GN_SINGULAR"/>
+                    <token postag="_QM_CLOSE|R.*|LOC_ADV" postag_regexp="yes" min="0" max="4"><exception postag="C.*" postag_regexp="yes"/></token>
+                    <marker>
+                        <and>
+                            <token postag="VMIP1S0" regexp="yes">.+o<exception postag="V...3.*|C.*|SP.*|V.G.*|[ANCR].*|_possible_NP" postag_regexp="yes"/></token>
+                            <token inflected="yes" regexp="yes">.+ar<exception inflected="yes" regexp="yes">.+ir</exception></token>
+                        </and>
+                    </marker>
+                </pattern>
+                <message>Si el verbo está en pasado, falta un acento; o puede que falte una coma.</message>
+                <suggestion><match no="5" postag="VMIP1S0" postag_regexp="yes" postag_replace="VMIS3S0" case_conversion="alllower"/></suggestion>
+                <example correction="llamó">"Time Magazine" <marker>llamo</marker> a su campaña "una comedia".</example>
+            </rule>
         </rulegroup>
         <rule id="PROMEDIO" name="promedio/promedió">
             <pattern>
@@ -4204,7 +4316,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <suggestion>\1 {suggestion}</suggestion>
                 <example correction="de antemano|sé antemano">Agradecido <marker>se antemano</marker>.</example>
                 <example correction="de ira|sé ira|se irá|se era|se gira|se iba|se mira|se tira|se irán|se iría">Ella <marker>se ira</marker> mañana.</example>
-                <example correction="de callera|sé callera|se cayera|se cayeran|se fallera|se callara|se callará|se callea|se cayere|se calleara">Cuando <marker>se callera</marker> la uña.</example>
+                <example correction="de callera|sé callera|se cayera|se cayeran|se callara|se callará|se callea|se cayere|se calleara|se calleará">Cuando <marker>se callera</marker> la uña.</example>
                 <example>Apple iPhone SE 2</example>
             </rule>
             <rule>
@@ -4374,6 +4486,8 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example>No se lo abras.</example>
                 <example>No se lo dejes al azar.</example>
                 <example>No se lo coma.</example>
+                <!-- TODO: better suggestion: de -->
+                <example correction="sé">cada una <marker>se</marker> las acciones efectuadas</example>
             </rule>
             <rule>
                 <pattern>
@@ -4726,7 +4840,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                     </marker>
                 </pattern>
                 <message>Si es del v. 'tener', lleva tilde. Puede ser, más raramente, un sustantivo sin tilde.</message>
-                <suggestion>tenía</suggestion>
+                <suggestion><match no="1" regexp_match="(?iu)i" regexp_replace="í" case_conversion="preserve"/></suggestion>
                 <example correction="tenía">Se <marker>tenia</marker> que hacer.</example>
                 <example correction="tenía">Él lo <marker>tenia</marker>.</example>
                 <example correction="tenía" type="triggers_error" reason="rare">La <marker>tenia</marker> es un gusano plateminto.</example>
@@ -4738,7 +4852,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                     </marker>
                 </pattern>
                 <message>Si es del v. 'tener', lleva tilde. Puede ser, más raramente, un sustantivo sin tilde.</message>
-                <suggestion>tenías</suggestion>
+                <suggestion><match no="1" regexp_match="(?iu)i" regexp_replace="í" case_conversion="preserve"/></suggestion>
                 <example correction="tenías">Lo <marker>tenias</marker> que hacer.</example>
                 <example correction="tenías" type="triggers_error" reason="rare">Las <marker>tenias</marker> son un gusano plateminto.</example>
             </rule>
@@ -5032,6 +5146,305 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <!--<example>El que matare al Rey será castigado con la pena de muerte</example>-->
             </rule>
         </rulegroup>
+        <rulegroup id="SUBJUNTIVO_INCORRECTO" name="verbo en modo subjuntivo incorrecto">
+            <antipattern>
+                <token>des</token>
+                <token spacebefore="no">-</token>
+            </antipattern>
+            <antipattern>
+                <token postag="SENT_START"/>
+                <token min="0">(</token>
+                <token regexp="yes">[a-z]|\d+</token>
+                <token regexp="yes" skip="10">\p{P}<exception>,</exception></token>
+                <token postag="V.S[IP](3S|3P|2S)0" postag_regexp="yes"/>
+                <example>1. Se envíe el teléfono.</example>
+                <example>2.) Le sean asignados los números.</example>
+                <example>a) Se incapaciten física o intelectualmente.</example>
+            </antipattern>
+            <antipattern>
+                <!-- rarely used as verbs -->
+                <token postag="SENT_START|_PUNCT.*" postag_regexp="yes"/>
+                <token regexp="yes">pasaportes|dimensiones|proporciones|reacciones|promociones</token>
+                <example>Promociones VIP</example>
+                <example>Reacciones ácido-base.</example>
+            </antipattern>
+            <antipattern>
+                <token skip="4" postag="V.S.*" postag_regexp="yes"/>
+                <token>más</token>
+                <token>o</token>
+                <token>menos</token>
+                <example>Le gustase más o menos, lo tenía que hacer.</example>
+            </antipattern>
+            <antipattern>
+                <token regexp="yes">solícito|solícita</token>
+                <token postag="&pronombre_personal_atono_POS;" postag_regexp="yes" min="0"/>
+                <token postag="V.S[IP](3S|3P|2S)0" postag_regexp="yes"/>
+                <example>Deseando se encuentre bien.</example>
+                <example>Esperando se encuentre bien.</example>
+            </antipattern>
+            <antipattern>
+                <token regexp="yes" inflected="yes">esperar|desear|rogar|solicitar|agradecer|acordar|ofrecer</token>
+                <token postag="&pronombre_personal_atono_POS;" postag_regexp="yes" min="0"/>
+                <token postag="VMS[IP](3S|3P|2S)0" postag_regexp="yes"/>
+                <example>Deseando se encuentre bien.</example>
+                <example>Esperando se encuentre bien.</example>
+            </antipattern>
+            <antipattern>
+                <token postag="V.S.*" skip="4" postag_regexp="yes"/>
+                <token regexp="yes" skip="2">que|quien|cuando|donde|adonde|qué|quién|cuándo|dónde|adónde</token>
+                <token><match no="0"/></token>
+            </antipattern>
+            <antipattern>
+                <token regexp="yes" skip="4">q|según|que|quien|cuando|cuanto|donde|adonde|qué|quién|cuándo|dónde|adónde|así</token>
+                <token postag="V.S.*" postag_regexp="yes"/>
+            </antipattern>
+            <antipattern>
+                <token regexp="yes">bunas|tampoco|ni|no|nunca|nadie|quizás?|probablemente|posiblemente|apenas</token>
+                <token postag_regexp="yes" postag="P.*|RG" min="0" max="4"/>
+                <token postag="V.S.*" postag_regexp="yes"/>
+            </antipattern>
+            <antipattern>
+                <token postag="RN"/>
+                <token postag_regexp="yes" postag="P.*" min="0" max="3"/>
+                <token postag="V.S.*" postag_regexp="yes"/>
+            </antipattern>
+            <antipattern>
+                <token regexp="yes" skip="10">quizás?|probablemente|posiblemente|apenas|acaso|seguramente</token>
+                <!--<token postag_regexp="yes" postag="_GN_.*|P.*|RG" min="0" max="6"/>-->
+                <token postag="V.S.*" postag_regexp="yes"/>
+            </antipattern>
+            <antipattern>
+                <token regexp="yes">ya|bien</token>
+                <token postag_regexp="yes" postag="P.*|RG" min="0" max="4"/>
+                <token skip="-1" postag="V.S.*" postag_regexp="yes"/>
+                <token>o</token>
+            </antipattern>
+            <antipattern>
+                <token postag="SENT_START"/>
+                <token postag_regexp="yes" postag="P.*" min="0" max="2"/>
+                <token postag="V.S.*" postag_regexp="yes"/>
+                <token>o</token>
+                <token postag_regexp="yes" postag="P.*" min="0" max="2"/>
+                <token postag="V.S.*" postag_regexp="yes"/>
+            </antipattern>
+            <antipattern>
+                <token postag="SENT_START"/>
+                <token postag_regexp="yes" postag="P.*" min="0" max="2"/>
+                <token postag="V.S.*" postag_regexp="yes"/>
+                <token>,</token>
+                <token postag_regexp="yes" postag="P.*" min="0" max="2"/>
+                <token postag="V.S.*" postag_regexp="yes"/>
+                <token>o</token>
+                <token postag_regexp="yes" postag="P.*" min="0" max="2"/>
+                <token postag="V.S.*" postag_regexp="yes"/>
+                <example>Llueva, truene o relampaguee.</example>
+            </antipattern>
+            <antipattern>
+                <token regexp="yes">tal|una</token>
+                <token skip="4">vez</token>
+                <token postag="V.S.*" postag_regexp="yes"/>
+            </antipattern>
+            <antipattern>
+                <token>tan</token>
+                <token>pronto</token>
+                <token min="0">como</token>
+                <token postag_regexp="yes" postag="P.*|RG" min="0" max="4"/>
+                <token postag="V.S.*" postag_regexp="yes"/>
+            </antipattern>
+            <antipattern>
+                <!-- usual in Mexico -->
+                <token>entre</token>
+                <token skip="3">más</token>
+                <token postag="V.S.*" postag_regexp="yes"/>
+                <example>Entre más pronto comiences, más pronto terminas.</example>
+            </antipattern>
+            <antipattern>
+                <token regexp="yes">hasta|en</token>
+                <token regexp="yes">tanto|caso</token>
+                <token min="0">que</token>
+                <token postag_regexp="yes" postag="P.*|RG" min="0" max="4"/>
+                <token postag="V.S.*" postag_regexp="yes"/>
+                <example>En caso lo requieras, llámame.</example>
+            </antipattern>
+            <antipattern>
+                <token skip="4" postag="V.S.*" postag_regexp="yes"/>
+                <token>o</token>
+                <token>no</token>
+            </antipattern>
+            <antipattern>
+                <token case_sensitive="yes">Barbara</token>
+            </antipattern>
+            <antipattern>
+                <token>des</token>
+                <token>.</token>
+            </antipattern>
+            <antipattern>
+                <token skip="3" regexp="yes" case_sensitive="yes">DIOS|dios|Dios|cielo|Señor</token>
+                <!--<token inflected="yes" regexp="yes">bendecir|permitir|perdonar|salvar</token>-->
+                <token postag="V.S.*" postag_regexp="yes"/>
+                <example>El cielo nos asista.</example>
+            </antipattern>
+            <antipattern>
+                <token postag="P.*" postag_regexp="yes"/>
+                <token postag="V.S.*" postag_regexp="yes"/>
+                <token>Dios</token>
+            </antipattern>
+            <antipattern>
+                <token postag="V.S.*" postag_regexp="yes" inflected="yes">hacer</token>
+                <token postag="N.*|_GN_.*" postag_regexp="yes" min="1" max="3"/>
+                <token>o</token>
+                <token postag="N.*|_GN_.*" postag_regexp="yes"/>
+                <example>De pequeños, hiciera frío o calor, pasábamos todo el tiempo jugando al fútbol.</example>
+            </antipattern>
+            <antipattern>
+                <token postag="V.S.*" postag_regexp="yes" inflected="yes">tratar</token>
+                <token regexp="yes" skip="-1">de|del</token>
+                <token>o</token>
+                <example>Se trate de plásticos, madera, cerámica, vidrio, tela, plásticos bicapa, metales, cartón o acrílicos, ¡pregúntenos!</example>
+            </antipattern>
+            <antipattern>
+                <token postag="A.*|V.P.*" postag_regexp="yes"/>
+                <token postag="V.SP.*" postag_regexp="yes" inflected="yes">ser</token>
+            </antipattern>
+            <antipattern>
+                <token skip="-1" postag="V.S.*" postag_regexp="yes"><exception postag="PR.*|CS" postag_regexp="yes" scope="next"/></token>
+                <marker>
+                    <token postag="V.S.*" postag_regexp="yes"/>
+                </marker>
+            </antipattern>
+            <antipattern>
+                <token postag="SENT_START"/>
+                <token postag="V.S.*" postag_regexp="yes" inflected="yes">haber</token>
+                <token postag="V.P..SM" postag_regexp="yes"/>
+                <example>Hayamos cantado</example>
+            </antipattern>
+            <antipattern>
+                <token postag="V.S.*" postag_regexp="yes"/>
+                <token>/</token>
+                <token postag="V.S.*" postag_regexp="yes"/>
+                <example>catáramos/cantásemos</example>
+            </antipattern>
+            <rule>
+                <!-- exceptions to next rule -->
+                <pattern>
+                    <token postag="SENT_START"/>
+                    <marker>
+                        <token>consumase</token>
+                    </marker>
+                </pattern>
+                <message>Si es un imperativo, se escribe con tilde.</message>
+                <suggestion>Consúmase</suggestion>
+                <example correction="Consúmase"><marker>Consumase</marker> antes de la fecha de caducidad.</example>
+            </rule>
+            <rule>
+                <pattern>
+                    <token postag="SENT_START" skip="-1"><exception scope="next" postag="V.[IM].*|P[TR].*|CS|LOC_CS" postag_regexp="yes"/></token>
+                    <marker>
+                        <token postag="V.S.*" postag_regexp="yes"><exception postag="V.[IM].*|[NA].*|_possible_NP|R.*|LOC_.*|D.*|SENT_END" postag_regexp="yes"/><exception postag="V.SI.*" postag_regexp="yes" inflected="yes" regexp="yes">querer|haber|poder|deber|parecer</exception><exception regexp="yes">haya|uno|unas?</exception></token>
+                    </marker>
+                </pattern>
+                <filter class="org.languagetool.rules.es.FindSuggestionsFilter" args="wordFrom:marker desiredPostag:V.I.*|NC.*|A.*"/>
+                <message>Posible confusión: "<match no="2"/>" es un verbo en modo subjuntivo, improbable en este contexto.</message>
+                <!--<suggestion><match no="2" postag="(V.)S(.*)" postag_regexp="yes" postag_replace="$1I$2"/></suggestion>-->
+                <suggestion>{suggestion}</suggestion>
+                <example correction="faltas|maltés|faltos|falté|falces|faltás|fantes">Las <marker>faltes</marker> que tiene este texto.</example>
+                <example correction="Faltas|Maltés|Faltos|Falté|Falces|Faltás|Fantes"><marker>Faltes</marker> que tiene este texto.</example>
+                <example correction="Notas|Botes|Dotes|Lotes|Nueces|Motes|Jotes|Potes|Nones|Noté"><marker>Notes</marker>, apuntes, garabatos, bocetos.</example>
+                <!--<example correction="bajé|bajo|base|baja|viaje|vale|bajó|bate|vaga|vago">Me <marker>baje</marker> e instale el programa.</example> "base" is an error in this context-->
+                <example correction="busqué|bosque|buque|buqué|vesque">Por las dudas la <marker>busque</marker> en YouTube, pero no tiene acceso libre.</example>
+                <example>Hagas lo que hagas, perderás.</example>
+                <example>Sea quien sea, lo denunciaré.</example>
+                <example>Se diga lo que se diga.</example>
+                <example>No lo olvides.</example>
+                <example>Que llueva.</example>
+                <example>Quisiéramos venir.</example>
+                <example>Hubiera sido bonito.</example>
+                <example>Hubiésemos podido si tan solo hubiésemos querido.</example>
+                <example>Leas el libro que leas.</example>
+                <example>Pudiera usted, por favor, enviar a mi e-mail.</example>
+                <example>Seas lo bueno que seas, siempre habrá gente mejor que tú.</example>
+                <example>Tomes el camino que tomes, tardarás lo mismo.</example>
+                <example>Unas pocas personas tienen dos vehículos.</example>
+                <example>Una vez que adquieras un mal hábito, no puedes dejarlo fácilmente.</example>
+                <example>No sea que se arrepienta el hombre al ver el sol.</example>
+                <example>Nunca los arrojes cuando vayas en coche.</example>
+                <example>Mi Dios te lo bendiga</example>
+                <example>Por mucho que yo camine, nunca la alcanzaré.</example>
+                <example>Nunca cambies.</example>
+                <example>Una vez que le cojas el tranquillo será coser y cantar.</example>
+                <example>Tal vez debiéramos ayudar a Tom.</example>
+                <example>Quizás debieras dirigirte al ministerio de educación.</example>
+                <example>Apenas me entere, te lo digo. </example>
+                <example>Apenas yo me entere, te lo digo. </example>
+                <example>Ni lo pienses.</example>
+                <example>Ni siquiera pienses en pedirme dinero prestado.</example>
+                <example>¡Dios lo permita!</example>
+                <example>¡Dios me perdone!</example>
+                <example>No solamente pienses que eres, hay que saber.</example>
+                <example>Nunca más pongas los pies en este lugar.</example>
+                <example>Los desafíos del deporte, ya lo practiquemos individualmente o en equipo, son variados.</example>
+                <example>Tal vez después me pueda explicar mejor.</example>
+                <example>Quizá solo me quede aquí con Tom.</example>
+                <example>No solo te quejes, haz algo.</example>
+                <example>¡Así revientes!</example>
+                <example>Cuanto antes te rindas, tanto mayores serán los beneficios.</example>
+                <example>¡Dios te salve, María!</example>
+                <example>Bendito seas por no haberme hecho mujer.</example>
+                <example>Tampoco seas tan estricto.</example>
+                <example>Maldita seas entre todas las bestias.</example>
+                <example>A continuación, una vez tengas publicado tu anuncio, comenzarás a recibir ofertas.</example>
+                <example>Una vez hayas introducido tu email en esta casilla y pulses el botón "enviar", recibirás en tu buzón un email </example>
+                <example>Gestionar posibles devoluciones una vez hayas realizado una compra y gestionar solicitudes de información sobre la disponibilidad de prendas, reservas de productos a través de la Plataforma, según dichas opciones se encuentren disponibles en cada momento.</example>
+                <example>Llueva o haga sol, el cartero reparte el correo.</example>
+                <example>Tan pronto acabes, vete de aquí.</example>
+                <example>De ahí que una buena introducción, un correcto aterrizaje en el concepto, se me antoje clave.</example>
+                <example>No sea que, al verse atacado, el pueblo se arrepienta y se vuelva a Egipto.</example>
+                <example>Probablemente estas emociones te asalten en algunos momentos.</example>
+                <example type="triggers_error" reason="missing 'que'">Por favor alguien me ayude o me informe a quien o donde puedo dirigirme.</example>
+                <example>Bajo ningún concepto guardes dinero, pasaportes.</example>
+                <example>Tan pronto como nos los haga llegar y demos conformidad, daremos por finalizada su parte de creación.</example>
+                <example>Hasta tanto se implemente el carácter conjunto, la DNA administra las bases Carlini y Brown</example>
+                <example>Hasta tanto que se implemente el carácter conjunto, la DNA administra las bases Carlini y Brown</example>
+                <example>Dios te proteja y te bendiga.</example>
+                <example>Tan pronto acabes, paga la cuenta.</example>
+                <example>Evitar ambientes con humo.</example>
+                <example>Por nada del mundo le cuentes esto a otra persona.</example>
+                <example>El teléfono celular debiera facilitar el contacto con otras personas.</example>
+                <example>Tan pronto como lo encuentre, te lo traeré.</example>
+                <example>Tan pronto lo encuentre, lo traeré a tu hogar.</example>
+                <example>Acaso encuentres una luz sin noche, perdida en las grietas de los precipicios.</example>
+                <example>De ninguna manera te entrometas en mis problemas.</example>
+                <example>Quizá a Tom le guste nadar.</example>
+                <example>Que se haga la voluntad del Señor.</example>
+                <example>Seguramente, muchos hayan borrado estos Epic Fails de sus curriculums.</example>
+                <example>Para recibir informes sobre costos y nuestros diferentes tipos de apoyos financieros haz click en el botón de abajo para llenar el formulario.</example>
+                <example>¡Dios me libre! </example>
+                <example>Tan pronto como llegues, ella va a hacer algo de comer.</example>
+                <example>¡Dios te oiga!</example>
+                <example>Quizá os parezca mas graciosa la cal viva encima de las personas.</example>
+                <example type="triggers_error" reason="tardes/tarde">Sábados tardes cerrado.</example>
+                <example>¿Acaso tengas un cubo de agua para mí?</example>
+                <example>Nadie se meta donde no le llamen.</example>
+                <example>Que nadie se meta donde no le llamen.</example>
+                <example>Del agua mansa me libre Dios,</example>
+                <example>A tal efecto, una vez el pedido haya sido preparado, nos pondremos en contacto con usted.</example>
+                <example>Seguramente se trate de un malentendido.</example>
+                <!-- Anyway we don't have a good suggestion for 'haya' -->
+                <example>Haya luz.</example>
+                <example>Pareciera que sabes algo que yo no sé.</example>
+                <example>Esto con el objetivo de prevenir accidentes debido a la presencia de los migrantes.</example>
+                <example>Las carcasas aviares (de cualquier especie) que pudieran estar infectadas nunca deben ser suministradas a las aves rapaces, gallinas u otras.</example>
+                <example>Sin importar cuáles elijas.</example>
+                <example>Cómo decidas actuar depende de varios factores.</example>
+                <example>Generar informes de los indicadores.</example>
+                <!-- single word without context -->
+                <example>Cantáramos</example>
+                <example>Times New Roman</example>
+                <example>New York Times</example>
+                <example>The New York Times</example>
+                <example>Times Square</example>
+            </rule>
+        </rulegroup>
         <rulegroup id="SUBJUNTIVO_FUTURO" name="confusión cantara/cantará">
             <rule>
                 <antipattern>
@@ -5163,6 +5576,23 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <!--<example>Sigo enfadada porque pensaras eso de mí.</example>-->
                 <example>Permaneció al margen, fuera porque ignorase los hechos producidos o por...</example>
                 <example>Peleó porque llegara la luz.</example>
+            </rule>
+            <rule>
+                <pattern>
+                    <token skip="-1">si</token>
+                    <token skip="-1" postag="V.IP.*" postag_regexp="yes"><exception scope="next" postag="CS|PR.*" postag_regexp="yes"/><exception>uno</exception></token>
+                    <marker>
+                        <and>
+                            <token inflected="yes" regexp="yes">.*ar</token>
+                            <token postag="VMSI(3S|3P|2S)0" postag_regexp="yes" regexp="yes">.+(ara|aran|aras)<exception postag="_possible_NP|VMI.*|[AN].*" postag_regexp="yes"/></token>
+                        </and>
+                    </marker>
+                </pattern>
+                <message>Si es futuro, se escribe con tilde.</message>
+                <suggestion><match no="3" postag="VMSI(3S|3P|2S)0" postag_regexp="yes" postag_replace="VMIF$10"/></suggestion>
+                <example correction="acompañará">Si un día tienes un hijo, te <marker>acompañara</marker>.</example>
+                <example>Si uno lo contara todo, nunca llegaría al final.</example>
+                <example>Si uno de ellos se desconectara, el resto también caería.</example>
             </rule>
         </rulegroup>
         <rulegroup id="SUBJUNTIVO_PASADO" name="confusión cante/canté">
@@ -9211,19 +9641,32 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example correction="hacía">Entonces él <marker>hacia</marker> lo mismo.</example>
             </rule>-->
         </rulegroup>
-        <rulegroup id="NO_TILDE" name="palabras sin tilde según el contexto">
+        <rulegroup id="SOLICITO_NO_TILDE" name="palabras sin tilde según el contexto">
             <rule>
                 <pattern>
                     <token postag="SENT_START"/>
                     <marker>
-                        <token>solícito</token>
+                        <token regexp="yes">solícito|solícita</token>
                     </marker>
                     <token regexp="yes">:|que</token>
                 </pattern>
                 <message>Si es un verbo, se escribe sin tilde.</message>
-                <suggestion>solicito</suggestion>
+                <suggestion><match no="2" regexp_match="(?iu)í" regexp_replace="i" case_conversion="preserve"/></suggestion>
                 <example correction="Solicito"><marker>Solícito</marker>:</example>
                 <example correction="Solicito"><marker>Solícito</marker> que se ejecute la sentncia.</example>
+            </rule>
+            <rule>
+                <pattern>
+                    <marker>
+                        <token regexp="yes">solícito|solícita</token>
+                    </marker>
+                    <token postag="&pronombre_personal_atono_POS;" postag_regexp="yes" min="0"/>
+                    <token postag="V.S[IP](3S|3P|2S)0" postag_regexp="yes"/>
+                </pattern>
+                <message>Si es un verbo, se escribe sin tilde.</message>
+                <suggestion><match no="1" regexp_match="(?iu)í" regexp_replace="i" case_conversion="preserve"/></suggestion>
+                <example correction="solicita">El demandante <marker>solícita</marker> se presenten los documentos.</example>
+                <example correction="Solicito"><marker>Solícito</marker> me sean entregados los documentos.</example>
             </rule>
         </rulegroup>
         <rulegroup id="MAS" name="mas/más">
@@ -9566,6 +10009,104 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example correction="consigo">Estaba satisfecho <marker>con sí</marker> mismo.</example>
             </rule>
         </rulegroup>
+        <rulegroup id="SI_AFIRMACION" name="si -> sí">
+            <!-- Perhaps still too many FPs. Usually, they are incomplete sentences. -->
+            <url>https://www.rae.es/dpd/s%C3%AD</url>
+            <antipattern>
+                <token>si</token>
+                <token postag="&pronombre_personal_atono_POS;" postag_regexp="yes" min="0" max="2"/>
+                <token skip="-1" postag="V.[SI].*" postag_regexp="yes"/>
+                <token postag="V.[MSI].*" postag_regexp="yes"/>
+            </antipattern>
+            <antipattern>
+                <token>si</token>
+                <token postag="&pronombre_personal_atono_POS;" postag_regexp="yes" min="0" max="2"/>
+                <token skip="-1" postag="V.[SI].*" postag_regexp="yes"/>
+                <token skip="-1">,</token>
+                <token regexp="yes">también|mejor</token>
+            </antipattern>
+            <antipattern>
+                <token skip="-1" postag="V.[MNGSI].*" postag_regexp="yes"/>
+                <token>si</token>
+                <token postag="&pronombre_personal_atono_POS;" postag_regexp="yes" min="0" max="2"/>
+                <token postag="V.[SI].*" postag_regexp="yes"/>
+            </antipattern>
+            <antipattern>
+                <token>si</token>
+                <token postag="&pronombre_personal_atono_POS;" postag_regexp="yes" min="0" max="2"/>
+                <token skip="-1" postag="V.I.*" postag_regexp="yes"><exception postag="V.S.*" postag_regexp="yes"/></token>
+                <token regexp="yes">!|\?</token>
+            </antipattern>
+            <antipattern>
+                <token>si</token>
+                <token postag="&pronombre_personal_atono_POS;" postag_regexp="yes" min="0" max="2"/>
+                <token skip="-1" postag="V.I.2.*" postag_regexp="yes"/>
+                <!--<token>.</token>
+                <token>.</token>
+                <token>.</token>
+                <token>…</token>-->
+            </antipattern>
+            <rule>
+                <pattern>
+                    <token postag="SENT_START"/>
+                    <marker>
+                        <token>si</token>
+                    </marker>
+                    <token postag="&pronombre_personal_atono_POS;" postag_regexp="yes" min="0" max="2"/>
+                    <token postag="V.I.*" postag_regexp="yes"><exception postag="V.S.*" postag_regexp="yes"/></token>
+                </pattern>
+                <message>Se escribe con tilde si es una afirmación. Correcto si es una frase condicional.</message>
+                <suggestion>sí</suggestion>
+                <example correction="Sí"><marker>Si</marker> hice el trabajo.</example>
+                <example correction="Sí"><marker>Si</marker> se puede, chicas.</example>
+                <example>Si quieres vivir mucho tiempo, deja de fumar.</example>
+                <example>Si eres feliz, yo también.</example>
+                <example>Si es así, tanto mejor.</example>
+                <example>Si pudiera comprar esa guitarra...</example>
+                <example>Si tuvo todas las oportunidades antes de inmigrar!</example>
+                <example type="triggers_error" reason="ambiguous">Si tuvo todas las oportunidades antes de inmigrar.</example>
+                <example>Si ayer lo aseguraste una y otra vez delante de todos, ¿cómo lo niegas hoy?</example>
+                <example>Si vas a la playa cuenta conmigo.</example>
+                <example>Si deseas saber más de recetas tradicionales...</example>
+                <example>Si buscáis algo de marcha o vida nocturna olvidaos de bajar al sur.</example>
+            </rule>
+            <rule>
+                <antipattern>
+                    <token regexp="yes">por|excepto|y|pero|como|,|;|se|gracias|o|perdón|mismo|apenas|solo|sólo|solamente|únicamente</token>
+                    <token>si</token>
+                </antipattern>
+                <antipattern>
+                    <token>si</token>
+                    <token>no</token>
+                </antipattern>
+                <antipattern>
+                    <token>si</token>
+                    <token inflected="yes">ser</token>
+                </antipattern>
+                <antipattern>
+                    <token postag="NC.*" postag_regexp="yes"><exception regexp="yes" inflected="yes">&meses_ano;|&dias_semana;|&unidades_tiempo;|vez</exception></token>
+                    <token>si</token>
+                </antipattern>
+                <pattern>
+                    <token skip="-1" postag="SENT_START"><exception scope="next" postag="V.[SIM].*|_PUNCT.*" postag_regexp="yes"/></token>
+                    <marker>
+                        <token case_sensitive="yes">si</token>
+                    </marker>
+                    <token postag="&pronombre_personal_atono_POS;" postag_regexp="yes" min="0" max="2"/>
+                    <token postag="V.I.*" postag_regexp="yes"><exception postag="V.S.*" postag_regexp="yes"/></token>
+                </pattern>
+                <message>Se escribe con tilde si es una afirmación. Correcto si es una frase condicional.</message>
+                <suggestion>sí</suggestion>
+                <example correction="sí">Pues <marker>si</marker> hice el trabajo.</example>
+                <example correction="sí">Ahora <marker>si</marker> se puede, chicas.</example>
+                <example correction="sí">Esta vez <marker>si</marker> me ha importado el resultado.</example>
+                <example>Si quieres vivir mucho tiempo, deja de fumar.</example>
+                <example>Por ejemplo, si decimos:</example>
+                <example>Reparación y mantenimiento si surge algún problema en la garantía.</example>
+                <example>Agradeceré mucho si me facilitan mas informacion.</example>
+                <example>Acláreme, pastor, si estoy errado.</example>
+            </rule>
+        </rulegroup>
         <rulegroup id="PASO" name="paso/pasó">
             <rule>
                 <pattern>
@@ -9581,7 +10122,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
         </rulegroup>
     </category>
     <category id="MISSPELLING" name="Ortografía" type="misspelling">
-        <rulegroup id="D_ELA" name="errores ortográficos varios" default="temp_off">
+        <rulegroup id="D_ELA" name="revisar letra suelta: d, l, n">
             <rule>
                 <pattern>
                     <token>d</token>
@@ -9592,6 +10133,17 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example correction="De la"><marker>D ela</marker> noche a la mañana.</example>
             </rule>
             <rule>
+                <antipattern>
+                    <token case_sensitive="yes">D<exception scope="previous" postag="SENT_STAT"/></token>
+                </antipattern>
+                <antipattern>
+                    <token regexp="yes">.</token>
+                    <token>d</token>
+                </antipattern>
+                <antipattern>
+                    <token>d</token>
+                    <token regexp="yes">.</token>
+                </antipattern>
                 <pattern>
                     <marker>
                         <token>d</token>
@@ -9602,27 +10154,79 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example correction="de">Es el resultado <marker>d</marker> esta evaluación.</example>
             </rule>
             <rule>
+                <antipattern>
+                    <token>n</token>
+                    <token regexp="yes">\.|º|ª|/|\d+</token>
+                </antipattern>
+                <antipattern>
+                    <token regexp="yes">/|'</token>
+                    <token>n</token>
+                </antipattern>
+                <antipattern>
+                    <token case_sensitive="yes">N<exception scope="previous" postag="SENT_STAT"/></token>
+                </antipattern>
                 <pattern>
                     <marker>
-                        <token>n</token>
+                        <token>n<exception inflected="yes" regexp="yes">rock.*</exception></token>
                     </marker>
                     <token postag="(N.|A..)[MC][SN].*" postag_regexp="yes"/>
                 </pattern>
                 <message>¿Quería decir <suggestion>un</suggestion>?</message>
                 <suggestion>en</suggestion>
                 <example correction="un|en">Pero <marker>n</marker> caso no es el otro.</example>
+                <example>rock’n’roll</example>
             </rule>
             <rule>
+                <antipattern>
+                    <token>n</token>
+                    <token regexp="yes">\.|º|ª|/|\d+</token>
+                </antipattern>
+                <antipattern>
+                    <token regexp="yes">/|'</token>
+                    <token>n</token>
+                </antipattern>
+                <antipattern>
+                    <token case_sensitive="yes">N<exception scope="previous" postag="SENT_STAT"/></token>
+                </antipattern>
+                <antipattern>
+                    <token skip="4">n</token>
+                    <token>m</token>
+                </antipattern>
+                <antipattern>
+                    <token spacebefore="no">'</token>
+                    <token spacebefore="no">n</token>
+                </antipattern>
                 <pattern>
                     <marker>
-                        <token>n</token>
+                        <token>n<exception inflected="yes" regexp="yes">rock.*</exception></token>
                     </marker>
                     <token postag="[DAN].*" postag_regexp="yes"/>
                 </pattern>
                 <message>¿Quería decir <suggestion>en</suggestion>?</message>
                 <example correction="en">Pero <marker>n</marker> este caso no es así.</example>
+                <example>rock’n’roll</example>
+                <example>rock'n'roll</example>
+                <example>La Sonata para piano n.º 11 en la mayor, K. p. 155.</example>
+                <example>Andalucía s/n Polígono Ind.</example>
+                <example>n filas y m columnas</example>
             </rule>
             <rule>
+                <antipattern>
+                    <token regexp="yes">.</token>
+                    <token>l</token>
+                </antipattern>
+                <antipattern>
+                    <token>l</token>
+                    <token regexp="yes">.</token>
+                </antipattern>
+                <antipattern>
+                    <token regexp="yes">en|la</token>
+                    <token case_sensitive="yes">L</token>
+                </antipattern>
+                <antipattern>
+                    <token case_sensitive="yes">L</token>
+                    <token regexp="yes">\d+</token>
+                </antipattern>
                 <pattern>
                     <marker>
                         <token>l</token>
@@ -9633,6 +10237,18 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example correction="el">Pero <marker>l</marker> caso no es el mismo.</example>
             </rule>
             <rule>
+                <antipattern>
+                    <token regexp="yes">.</token>
+                    <token>l</token>
+                </antipattern>
+                <antipattern>
+                    <token>l</token>
+                    <token regexp="yes">.</token>
+                </antipattern>
+                <antipattern>
+                    <token regexp="yes">en|la</token>
+                    <token case_sensitive="yes">L</token>
+                </antipattern>
                 <pattern>
                     <marker>
                         <token>l</token>
@@ -9643,6 +10259,30 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example correction="la">Pero <marker>l</marker> mesa no está preparada.</example>
             </rule>
             <rule>
+                <antipattern>
+                    <token>l</token>
+                    <token regexp="yes">\.|’|'</token>
+                </antipattern>
+                <antipattern>
+                    <token regexp="yes">.|letras?</token>
+                    <token>l</token>
+                </antipattern>
+                <antipattern>
+                    <token>l</token>
+                    <token regexp="yes">.</token>
+                </antipattern>
+                <antipattern>
+                    <token regexp="yes">en|la</token>
+                    <token case_sensitive="yes">L</token>
+                </antipattern>
+                <antipattern>
+                    <token regexp="yes">\d[\d\.,]*</token>
+                    <token>l</token>
+                </antipattern>
+                <antipattern>
+                    <token regexp="yes">tallas?</token>
+                    <token case_sensitive="yes">L</token>
+                </antipattern>
                 <pattern>
                     <marker>
                         <token>l</token>
@@ -9651,6 +10291,8 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <message>¿Quería decir <suggestion>el</suggestion>?</message>
                 <suggestion>la</suggestion>
                 <example correction="el|la">Pero <marker>l</marker> coche no está preparado.</example>
+                <example>Cuatro Caballetes de chapa en L de 1,75x1,50 m.</example>
+                <example>MEGANE BIC 1.6 L PACK PLUS </example>
             </rule>
         </rulegroup>
         <rulegroup id="SUGERENCIAS_ANTE" name="error de ortografía: -ante">
@@ -10212,7 +10854,21 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 </pattern>
                 <message suppress_misspelled="yes">Probablemente se escribe junto.</message>
                 <suggestion><match no="3" regexp_match="(.+)" regexp_replace="anti$1"/></suggestion>
+                <suggestion><match no="3" regexp_match="(.+)" regexp_replace="antir$1"/></suggestion>
                 <example correction="anticariógenas">Son <marker>anti cariógenas</marker>.</example>
+                <example correction="antirruso"><marker>anti ruso</marker></example>
+                <example correction="antirrusas"><marker>anti-rusas</marker></example>
+            </rule>
+            <rule>
+                <pattern>
+                    <token>ciber</token>
+                    <token min="0">-</token>
+                    <token regexp="yes">..+</token>
+                </pattern>
+                <message suppress_misspelled="yes">Probablemente se escribe junto.</message>
+                <suggestion><match no="3" regexp_match="(.+)" regexp_replace="ciber$1"/></suggestion>
+                <example correction="cibercomercio">Es el <marker>ciber comercio</marker>.</example>
+                <example correction="cibercomercio">Es el <marker>ciber-comercio</marker>.</example>
             </rule>
             <rule>
                 <pattern>
@@ -10992,6 +11648,28 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <suggestion>\1\3</suggestion>
                 <example correction="sobreprotegen">Los padres la <marker>sobre protegen</marker>.</example>
             </rule>
+            <rule>
+                <pattern>
+                    <token>lanza</token>
+                    <token min="0">-</token>
+                    <token regexp="yes">misiles|cohetes</token>
+                </pattern>
+                <message>Como sustantivo se escriben junto</message>
+                <suggestion>\1\3</suggestion>
+                <url>https://www.fundeu.es/recomendacion/lanzamisiles-y-lanzacohetes-sin-separacion/</url>
+                <example correction="lanzamisiles">Un <marker>lanza misiles</marker></example>
+                <example correction="lanzamisiles">Un <marker>lanza-misiles</marker></example>
+            </rule>
+            <rule>
+                <pattern>
+                    <token>siempre</token>
+                    <token>-</token>
+                    <token regexp="yes">vivas?</token>
+                </pattern>
+                <message>Como sustantivo se escriben junto</message>
+                <suggestion>\1\3</suggestion>
+                <example correction="siemprevivas">Unas flores <marker>siempre-vivas</marker></example>
+            </rule>
         </rulegroup>
         <rule id="TIK_TOK" name="TikTok">
             <pattern>
@@ -11371,7 +12049,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <suggestion>haya \2 que haya</suggestion>
                 <example correction="haya lo que haya">Creo que me gustará <marker>halla lo que halla</marker>.</example>
             </rule>
-            <rule id="SE_HALLA_SE_HAYA" name="se halla / se haya" default="off">
+            <rule id="SE_HALLA_SE_HAYA" name="se halla / se haya" default="temp_off">
                 <!-- This will cause a lot of false alarms, but it could be a useful warning -->
                 <antipattern>
                     <token>halla</token>
@@ -11424,6 +12102,66 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <suggestion>haya</suggestion>
                 <example correction="haya">Si no quieren que <marker>halla</marker> más huelga, que se espabilen.</example>
                 <example correction="haya">Si no quieren que <marker>halla</marker> una huelga, que se espabilen.</example>
+            </rule>
+        </rulegroup>
+        <rulegroup id="SE_HALLA_SE_HAYA_PARTICIPIO" name="se halla / se haya">
+            <antipattern>
+                <token>halla</token>
+                <token postag="RG"/>
+                <token regexp="yes">cerca|lejos</token>
+            </antipattern>
+            <antipattern>
+                <token>en</token>
+                <token min="0" postag="DA.*" postag_regexp="yes"/>
+                <token regexp="yes" inflected="yes">que|cual</token>
+                <token>se</token>
+                <token>halla</token>
+            </antipattern>
+            <antipattern>
+                <token>,</token>
+                <token>que</token>
+            </antipattern>
+            <antipattern>
+                <token>,</token>
+                <token>el</token>
+                <token>cual</token>
+            </antipattern>
+            <rule>
+                <pattern>
+                    <token regexp="yes">que|cuando|cual|cuales</token>
+                    <marker>
+                        <token>se</token>
+                        <token>halla</token>
+                    </marker>
+                    <token postag="V.P..SM" postag_regexp="yes"/>
+                    <token regexp="yes">nada|algo|con|el|la|los|las|un|una|unos|unas</token>
+                </pattern>
+                <message>Correcto si es del v. 'hallarse' (=se encuentra, está). Incorrecto si es del v. 'haber'.</message>
+                <suggestion>se haya</suggestion>
+                <example correction="se haya">No parece que <marker>se halla</marker> comprado nada.</example>
+                <example correction="se haya">Nadie dice que <marker>se halla</marker> casado con ella.</example>
+                <example correction="se haya">No parece que <marker>se halla</marker> roto nada</example>
+                <example>El problema es que se halla demasiado lejos.</example>
+                <example>descubrirá que Rodríguez se halla implicado </example>
+                <example>El calor al que se halla sometido.</example>
+            </rule>
+            <rule>
+                <pattern>
+                    <token postag="SPS00|LOC_PREP" postag_regexp="yes"/>
+                    <!--<token postag="DA.*" postag_regexp="yes" min="0"/>-->
+                    <token>que</token>
+                    <marker>
+                        <token>se</token>
+                        <token>halla</token>
+                    </marker>
+                    <token postag="V.P..SM" postag_regexp="yes"/>
+                </pattern>
+                <message>Correcto si es del v. 'hallarse' (=se encuentra, está). Incorrecto si es del v. 'haber'.</message>
+                <suggestion>se haya</suggestion>
+                <example correction="se haya">La causa de que <marker>se halla</marker> castellanizado.</example>
+                <example>El problema es que se halla demasiado lejos.</example>
+                <example>descubrirá que Rodríguez se halla implicado </example>
+                <example>El calor al que se halla sometido.</example>
             </rule>
         </rulegroup>
         <rulegroup id="HAYA_HALLA" name="haya/halla">
@@ -11911,6 +12649,13 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             <example correction="Voy a contárselo"><marker>Voy contárselo</marker> todo.</example>
         </rule>
         <rulegroup id="ECHO_HECHO" name="*echo/hecho">
+            <antipattern case_sensitive="yes">
+                <token>Echo</token>
+                <token postag="UNKNOWN" regexp="yes">\p{Lu}.+</token>
+            </antipattern>
+            <antipattern>
+                <token postag="NPMSO00">Echo</token>
+            </antipattern>
             <rule>
                 <pattern>
                     <token inflected="yes" regexp="yes">ser|estar|parecer|resultar|este</token>
@@ -12487,6 +13232,12 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
         </rule>
         <rule id="DOS_VERBOS_MODALES" name="dos verbos modales seguidos" default="temp_off">
             <antipattern>
+                <token regexp="yes" inflected="yes">esperar|desear|rogar|solicitar|agradecer|acordar|ofrecer</token>
+                <token postag="&pronombre_personal_atono_POS;" postag_regexp="yes" min="0"/>
+                <token postag="V.S[IP](3S|3P|2S)0" postag_regexp="yes"/>
+                <example>Solicito se tengan como pruebas.</example>
+            </antipattern>
+            <antipattern>
                 <token inflected="yes" regexp="yes">seguir|continuar|proseguir|estar|ir</token>
                 <token postag="V.G.*" postag_regexp="yes"/>
             </antipattern>
@@ -12532,6 +13283,12 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             <!-- allowed missing "que" : que Dios quiere sean llevadas a cabo -->
         </rule>
         <rulegroup id="DOS_VERBOS" name="dos verbos juntos" default="temp_off">
+            <antipattern>
+                <token regexp="yes" inflected="yes">esperar|desear|rogar|solicitar|agradecer|acordar|ofrecer</token>
+                <token postag="&pronombre_personal_atono_POS;" postag_regexp="yes" min="0"/>
+                <token postag="V.S[IP](3S|3P|2S)0" postag_regexp="yes"/>
+                <example>Agradecería se mantenga en línea.</example>
+            </antipattern>
             <rule>
                 <pattern>
                     <token postag="SENT_START"/>
@@ -12761,6 +13518,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                     <marker>
                         <token>y<exception scope="previous">¿</exception></token>
                     </marker>
+                    <token min="0" postag="_QM_OPEN"/>
                     <token regexp="yes">h?[ií].*|y<exception regexp="yes">h?ih?[aeouáéóú].*</exception><!--Números romanos--><exception regexp="yes">[ivxlcdm]+|&words_H_ASPIRADA;|&words_H_ASPIRADA2;</exception></token>
                 </pattern>
                 <message>Cuando precede a palabras que comienzan por 'i', la conjunción 'y' se transforma en 'e'.</message>
@@ -12778,6 +13536,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                     <marker>
                         <token>e</token>
                     </marker>
+                    <token min="0" postag="_QM_OPEN"/>
                     <and>
                         <token regexp="yes">&words_H_ASPIRADA;|&words_H_ASPIRADA2;</token>
                         <token regexp="yes">hi.*</token>
@@ -12793,6 +13552,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                     <marker>
                         <token>e</token>
                     </marker>
+                    <token min="0" postag="_QM_OPEN"/>
                     <token regexp="yes">h?ih?[aeoáéó].*<exception regexp="yes">ia|iOS</exception></token>
                 </pattern>
                 <message>Cuando precede a palabras que comienzan con diptongo, se usa la conjunción 'y', no 'e'.</message>
@@ -12812,6 +13572,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                     <marker>
                         <token>o</token>
                     </marker>
+                    <token min="0" postag="_QM_OPEN"/>
                     <token regexp="yes">^h?[oó].*</token>
                 </pattern>
                 <message>Cuando precede a palabras que comienzan por 'o', la conjunción 'o' se transforma en 'u'.</message>
@@ -12824,6 +13585,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                     <marker>
                         <token>o</token>
                     </marker>
+                    <token min="0" postag="_QM_OPEN"/>
                     <token regexp="yes">8[,.\d]*</token>
                 </pattern>
                 <message>Cuando precede a palabras que comienzan por 'o', la conjunción 'o' se transforma en 'u'.</message>
@@ -12943,7 +13705,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             </rule>
             <rule>
                 <pattern>
-                    <token regexp="yes" inflected="yes">saber|preguntar|pedir|explicar|contar|decir|comprender|entender|desconocer|ignorar</token>
+                    <token regexp="yes" inflected="yes">saber|preguntar|pedir|explicar|contar|decir|comprender|entender|desconocer|ignorar|imaginar</token>
                     <token min="0" max="3" postag="RG|LOC_ADV" postag_regexp="yes"/>
                     <marker>
                         <token>por</token>
@@ -13027,6 +13789,20 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example correction="por qué">No tienes <marker>por que</marker> preocuparte.</example>
             </rule>
             <rule>
+                <pattern>
+                    <token>no</token>
+                    <token inflected="yes">haber</token>
+                    <marker>
+                        <token>por</token>
+                        <token>que</token>
+                    </marker>
+                    <token postag="V.N.*" postag_regexp="yes"/>
+                </pattern>
+                <message>La expresión correcta es "no haber por qué".</message>
+                <suggestion>por qué</suggestion>
+                <example correction="por qué">No hay <marker>por que</marker> preocuparse.</example>
+            </rule>
+            <rule>
                 <antipattern>
                     <token regexp="yes">el|un|algún|del|al</token>
                     <token>porqué</token>
@@ -13040,6 +13816,40 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example correction="por qué|porque">No puedo comprender <marker>porqué</marker> no vino.</example>
                 <example>Quiero saber el porqué.</example>
                 <example>Aún no se sabe la razón del porqué no va.</example>
+            </rule>
+            <rule default="temp_off">
+                <pattern>
+                    <token regexp="yes" inflected="yes">de|ocurrir|entender|pensar</token>
+                    <marker>
+                        <token>por</token>
+                        <token>que</token>
+                    </marker>
+                </pattern>
+                <message>¿Quería decir <suggestion>por qué</suggestion> ('por qué motivo')?</message>
+                <example correction="por qué">No tengo la menor idea de <marker>por que</marker> ha venido.</example>
+                <example correction="por qué">No se me ocurre <marker>por que</marker> razón.</example>
+            </rule>
+            <rule>
+                <antipattern>
+                    <token regexp="yes" inflected="yes">ansioso|deseoso|optar|preocupación|preocupar|rezar</token>
+                    <token>por</token>
+                    <token skip="5">que</token>
+                    <token postag="V.S.*" postag_regexp="yes"/>
+                </antipattern>
+                <antipattern>
+                    <token regexp="yes" inflected="yes">motivo|razón|causa</token>
+                    <token>por</token>
+                    <token>que</token>
+                </antipattern>
+                <pattern>
+                    <marker>
+                        <token>por</token>
+                        <token skip="-1">que</token>
+                    </marker>
+                    <token>?</token>
+                </pattern>
+                <message>¿Quería decir <suggestion>por qué</suggestion> ('por qué motivo') o <suggestion>porque</suggestion> ('por razón de que')?</message>
+                <example correction="por qué|porque">¿Recuerda ya <marker>por que</marker> estamos aquí?</example>
             </rule>
             <rule>
                 <antipattern>
@@ -13593,15 +14403,24 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             </rule>
             <rule>
                 <pattern>
-                    <token>en</token>
-                    <token>el</token>
-                    <token>caso</token>
-                    <token>que</token>
+                    <marker>
+                        <token>en</token>
+                        <token>el</token>
+                        <token>caso</token>
+                        <token skip="6">que<exception scope="next" postag="V.I.*" postag_regexp="yes"/></token>
+                    </marker>
+                    <token postag="V.S.*" postag_regexp="yes"><exception postag="V.I.*" postag_regexp="yes"/></token>
                 </pattern>
                 <message>Esta expresión siempre lleva la preposición 'de'.</message>
                 <suggestion>en el caso de que</suggestion>
                 <url>https://www.fundeu.es/recomendacion/a-pesar-de-que-no-a-pesar-que-617/</url>
                 <example correction="En el caso de que"><marker>En el caso que</marker> no sea posible, se hará en el patio.</example>
+                <example correction="En el caso de que"><marker>En el caso que</marker> estés buscando un producto que no encuentras, ponte en contacto con nosotros</example>
+                <example correction="En el caso de que"><marker>En el caso que</marker> haya transcurrido 24 horas, deberás rellenar el documento.</example>
+                <example correction="en el caso de que"> lo que prometió hacer <marker>en el caso que</marker> le desobedeciésemos.</example>
+                <example correction="En el caso de que"><marker>En el caso que</marker> esa campaña llegue al 1%.</example>
+                <example>En el caso que me comenta, no sabría decirle si es posible.</example>
+                <example>Así, en el caso que tratamos, ¿debe o no el Notario declarar heredero abintestato al cónyuge viudo conforme a la ley personal del causante?</example>
             </rule>
         </rulegroup>
         <rulegroup id="DEQUEISMO" name="dequeísmo" type="grammar" default="on">
@@ -14496,6 +15315,33 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example correction="personas">Son un conjunto de <marker>persona</marker>.</example>
                 <example>Participa en un grupo de teatro.</example>
                 <example>10 millones de forma semestral.</example>
+            </rule>
+        </rulegroup>
+        <rulegroup id="AGREEMENT_NUMERAL_GENDER" name="concordancia de género en numerales">
+            <url>https://www.fundeu.es/recomendacion/numerales-concordancia-1411/</url>
+            <rule>
+                <pattern>
+                    <marker>
+                        <token>veintiún</token>
+                    </marker>
+                    <token postag="N.F[PN].*|_GN_FP" postag_regexp="yes"/>
+                </pattern>
+                <message>Error de concordancia.</message>
+                <suggestion>veintiuna</suggestion>
+                <example correction="veintiuna">Vinieron <marker>veintiún</marker> personas.</example>
+            </rule>
+            <rule>
+                <pattern>
+                    <token postag="DN.*" postag_regexp="yes"/>
+                    <token>y</token>
+                    <marker>
+                        <token>un</token>
+                    </marker>
+                    <token postag="N.F[PN].*|_GN_FP" postag_regexp="yes"/>
+                </pattern>
+                <message>Error de concordancia.</message>
+                <suggestion>una</suggestion>
+                <example correction="una">Vinieron treinta y <marker>un</marker> personas.</example>
             </rule>
         </rulegroup>
         <rulegroup id="NOUN_PLURAL" name="nombre en plural">
@@ -17884,20 +18730,19 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example correction="conscientes">Acabarán por ser <marker>consciente</marker> de ello.</example>
             </rule>
         </rulegroup>
-        <rulegroup id="AGREEMENT_SER_ADJ_SG" name="concordancia: soy consciente" default="temp_off">
+        <rulegroup id="AGREEMENT_SER_ADJ_SG" name="concordancia: soy consciente">
             <rule>
                 <pattern>
                     <token postag="V.[SIM]..S." postag_regexp="yes" regexp="yes" inflected="yes">ser|estar|parecer</token>
-                    <marker>
-                        <token postag="AQ..P.|V.P..P." postag_regexp="yes"/>
-                    </marker>
+                    <token postag="AQ..P.|V.P..P." postag_regexp="yes"/>
                 </pattern>
                 <message>Posible error de concordancia.</message>
-                <suggestion suppress_misspelled="yes"><match no="2" postag="(AQ..|V.P..)P(.*)" postag_regexp="yes" postag_replace="$1S$2"/></suggestion>
-                <example correction="consciente">Soy <marker>conscientes</marker> de ello.</example>
-                <example correction="consciente">Sé <marker>conscientes</marker> de ello.</example>
+                <suggestion suppress_misspelled="yes">\1 <match no="2" postag="(AQ..|V.P..)P(.*)" postag_regexp="yes" postag_replace="$1S$2"/></suggestion>
+                <suggestion suppress_misspelled="yes"><match no="1" postag="(V.[SIM]..)S(.)" postag_regexp="yes" postag_replace="$1P$2" case_conversion="preserve"/> \2</suggestion>
+                <example correction="Soy consciente|Somos conscientes"><marker>Soy conscientes</marker> de ello.</example>
+                <example correction="Sé consciente|Sabemos conscientes|Sed conscientes"><marker>Sé conscientes</marker> de ello.</example>
             </rule>
-            <rule>
+            <rule default="temp_off">
                 <pattern>
                     <token postag="V.[SIM]..S." postag_regexp="yes"/>
                     <token min="0" regexp="yes">a|de|que|en|por</token>
@@ -20382,12 +21227,62 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
         </rule>
     </category>
     <category id="CONFUSIONS" name="Confusiones">
+        <rule id="ORIGINAL_ORIGINAR" name="original -> originar">
+            <pattern>
+                <token inflected="yes" regexp="yes">poder|deber|querer</token>
+                <marker>
+                    <token>original</token>
+                </marker>
+            </pattern>
+            <message>Posible confusión. ¿Quería decir <suggestion>originar</suggestion>?</message>
+            <example correction="originar">Podría <marker>original</marker> problemas.</example>
+        </rule>
+        <rule id="U_NO" name="u no -> uno">
+            <pattern>
+                <token>u</token>
+                <token>no</token>
+            </pattern>
+            <message>¿Quería decir <suggestion>uno</suggestion>?</message>
+            <example correction="Uno"><marker>U no</marker> de los casos más habituales.</example>
+        </rule>
+        <rule id="DESDE" name="des de -> desde">
+            <antipattern>
+                <token regexp="yes">no|nunca</token>
+                <token min="1" max="3" postag="&pronombre_personal_atono_POS;" postag_regexp="yes"/>
+                <token>des</token>
+            </antipattern>
+            <antipattern>
+                <token regexp="yes">no|nunca</token>
+                <token min="0" max="3" postag="&pronombre_personal_atono_POS;" postag_regexp="yes"/>
+                <token>des</token>
+                <token>de</token>
+                <token regexp="yes">beber|comer|mamar</token>
+            </antipattern>
+            <pattern>
+                <token>des</token>
+                <token>de</token>
+            </pattern>
+            <message>¿Quería decir <suggestion>desde</suggestion>?</message>
+            <example correction="Desde"><marker>Des de</marker> otra parte.</example>
+            <example>No te las des de valiente.</example>
+            <example>No des de comer a los gatos callejeros.</example>
+            <example>Nunca des de comer a un animal salvaje.</example>
+        </rule>
+        <rule id="DESDE_EL" name="des del -> desde el">
+            <pattern>
+                <token>des</token>
+                <token>del</token>
+            </pattern>
+            <message>¿Quería decir <suggestion>desde el</suggestion>?</message>
+            <example correction="Desde el"><marker>Des del</marker> otro lado.</example>
+        </rule>
         <rule id="CASA_CADA" name="casa -> cada">
             <pattern>
                 <marker>
                     <token>casa</token>
                 </marker>
-                <token postag="NC.S.*" postag_regexp="yes" regexp="yes">vez|uno|día|lado|paso|grupo|cual|noche|momento|palabra|mes|país|equipo|persona|semana|instante|minuto|caso|hora|hombre|segundo|mano|movimiento|cosa|individuo|miembro|detalle|extremo|nuevo|partido|esquina|punto|ocasión|jugador|rincón|episodio|centímetro|región|temporada|golpe|nivel|zona|elemento|estado|familia|ciudad|provincia|línea|canción|etapa|pieza|especie|cierto|casa|pueblo|lugar|frase|rato|personaje|par|kilómetro|generación|capítulo|edición|deporte|unidad|verano|clase|domingo|ser|página|mujer|sentido|categoría|sílaba|objeto|puerta|célula|letra|piso|hoja|distrito|brazo|jornada|gesto|libro|juego|sección|ciclo|comunidad|planta|época|programa|departamento|bando|dirección|nodo|fase|soldado|vuelta|ojo|ronda|nación|gota|escena|usuario|acción|piedra|ciudadano|serie|situación|carrera|nota|viaje|latido|participante|división|paciente|fin|ala|acto|torneo|partícula|cantón|rama|músculo|átomo|pareja|pie|bocado|tramo|posición|metro|sesión|área|sábado|ventana|sector|viernes|combate|tema|municipio|imagen|banda|cambio|tribu|oportunidad|aspecto|primavera|plato|cuarto|pregunta|respiración|flor|obra|disparo|segmento|dedo|componente|curva|batalla|fibra|sitio|mejilla|enfrentamiento|sistema|estudiante|escalón|columna|cuerpo|barrio|conferencia|mesa|historia|sonido|poro|evento|conjunto|verso|edificio|animal|calle|cliente|empresa|victoria|prueba|fila|vértice|película|nave|nombre|mundo|planeta|giro|vehículo|visita|bloque|localidad|elección|lunes|turno|artículo|alumno|cultura|capa|cámara|circunscripción|carta|territorio|período|ángulo|rostro|pensamiento|versión|integrante|campo|mitad|entidad|pista|canal|partida|parada|estrella|molécula|concierto|función|proyecto|disco|decisión|vida|fragmento|género|isla|hijo|barco|miércoles|costado|sexo|píxel|pared|jueves|álbum|celda|espacio|hombro|invierno|producto|candidato|ataque|oreja|intento|aldea|continente|artista|recodo|valor|sombra|salto|cuadro|respuesta|mirada|trabajador|población|curso|símbolo|centro|llave|coche|selección|estrofa|década|raza|instrumento|millón|sociedad|grado|liga|dólar|caja|iteración|periodo|orden|término|trozo|rueda|problema|reunión|milímetro|autor|siglo|proceso|pata|operación|posible|jugada|pulgada|eje|signo|rasgo|nervio|puerto|zancada|alma|sala|punta|ola|muerte|habitante|arma|carácter|amanecer|volumen|disciplina|víctima|cabeza|paquete|cruce|clan|ráfaga|prenda|fotograma|actuación|martes|reino|lengua|superficie|fecha|tarea|marca|embestida|regimiento|inspiración|hueso|aliento|semifinal|presentación|condado|repetición|grano|concursante|bocanada|parroquia|tienda|entrega|dispositivo|título|sacudida|pliegue|emisión|plano|roca|sujeto|pedazo|matiz|caricia|ruido|documento|centavo|secuencia|cilindro|lanzamiento|criatura|palo|máquina|institución|grieta|flanco|organización|agujero|invitado|vecino|trimestre|organismo|impacto|cromosoma|pierna|iglesia|gramo|copia|órgano|luchador|arco|actividad|servicio|semestre|gobierno|aplicación|trago|agente|lóculo|idioma|guerrero|caballo|porción|pisada|asiento|tren|comensal|foto|arista|gen|derrota|colonia|batallón|variable|salida|cadena|pelo|beso|primer|acontecimiento|núcleo|mensaje|universidad|tubo|moneda|dios|circunstancia|arbusto|regata|bit|arruga|grito|facción|empate|atardecer|vuelo|luna|corte|conversación|legión|contacto|idea|párrafo|manzana|botella|silla|nudo|campeonato|asesinato|voz|transacción|materia|jefe|intervalo|experiencia|suceso|rey|revolución|panel|empleado|capital|avión|pasajero|expresión|buque|brizna|base|archivo|vaso|tallo|extremidad|asociación|prisionero|milla|banco|tabla|inhalación|perro|módulo|error|circuito|Navidad|tercer|sustancia|ejército|ejercicio|círculo|hilo|hemisferio|uso|pasillo|hilera|tiro|especialidad|cuerda|cama|caballero|bala|aparato|rayo|modo|hembra|formación|roce|fachada|sorbo|recoveco|plataforma|motor|lector|esclavo|dígito|aniversario|actor|representación|esfera|variedad|rellano|fuerza|fotografía|escenario|carga|agrupación|rotación|papel|intersección|descarga|anillo|tomo|registro|plaza|hermano|votante|show|religión|propietario|placa|escuadrón|entrenador|compás|relación|pausa|maldito|copa|final|facultad|brazada|bache|relato|casilla|visitante|orilla|oración|gala|estancia|diente|cuadrado|crimen|bolsillo|soplo|electrón|diócesis|tarjeta|pulsación|impulso|fiesta|estructura|espectador|edad|dato|voto|lateral|federación|factor|combinación|articulación|mueble|fracción|explosión|espectáculo|esfuerzo|estadio|corredor|chico|carro|veinticinco|taza|pelotón|legislatura|hueco|emoción|cadáver|poste|madrugada|jinete|herida|dominio|deseo|céntimo|corazón|bolsa|valle|universo|penique|parcela|lóbulo|diputado|centuria|bote|anochecer|tonelada|socio|semilla|poema|muro|juez|huevo|elector|aparición|humano|asunto|sonrisa|sensación|pluma|músico|macho|instrucción|conductor|botón|set|pétalo|novela|lección|delegación|competición|borde|billete|avance|tecla|puente|oído|montón|modalidad|jurisdicción|faceta|exhalación|escama|pilar|neurona|lágrima|eslabón|doscientos|crujido|órbita|trazo|comentario|brigada|asalto|subgrupo|pájaro|kilogramo|cuadrante|apartamento|vector|tirón|puntada|hoyo|hebra|enfermedad|embarcación|aminoácido|tumba|pixel|longitud|informe|incidente|finalista|establecimiento|cuadra|civilización|publicación|mediodía|medida|litro|instancia|concepto|barra|tono|subconjunto|remo|red|petición|pantalla|observador|mandíbula|jurado|interpretación|ficha|dibujo|conexión|cajón|bola|operador|lote|guardia|contendiente|cargo|saco|poblado|parto|mancha|flecha|estrato|ejecución|andén|toque|ruta|pulso|pecho|parpadeo|lectura|escritor|eliminatoria|cabello|aventura|venta|texto|tejido|solución|reacción|pintura|pasaje|mordisco|mercado|maestro|lámina|libra|frecuencia|expedición|cifra|asignatura|ítem|variante|sentimiento|renglón|peso|noticia|gemido|competencia|capitán|robot|ordenador|opción|onda|muchacho|exposición|dimensión|cuento|cohorte|cinta|bancada|automóvil|oficina|mínimo|muchacha|surco|santo|producción|orificio|obrero|escala|enlace|enemigo|configuración|competidor|argumento|terminal|satélite|resquicio|palada|noventa|método|ministerio|marco|intervención|fotón|ensayo|cosecha|contracción|baile|vértebra|viajero|tormenta|servidor|resultado|rango|posibilidad|pelea|nicho|kilo|intérprete|héroe|experimento|entrevista|cuestión|barril|azote|agosto|vena|trayecto|río|periódico|gol|fenómeno|estocada|dolor|comité|cita|callejón|triángulo|sacerdote|rodilla|proyectil|pila|mapa|espíritu|ciclón|campesino|cabecera|arremetida|último|suspiro|residente|república|raíz|profesor|profesión|preso|oveja|oficio|observación|nube|monje|metal|herramienta|fruto|fracaso|descubrimiento|desafío|confederación|comisión|acceso|vocal|vela|ubicación|técnica|trama|sencillo|recorrido|propuesta|portal|oscilación|marea|consumidor|colono|tripulante|párpado|presidente|monasterio|mente|margen|líder|lenguaje|latigazo|guerra|ecuación|cristal|cofradía|acometida|accidente|viga|variación|senador|regla|polo|pincelada|perfil|navío|marinero|maniobra|mago|gira|franja|estallido|desplazamiento|cucharada|cable|atributo|pozo|parque|obispo|ministro|jaula|ingrediente|huésped|contingente|comandante|ceremonia|cartucho|visión|túnel|tronco|traje|subunidad|rendija|pseudobulbo|policía|onza|oleada|legua|gremio|estante|diciembre|destello|delito|cuánto|cristiano|contexto|consulta|constelación|consejo|comprador|camión|adulto|teoría|sendero|pizca|noviembre|mota|mechón|legionario|galaxia|frasco|enero|empujón|director|código|cubo|congregación|compartimento|castillo|canto|campeón|campamento|ave|anuncio|verticilo|varón|trocito|tierra|septiembre|reto|proteína|progenitor|plan|patrón|palma|oponente|nacimiento|médico|monarca|matrimonio|fábrica|escudo|escuadra|embarazo|destino|clavo|celebración|camada|atleta|relámpago|procesador|pedacito|obstáculo|matorral|linaje|interacción|haz|etnia|embate|dosis|discurso|dia|declaración|cuenco|consola|causa|byte|bulto|aspirante|armario|alimento|aeronave|vídeo|vampiro|transmisión|recurso|receptor|realidad|quincena|olor|gato|fosa|determinado|compuesto|ciencia|cazador|cavidad|abertura|tajo|solicitud|sien|retrato|pecado|necesidad|hotel|gas|estatua|estamento|dieciocho|colección|balanceo|bailarín|aumento|afirmación|zapato|trecho|toro|tendón|semáforo|secreto|productor|postura|negocio|manípulo|ley|km|jugadora|ion|indio|impresión|ganador|fórmula|fonema|emperador|creyente|copo|composición|combatiente|comarca|cláusula|chelín|carpelo|cantante|brote|bandeja|aspiración|abrazo|video|vaivén|taxón|susurro|silencio|restaurante|recta|quinientos|prefectura|personalidad|octubre|nacionalidad|investigación|información|industria|incursión|espécimen|escalera|encarnación|crisis|convocatoria|confesión|compositor|compartimiento|clic|choza|barracón|apuesta|alemán|ámbito|sub|rollo|revista|reloj|protagonista|potencia|parámetro|mandoble|hechizo|fichero|euro|etiqueta|espejo|control|casta|carril|cabina|bestia|videojuego|sollozo|pez|misil|legislación|juicio|instalación|inflexión|galería|fruta|formato|expediente|dificultad|despertar|clave|cerdo|catorce|bombo|asistente|administración|válvula|vendedor|tribunal|tratamiento|transición|tornillo|terminación|teléfono|salón|saliente|revisión|representante|referencia|recinto|ramita|proposición|promoción|poder|pliego|máscara|mayo|lucha|jadeo|hendidura|envío|ejemplo|descanso|concurso|choque|censo|casco|campanada|asentamiento|arquero|CD|velada|vaca|triunfo|subdivisión|sentencia|sello|reserva|recipiente|pólipo|príncipe|pedido|paseo|ondulación|modificación|mochuelo|lienzo|gobernador|esposa|depósito|denominación|cónyuge|contrato|computadora|candidatura|bar|agencia|transformación|testigo|terraza|tercio|revelación|pérdida|puta|principio|poeta|patada|mástil|milenio|medición|maxilar|manifestación|lámpara|losa|incremento|funcionario|flujo|escultura|entorno|costilla|corporación|contenedor|construcción|conflicto|colisión|cicatriz|cadera|votación|veintiocho|racimo|polinomio|peregrino|partición|localización|investigador|huella|hectárea|habilidad|guijarro|grabación|film|examen|estremecimiento|dialecto|detonación|descripción|cresta|conquista|comienzo|comerciante|comando|cigarrillo|certamen|bocacalle|bifurcación|batería|barrido|alto|altar|aeropuerto|actualización|acierto|éxito|versículo|unión|torreta|tanda|rumor|regalo|proyección|misterio|misa|manuscrito|lago|laboratorio|inmersión|inicio|fusil|festividad|encuesta|dama|conciencia|cerebro|carpeta|cargamento|bucle|aula|tradición|temblor|submarino|recluta|rebote|procedimiento|premio|monstruo|migaja|julio|irregularidad|hierba|hablante|estantería|espiración|deidad|cultivo|cuenca|cuadrilla|cruz|criminal|corona|consonante|condición|codo|cocinero|chasquido|carcajada|bota|bandera|balcón|arroyo|ápice|virtud|vibración|tirador|tejado|rol|regreso|rastro|quisque|presión|plancha|pico|paisaje|pago|orbital|montículo|mercancía|mentira|lata|insulto|hormiga|hoguera|farola|espasmo|escaparate|efecto|dependencia|danza|cápsula|cena|auto|alelo|CPU|tripulación|trampa|tic|terreno|teatro|tablero|séptimo|subsistema|setenta|resto|reinado|receta|pupila|punzada|pernera|oyente|ochenta|monómero|lobo|liguilla|juntura|interrupción|franquicia|firma|filamento|estrategia|escondrijo|enano|discípulo|dinastía|complejo|cima|ciclista|chimenea|cardenal|baldosa|autonomía|apartado|antena|andanada|verdad|valva|truco|transeúnte|tobillo|síntoma|solsticio|sol|sensor|régimen|rata|radiador|proveedor|primo|practicante|plantel|pintor|palpitación|nucleótido|minúsculo|mina|masa|lente|junio|isótopo|generador|galera|fármaco|entrenamiento|encrucijada|deportista|cónsul|coyuntura|costura|convoy|comparsa|cantidad|bobina|bienio|baza|bahía|areola|aleteo|ver|santuario|réplica|runa|reflexión|puto|progreso|profesional|playa|pinchazo|perspectiva|pelota|participación|paletada|ordenamiento|orador|opinión|ocurrencia|novedad|nidada|narración|mónada|locus|lance|kg|implementación|hondonada|globo|garra|flota|febrero|eyaculación|exhibición|elevación|delegado|corto|correo|contribuyente|consejero|chip|centenar|capitel|candidata|borda|bebé|barca|anotación|aguja|ademán|acusación|óvulo|viento|sucesiva|subida|subespecie|sacrificio|sabor|rotor|remero|reflejo|ranura|platillo|pirámide|percepción|parlamentario|ocupante|navegador|nalga|mutación|municipalidad|mol|luchadora|litera|leve|invocación|intercambio|ilustración|historieta|heredero|fallo|expansión|equis|emplazamiento|emirato|electrodo|duelo|despacho|depresión|debate|cubículo|concesión|colectivo|coeficiente|cinturón|charco|cepa|centurión|celdilla|cabo|burbuja|bráctea|bebida|batir|bandazo|axila|autoridad|ascenso|asamblea|apertura|antebrazo|amor|alianza|activo|acera|abril|vocablo|ventanilla|varilla|vano|trayectoria|tendencia|tablón|sugerencia|sillón|retroceso|rectángulo|ramo|quinto|quintal|pulmón|práctica|posta|portada|pormenor|polígono|permutación|periodista|pergamino|peligro|patrulla|oferta|negro|monte|mito|melodía|mejora|medalla|mandato|manada|leyenda|lanza|interfaz|hélice|filtro|fiel|fascículo|extensión|envite|enunciado|encabezado|décimo|docena|diálogo|divinidad|diminuto|difunto|diferencia|descenso|descansillo|demonio|cúpula|cuaderno|crepúsculo|coordenada|contribución|constructor|cono|congreso|coalición|clon|chiste|carretilla|bruja|boleto|arte|adversario|adorno|acre|yarda|tentativa|taberna|sucesivo|subintervalo|remache|raya|radio|protón|pincel|peón|pezón|pala|norma|naipe|musulmán|muslo|murmullo|milésima|medicamento|martillazo|magistrado|joya|interlocutor|indicio|hechicero|gobernación|gancho|futbolista|folio|feria|factura|estímulo|estribillo|espada|envase|ente|doloroso|diagrama|detector|despedida|cuello|controlador|contrincante|colectividad|captura|capricho|brinco|brecha|bajada|avenida|asociado|arteria|aposento|ambiente|alternativa|aerolínea|viraje|vertiente|verbo|umbral|transferencia|tesoro|súbdito|sucesión|subred|suave|soberano|sindicato|reducción|recámara|recital|pilastra|piel|pasadizo|parlamento|operario|muesca|morfismo|lustro|loma|jeroglífico|insecto|infracción|inflorescencia|hipótesis|grafo|futuro|frame|folículo|fajo|estaca|espiguilla|espermatozoide|encargo|empleo|embrión|discusión|destinatario|destacamento|cumbre|cuerno|crítica|creencia|constante|comunicación|certificado|cerradura|caza|campana|camello|camarote|brindis|borrador|bogie|atolón|altura|aleta|abeja|vara|vaina|utensilio|tributo|tictac|senda|romano|rizo|revólver|revés|retazo|residuo|reo|renovación|recuento|rebanada|profeta|político|pastilla|papeleta|paloma|norteamericano|millar|mexicano|metámero|marzo|marcador|logro|lazo|inserción|host|homicidio|guía|guardián|guante|gemelo|galón|foco|favor|faro|faraón|explicación|evangelio|espina|espiga|enigma|edificación|dragón|distribución|defensor|cría|crucero|cromátida|cola|chorro|carnero|callejuela|búsqueda|broma|autobús|ataúd|artefacto|anciano|altavoz|agricultor|índice|violación|vello|vecindario|turista|trueno|tropiezo|trastorno|torreón|tonalidad|timbrazo|suscriptor|sucursal|soporte|respiro|res|remolino|relieve|reinicio|recuadro|ramificación|ración|pocillo|pistón|perla|parche|papa|olla|nudillo|neumático|narrador|mosca|mercader|legislador|interno|iniciativa|hilada|hallazgo|grada|fondo|filme|fanega|falange|estornudo|espiral|escaque|enrutador|ecosistema|directorio|desarrollador|defecto|cuchillo|corregimiento|coro|contingencia|cohete|claro|chupada|cheque|centinela|carrete|carbono|buey|bodega|beneficiario|astronauta|astro|arroba|arcada|apéndice|aprendiz|amonestación|adoquín|accionista|DVD|ángel|vidriera|vestíbulo|vereda|veintiséis|trineo|trato|traducción|test|tentáculo|techo|sprint|sospechoso|servilleta|sepulcro|separación|secta|rubro|reparto|rampa|pupitre|protuberancia|protocolo|promesa|potencial|polis|pasaporte|mula|mineral|milagro|miga|logia|lluvia|licencia|lento|labor|kilovatio|kWh|juzgado|jarra|inyección|instituto|hornada|hachazo|grafema|funeral|expiración|estreno|estanque|escritorio|entonación|empellón|emparejamiento|emisor|diapositiva|desvío|desayuno|demarcación|cuadrícula|cráter|cráneo|criterio|creación|cornisa|conjuro|conclusión|concha|codón|científico|carroza|capullo|canasta|campus|camisa|bulbo|barranco|bacteria|artesano|análisis|antiguo|alteración|árbitro|veintitrés|vacuna|trofeo|trenza|transmisor|tragedia|track|temperatura|televisor|tecnología|tarro|tapa|tambor|supuesto|suma|subtipo|sombrero|seto|serpiente|seno|saludo|router|ritmo|retraso|reportaje|ramal|postulante|pistilo|pinna|perforación|penetración|pedúnculo|neutrón|micrófono|merindad|mención|medianoche|mecanismo|matojo|marido|mar|lápida|led|latitud|lancha|jarrón|inversor|intendencia|instrumentista|inquilino|inmigrante|infante|indicador|fuselaje|fuego|folíolo|flexión|experto|excursión|exclamación|evolución|eventualidad|estándar|estudioso|estribo|estandarte|espín|espartano|escotilla|emblema|elfo|donante|dentario|demostración|debilidad|cuervo|cortina|convulsión|conducto|comisaría|combustible|colmillo|colaborador|clasificación|cine|chacra|cesta|cerveza|catedral|caserío|carreta|cargador|breve|axón|aurora|atracción|asesino|apellido|anécdota|ano|anaquel|algoritmo|alambre|adolescente|adaptación|acusado|actriz|zambullida|vástago|ventaja|vasija|valla|uniforme|trirreme|traslado|tranco|tortuga|testimonio|terrón|tazón|taxi|tablilla|suite|substancia|sorteo|silueta|sermón|salva|salpicadura|ruso|ruptura|robo|risco|reencarnación|razón|ratón|rally|púa|préstamo|princesa|pretendiente|premaxilar|polvo|pirata|pedestal|pedalada|pastel|panelista|ovario|orgasmo|océano|nevada|negativo|negativa|muelle|mueca|mudanza|montaje|molde|minero|miedo|magnitud|madriguera|macrobloque|macizo|líquido|límite|licitador|lecho|labio|inversión|interrogatorio|instantánea|inspección|indicación|inclinación|imperio|hábito|horizonte|heroína|helicóptero|guion|gráfico|granito|gotita|gorrión|gigante|garganta|fronda|foliolo|ferrocarril|existencia|estertor|estampido|esperanza|espectro|esclusa|equinoccio|entierro|engranaje|enfoque|enclave|empuje|duda|domicilio|dolorosa|disputa|dintel|diecinueve|diamante|diagonal|detenido|desastre|demanda|definición|decepción|decenio|cúmulo|creador|copla|contorno|conquistador|conejo|condenado|compromiso|clado|circunferencia|ceja|cazuela|caverna|cautivo|caudillo|calibre|cabeceo|bóveda|bombilla|barrote|azulejo|atentado|ascensor|armónico|apóstol|anfitrión|aficionado|adquisición|acuerdo|nochebuena|junta|jedi|Pascua</token>
+                <token postag="NC.S.*" postag_regexp="yes" regexp="yes"
+                    >vez|uno|día|lado|paso|grupo|cual|noche|momento|palabra|mes|país|equipo|persona|semana|instante|minuto|caso|hora|hombre|segundo|mano|movimiento|cosa|individuo|miembro|detalle|extremo|nuevo|partido|esquina|punto|ocasión|jugador|rincón|episodio|centímetro|región|temporada|golpe|nivel|zona|elemento|estado|familia|ciudad|provincia|línea|canción|etapa|pieza|especie|cierto|casa|pueblo|lugar|frase|rato|personaje|par|kilómetro|generación|capítulo|edición|deporte|unidad|verano|clase|domingo|ser|página|mujer|sentido|categoría|sílaba|objeto|puerta|célula|letra|piso|hoja|distrito|brazo|jornada|gesto|libro|juego|sección|ciclo|comunidad|planta|época|programa|departamento|bando|dirección|nodo|fase|soldado|vuelta|ojo|ronda|nación|gota|escena|usuario|acción|piedra|ciudadano|serie|situación|carrera|nota|viaje|latido|participante|división|paciente|fin|ala|acto|torneo|partícula|cantón|rama|músculo|átomo|pareja|pie|bocado|tramo|posición|metro|sesión|área|sábado|ventana|sector|viernes|combate|tema|municipio|imagen|banda|cambio|tribu|oportunidad|aspecto|primavera|plato|cuarto|pregunta|respiración|flor|obra|disparo|segmento|dedo|componente|curva|batalla|fibra|sitio|mejilla|enfrentamiento|sistema|estudiante|escalón|columna|cuerpo|barrio|conferencia|mesa|historia|sonido|poro|evento|conjunto|verso|edificio|animal|calle|cliente|empresa|victoria|prueba|fila|vértice|película|nave|nombre|mundo|planeta|giro|vehículo|visita|bloque|localidad|elección|lunes|turno|artículo|alumno|cultura|capa|cámara|circunscripción|carta|territorio|período|ángulo|rostro|pensamiento|versión|integrante|campo|mitad|entidad|pista|canal|partida|parada|estrella|molécula|concierto|función|proyecto|disco|decisión|vida|fragmento|género|isla|hijo|barco|miércoles|costado|sexo|píxel|pared|jueves|álbum|celda|espacio|hombro|invierno|producto|candidato|ataque|oreja|intento|aldea|continente|artista|recodo|valor|sombra|salto|cuadro|respuesta|mirada|trabajador|población|curso|símbolo|centro|llave|coche|selección|estrofa|década|raza|instrumento|millón|sociedad|grado|liga|dólar|caja|iteración|periodo|orden|término|trozo|rueda|problema|reunión|milímetro|autor|siglo|proceso|pata|operación|posible|jugada|pulgada|eje|signo|rasgo|nervio|puerto|zancada|alma|sala|punta|ola|muerte|habitante|arma|carácter|amanecer|volumen|disciplina|víctima|cabeza|paquete|cruce|clan|ráfaga|prenda|fotograma|actuación|martes|reino|lengua|superficie|fecha|tarea|marca|embestida|regimiento|inspiración|hueso|aliento|semifinal|presentación|condado|repetición|grano|concursante|bocanada|parroquia|tienda|entrega|dispositivo|título|sacudida|pliegue|emisión|plano|roca|sujeto|pedazo|matiz|caricia|ruido|documento|centavo|secuencia|cilindro|lanzamiento|criatura|palo|máquina|institución|grieta|flanco|organización|agujero|invitado|vecino|trimestre|organismo|impacto|cromosoma|pierna|iglesia|gramo|copia|órgano|luchador|arco|actividad|servicio|semestre|gobierno|aplicación|trago|agente|lóculo|idioma|guerrero|caballo|porción|pisada|asiento|tren|comensal|foto|arista|gen|derrota|colonia|batallón|variable|salida|cadena|pelo|beso|primer|acontecimiento|núcleo|mensaje|universidad|tubo|moneda|dios|circunstancia|arbusto|regata|bit|arruga|grito|facción|empate|atardecer|vuelo|luna|corte|conversación|legión|contacto|idea|párrafo|manzana|botella|silla|nudo|campeonato|asesinato|voz|transacción|materia|jefe|intervalo|experiencia|suceso|rey|revolución|panel|empleado|capital|avión|pasajero|expresión|buque|brizna|base|archivo|vaso|tallo|extremidad|asociación|prisionero|milla|banco|tabla|inhalación|perro|módulo|error|circuito|Navidad|tercer|sustancia|ejército|ejercicio|círculo|hilo|hemisferio|uso|pasillo|hilera|tiro|especialidad|cuerda|cama|caballero|bala|aparato|rayo|modo|hembra|formación|roce|fachada|sorbo|recoveco|plataforma|motor|lector|esclavo|dígito|aniversario|actor|representación|esfera|variedad|rellano|fuerza|fotografía|escenario|carga|agrupación|rotación|papel|intersección|descarga|anillo|tomo|registro|plaza|hermano|votante|show|religión|propietario|placa|escuadrón|entrenador|compás|relación|pausa|maldito|copa|final|facultad|brazada|bache|relato|casilla|visitante|orilla|oración|gala|estancia|diente|cuadrado|crimen|bolsillo|soplo|electrón|diócesis|tarjeta|pulsación|impulso|fiesta|estructura|espectador|edad|dato|voto|lateral|federación|factor|combinación|articulación|mueble|fracción|explosión|espectáculo|esfuerzo|estadio|corredor|chico|carro|veinticinco|taza|pelotón|legislatura|hueco|emoción|cadáver|poste|madrugada|jinete|herida|dominio|deseo|céntimo|corazón|bolsa|valle|universo|penique|parcela|lóbulo|diputado|centuria|bote|anochecer|tonelada|socio|semilla|poema|muro|juez|huevo|elector|aparición|humano|asunto|sonrisa|sensación|pluma|músico|macho|instrucción|conductor|botón|set|pétalo|novela|lección|delegación|competición|borde|billete|avance|tecla|puente|oído|montón|modalidad|jurisdicción|faceta|exhalación|escama|pilar|neurona|lágrima|eslabón|doscientos|crujido|órbita|trazo|comentario|brigada|asalto|subgrupo|pájaro|kilogramo|cuadrante|apartamento|vector|tirón|puntada|hoyo|hebra|enfermedad|embarcación|aminoácido|tumba|pixel|longitud|informe|incidente|finalista|establecimiento|cuadra|civilización|publicación|mediodía|medida|litro|instancia|concepto|barra|tono|subconjunto|remo|red|petición|pantalla|observador|mandíbula|jurado|interpretación|ficha|dibujo|conexión|cajón|bola|operador|lote|guardia|contendiente|cargo|saco|poblado|parto|mancha|flecha|estrato|ejecución|andén|toque|ruta|pulso|pecho|parpadeo|lectura|escritor|eliminatoria|cabello|aventura|venta|texto|tejido|solución|reacción|pintura|pasaje|mordisco|mercado|maestro|lámina|libra|frecuencia|expedición|cifra|asignatura|ítem|variante|sentimiento|renglón|peso|noticia|gemido|competencia|capitán|robot|ordenador|opción|onda|muchacho|exposición|dimensión|cuento|cohorte|cinta|bancada|automóvil|oficina|mínimo|muchacha|surco|santo|producción|orificio|obrero|escala|enlace|enemigo|configuración|competidor|argumento|terminal|satélite|resquicio|palada|noventa|método|ministerio|marco|intervención|fotón|ensayo|cosecha|contracción|baile|vértebra|viajero|tormenta|servidor|resultado|rango|posibilidad|pelea|nicho|kilo|intérprete|héroe|experimento|entrevista|cuestión|barril|azote|agosto|vena|trayecto|río|periódico|gol|fenómeno|estocada|dolor|comité|cita|callejón|triángulo|sacerdote|rodilla|proyectil|pila|mapa|espíritu|ciclón|campesino|cabecera|arremetida|último|suspiro|residente|república|raíz|profesor|profesión|preso|oveja|oficio|observación|nube|monje|metal|herramienta|fruto|fracaso|descubrimiento|desafío|confederación|comisión|acceso|vocal|vela|ubicación|técnica|trama|sencillo|recorrido|propuesta|portal|oscilación|marea|consumidor|colono|tripulante|párpado|presidente|monasterio|mente|margen|líder|lenguaje|latigazo|guerra|ecuación|cristal|cofradía|acometida|accidente|viga|variación|senador|regla|polo|pincelada|perfil|navío|marinero|maniobra|mago|gira|franja|estallido|desplazamiento|cucharada|cable|atributo|pozo|parque|obispo|ministro|jaula|ingrediente|huésped|contingente|comandante|ceremonia|cartucho|visión|túnel|tronco|traje|subunidad|rendija|pseudobulbo|policía|onza|oleada|legua|gremio|estante|diciembre|destello|delito|cuánto|cristiano|contexto|consulta|constelación|consejo|comprador|camión|adulto|teoría|sendero|pizca|noviembre|mota|mechón|legionario|galaxia|frasco|enero|empujón|director|código|cubo|congregación|compartimento|castillo|canto|campeón|campamento|ave|anuncio|verticilo|varón|trocito|tierra|septiembre|reto|proteína|progenitor|plan|patrón|palma|oponente|nacimiento|médico|monarca|matrimonio|fábrica|escudo|escuadra|embarazo|destino|clavo|celebración|camada|atleta|relámpago|procesador|pedacito|obstáculo|matorral|linaje|interacción|haz|etnia|embate|dosis|discurso|dia|declaración|cuenco|consola|causa|byte|bulto|aspirante|armario|alimento|aeronave|vídeo|vampiro|transmisión|recurso|receptor|realidad|quincena|olor|gato|fosa|determinado|compuesto|ciencia|cazador|cavidad|abertura|tajo|solicitud|sien|retrato|pecado|necesidad|hotel|gas|estatua|estamento|dieciocho|colección|balanceo|bailarín|aumento|afirmación|zapato|trecho|toro|tendón|semáforo|secreto|productor|postura|negocio|manípulo|ley|km|jugadora|ion|indio|impresión|ganador|fórmula|fonema|emperador|creyente|copo|composición|combatiente|comarca|cláusula|chelín|carpelo|cantante|brote|bandeja|aspiración|abrazo|video|vaivén|taxón|susurro|silencio|restaurante|recta|quinientos|prefectura|personalidad|octubre|nacionalidad|investigación|información|industria|incursión|espécimen|escalera|encarnación|crisis|convocatoria|confesión|compositor|compartimiento|clic|choza|barracón|apuesta|alemán|ámbito|sub|rollo|revista|reloj|protagonista|potencia|parámetro|mandoble|hechizo|fichero|euro|etiqueta|espejo|control|casta|carril|cabina|bestia|videojuego|sollozo|pez|misil|legislación|juicio|instalación|inflexión|galería|fruta|formato|expediente|dificultad|despertar|clave|cerdo|catorce|bombo|asistente|administración|válvula|vendedor|tribunal|tratamiento|transición|tornillo|terminación|teléfono|salón|saliente|revisión|representante|referencia|recinto|ramita|proposición|promoción|poder|pliego|máscara|mayo|lucha|jadeo|hendidura|envío|ejemplo|descanso|concurso|choque|censo|casco|campanada|asentamiento|arquero|CD|velada|vaca|triunfo|subdivisión|sentencia|sello|reserva|recipiente|pólipo|príncipe|pedido|paseo|ondulación|modificación|mochuelo|lienzo|gobernador|esposa|depósito|denominación|cónyuge|contrato|computadora|candidatura|bar|agencia|transformación|testigo|terraza|tercio|revelación|pérdida|puta|principio|poeta|patada|mástil|milenio|medición|maxilar|manifestación|lámpara|losa|incremento|funcionario|flujo|escultura|entorno|costilla|corporación|contenedor|construcción|conflicto|colisión|cicatriz|cadera|votación|veintiocho|racimo|polinomio|peregrino|partición|localización|investigador|huella|hectárea|habilidad|guijarro|grabación|film|examen|estremecimiento|dialecto|detonación|descripción|cresta|conquista|comienzo|comerciante|comando|cigarrillo|certamen|bocacalle|bifurcación|batería|barrido|alto|altar|aeropuerto|actualización|acierto|éxito|versículo|unión|torreta|tanda|rumor|regalo|proyección|misterio|misa|manuscrito|lago|laboratorio|inmersión|inicio|fusil|festividad|encuesta|dama|conciencia|cerebro|carpeta|cargamento|bucle|aula|tradición|temblor|submarino|recluta|rebote|procedimiento|premio|monstruo|migaja|julio|irregularidad|hierba|hablante|estantería|espiración|deidad|cultivo|cuenca|cuadrilla|cruz|criminal|corona|consonante|condición|codo|cocinero|chasquido|carcajada|bota|bandera|balcón|arroyo|ápice|virtud|vibración|tirador|tejado|rol|regreso|rastro|quisque|presión|plancha|pico|paisaje|pago|orbital|montículo|mercancía|mentira|lata|insulto|hormiga|hoguera|farola|espasmo|escaparate|efecto|dependencia|danza|cápsula|cena|auto|alelo|CPU|tripulación|trampa|tic|terreno|teatro|tablero|séptimo|subsistema|setenta|resto|reinado|receta|pupila|punzada|pernera|oyente|ochenta|monómero|lobo|liguilla|juntura|interrupción|franquicia|firma|filamento|estrategia|escondrijo|enano|discípulo|dinastía|complejo|cima|ciclista|chimenea|cardenal|baldosa|autonomía|apartado|antena|andanada|verdad|valva|truco|transeúnte|tobillo|síntoma|solsticio|sol|sensor|régimen|rata|radiador|proveedor|primo|practicante|plantel|pintor|palpitación|nucleótido|minúsculo|mina|masa|lente|junio|isótopo|generador|galera|fármaco|entrenamiento|encrucijada|deportista|cónsul|coyuntura|costura|convoy|comparsa|cantidad|bobina|bienio|baza|bahía|areola|aleteo|ver|santuario|réplica|runa|reflexión|puto|progreso|profesional|playa|pinchazo|perspectiva|pelota|participación|paletada|ordenamiento|orador|opinión|ocurrencia|novedad|nidada|narración|mónada|locus|lance|kg|implementación|hondonada|globo|garra|flota|febrero|eyaculación|exhibición|elevación|delegado|corto|correo|contribuyente|consejero|chip|centenar|capitel|candidata|borda|bebé|barca|anotación|aguja|ademán|acusación|óvulo|viento|sucesiva|subida|subespecie|sacrificio|sabor|rotor|remero|reflejo|ranura|platillo|pirámide|percepción|parlamentario|ocupante|navegador|nalga|mutación|municipalidad|mol|luchadora|litera|leve|invocación|intercambio|ilustración|historieta|heredero|fallo|expansión|equis|emplazamiento|emirato|electrodo|duelo|despacho|depresión|debate|cubículo|concesión|colectivo|coeficiente|cinturón|charco|cepa|centurión|celdilla|cabo|burbuja|bráctea|bebida|batir|bandazo|axila|autoridad|ascenso|asamblea|apertura|antebrazo|amor|alianza|activo|acera|abril|vocablo|ventanilla|varilla|vano|trayectoria|tendencia|tablón|sugerencia|sillón|retroceso|rectángulo|ramo|quinto|quintal|pulmón|práctica|posta|portada|pormenor|polígono|permutación|periodista|pergamino|peligro|patrulla|oferta|negro|monte|mito|melodía|mejora|medalla|mandato|manada|leyenda|lanza|interfaz|hélice|filtro|fiel|fascículo|extensión|envite|enunciado|encabezado|décimo|docena|diálogo|divinidad|diminuto|difunto|diferencia|descenso|descansillo|demonio|cúpula|cuaderno|crepúsculo|coordenada|contribución|constructor|cono|congreso|coalición|clon|chiste|carretilla|bruja|boleto|arte|adversario|adorno|acre|yarda|tentativa|taberna|sucesivo|subintervalo|remache|raya|radio|protón|pincel|peón|pezón|pala|norma|naipe|musulmán|muslo|murmullo|milésima|medicamento|martillazo|magistrado|joya|interlocutor|indicio|hechicero|gobernación|gancho|futbolista|folio|feria|factura|estímulo|estribillo|espada|envase|ente|doloroso|diagrama|detector|despedida|cuello|controlador|contrincante|colectividad|captura|capricho|brinco|brecha|bajada|avenida|asociado|arteria|aposento|ambiente|alternativa|aerolínea|viraje|vertiente|verbo|umbral|transferencia|tesoro|súbdito|sucesión|subred|suave|soberano|sindicato|reducción|recámara|recital|pilastra|piel|pasadizo|parlamento|operario|muesca|morfismo|lustro|loma|jeroglífico|insecto|infracción|inflorescencia|hipótesis|grafo|futuro|frame|folículo|fajo|estaca|espiguilla|espermatozoide|encargo|empleo|embrión|discusión|destinatario|destacamento|cumbre|cuerno|crítica|creencia|constante|comunicación|certificado|cerradura|caza|campana|camello|camarote|brindis|borrador|bogie|atolón|altura|aleta|abeja|vara|vaina|utensilio|tributo|tictac|senda|romano|rizo|revólver|revés|retazo|residuo|reo|renovación|recuento|rebanada|profeta|político|pastilla|papeleta|paloma|norteamericano|millar|mexicano|metámero|marzo|marcador|logro|lazo|inserción|host|homicidio|guía|guardián|guante|gemelo|galón|foco|favor|faro|faraón|explicación|evangelio|espina|espiga|enigma|edificación|dragón|distribución|defensor|cría|crucero|cromátida|cola|chorro|carnero|callejuela|búsqueda|broma|autobús|ataúd|artefacto|anciano|altavoz|agricultor|índice|violación|vello|vecindario|turista|trueno|tropiezo|trastorno|torreón|tonalidad|timbrazo|suscriptor|sucursal|soporte|respiro|res|remolino|relieve|reinicio|recuadro|ramificación|ración|pocillo|pistón|perla|parche|papa|olla|nudillo|neumático|narrador|mosca|mercader|legislador|interno|iniciativa|hilada|hallazgo|grada|fondo|filme|fanega|falange|estornudo|espiral|escaque|enrutador|ecosistema|directorio|desarrollador|defecto|cuchillo|corregimiento|coro|contingencia|cohete|claro|chupada|cheque|centinela|carrete|carbono|buey|bodega|beneficiario|astronauta|astro|arroba|arcada|apéndice|aprendiz|amonestación|adoquín|accionista|DVD|ángel|vidriera|vestíbulo|vereda|veintiséis|trineo|trato|traducción|test|tentáculo|techo|sprint|sospechoso|servilleta|sepulcro|separación|secta|rubro|reparto|rampa|pupitre|protuberancia|protocolo|promesa|potencial|polis|pasaporte|mula|mineral|milagro|miga|logia|lluvia|licencia|lento|labor|kilovatio|kWh|juzgado|jarra|inyección|instituto|hornada|hachazo|grafema|funeral|expiración|estreno|estanque|escritorio|entonación|empellón|emparejamiento|emisor|diapositiva|desvío|desayuno|demarcación|cuadrícula|cráter|cráneo|criterio|creación|cornisa|conjuro|conclusión|concha|codón|científico|carroza|capullo|canasta|campus|camisa|bulbo|barranco|bacteria|artesano|análisis|antiguo|alteración|árbitro|veintitrés|vacuna|trofeo|trenza|transmisor|tragedia|track|temperatura|televisor|tecnología|tarro|tapa|tambor|supuesto|suma|subtipo|sombrero|seto|serpiente|seno|saludo|router|ritmo|retraso|reportaje|ramal|postulante|pistilo|pinna|perforación|penetración|pedúnculo|neutrón|micrófono|merindad|mención|medianoche|mecanismo|matojo|marido|mar|lápida|led|latitud|lancha|jarrón|inversor|intendencia|instrumentista|inquilino|inmigrante|infante|indicador|fuselaje|fuego|folíolo|flexión|experto|excursión|exclamación|evolución|eventualidad|estándar|estudioso|estribo|estandarte|espín|espartano|escotilla|emblema|elfo|donante|dentario|demostración|debilidad|cuervo|cortina|convulsión|conducto|comisaría|combustible|colmillo|colaborador|clasificación|cine|chacra|cesta|cerveza|catedral|caserío|carreta|cargador|breve|axón|aurora|atracción|asesino|apellido|anécdota|ano|anaquel|algoritmo|alambre|adolescente|adaptación|acusado|actriz|zambullida|vástago|ventaja|vasija|valla|uniforme|trirreme|traslado|tranco|tortuga|testimonio|terrón|tazón|taxi|tablilla|suite|substancia|sorteo|silueta|sermón|salva|salpicadura|ruso|ruptura|robo|risco|reencarnación|razón|ratón|rally|púa|préstamo|princesa|pretendiente|premaxilar|polvo|pirata|pedestal|pedalada|pastel|panelista|ovario|orgasmo|océano|nevada|negativo|negativa|muelle|mueca|mudanza|montaje|molde|minero|miedo|magnitud|madriguera|macrobloque|macizo|líquido|límite|licitador|lecho|labio|inversión|interrogatorio|instantánea|inspección|indicación|inclinación|imperio|hábito|horizonte|heroína|helicóptero|guion|gráfico|granito|gotita|gorrión|gigante|garganta|fronda|foliolo|ferrocarril|existencia|estertor|estampido|esperanza|espectro|esclusa|equinoccio|entierro|engranaje|enfoque|enclave|empuje|duda|domicilio|dolorosa|disputa|dintel|diecinueve|diamante|diagonal|detenido|desastre|demanda|definición|decepción|decenio|cúmulo|creador|copla|contorno|conquistador|conejo|condenado|compromiso|clado|circunferencia|ceja|cazuela|caverna|cautivo|caudillo|calibre|cabeceo|bóveda|bombilla|barrote|azulejo|atentado|ascensor|armónico|apóstol|anfitrión|aficionado|adquisición|acuerdo|nochebuena|junta|jedi|Pascua</token>
             </pattern>
             <message>¿Quería decir <suggestion>cada</suggestion>?</message>
             <example correction="Cada"><marker>Casa</marker> día pasa lo mismo.</example>
@@ -22538,6 +23433,19 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             </rule>
             <rule>
                 <pattern>
+                    <token regexp="yes">les|os|le|nos<exception postag="[NA].*|_possible_NP|LOC_ADV" postag_regexp="yes"/></token>
+                    <token postag="N.C[PN].*|DN.*" postag_regexp="yes"/>
+                </pattern>
+                <filter class="org.languagetool.rules.es.FindSuggestionsFilter" args="wordFrom:2 desiredPostag:V.[SI].*"/>
+                <message>Posible confusión. Pronombre átono sin verbo.</message>
+                <suggestion>los \2</suggestion>
+                <suggestion>las \2</suggestion>
+                <suggestion>\1 {suggestion}</suggestion>
+                <example correction="Los 20|Las 20"><marker>Les 20</marker>.</example>
+                <example correction="Los 20|Las 20"><marker>Les 20</marker> primeros.</example>
+            </rule>
+            <rule>
+                <pattern>
                     <token>te<exception postag="[NA].*|_possible_NP|LOC_ADV" postag_regexp="yes"/></token>
                     <token/>
                 </pattern>
@@ -22547,9 +23455,9 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <suggestion>el \2</suggestion>
                 <suggestion>\1 {suggestion}</suggestion>
                 <!-- TODO: remove "te hay" -->
-                <example correction="de hoy|el hoy|te hay|te soy|te voy|te doy|te hollé|te holló|te hui">Es <marker>te hoy</marker>.</example>
+                <example correction="de hoy|el hoy|te hay|te huella|te soy|te voy|te doy|te huelle|te hollé|te holló">Es <marker>te hoy</marker>.</example>
                 <example correction="de augur|el augur|te augura|te auguró|te auguro|te augure|te auguré">Yo <marker>te augur</marker> buenos resultados.</example>
-                <example correction="de cortés|el cortés|te cortes|te corte|te cortas|te corten|te portes|te corres|te corté|te acortes">No <marker>te cortés</marker>.</example>
+                <example correction="de cortés|el cortés|te cortes|te corte|te cortas|te corten|te portes|te corres|te corté|te cuentes">No <marker>te cortés</marker>.</example>
                 <example correction="De augur|El augur|Te augura|Te auguró|Te auguro|Te augure|Te auguré"><marker>Te augur</marker> cosas interesantes.</example>
                 <example>se te "compensará"</example>
                 <example>dale que te dale</example>
@@ -22579,7 +23487,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 </antipattern>
                 <antipattern>
                     <token>les<exception postag="[NA].*|_possible_NP|LOC_ADV" postag_regexp="yes"/></token>
-                    <token postag="N.FP.*|A..[FC]P.|V.P..PF" postag_regexp="yes"/>
+                    <token postag="N.FP.*|A..[FC]P.|V.P..PF|NCCN000" postag_regexp="yes"/>
                 </antipattern>
                 <antipattern>
                     <token regexp="yes">les|os|le|nos<exception postag="[NA].*|_possible_NP|LOC_ADV" postag_regexp="yes"/></token>
@@ -24007,6 +24915,10 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <token spacebefore="no" regexp="yes">[—–-]</token>
                 <token spacebefore="no"/>
             </antipattern>
+            <antipattern case_sensitive="yes">
+                <token>E</token>
+                <token regexp="yes">H?[IY].+</token>
+            </antipattern>
             <pattern case_sensitive="yes">
                 <token regexp="yes">[A-Z]</token>
                 <token>.</token>
@@ -24020,8 +24932,10 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             <example correction="F.">El N.I.<marker>F</marker> es el 333333333F.</example>
             <example correction="K.">El nuevo libro de J. <marker>K</marker> Rowling.</example>
             <example correction="A.">Editorial Tarraco, S. <marker>A</marker>, 1969.</example>
+            <example correction="C.">en la ciudad de Bogotá D.<marker>C</marker> e identificada con el NIT</example>
             <example>N.I.F.</example>
             <example>J. K. Rowling.</example>
+            <example>SYSTEMS S.A.S. E INTEGRALES</example>
         </rule>
         <rulegroup id="MISSING_COMMA" name="falta de coma">
             <url>https://www.fundeu.es/recomendacion/vocativos-entre-comas/</url>
@@ -24492,6 +25406,35 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             <url>https://www.fundeu.es/recomendacion/coma-antes-de-ya-que-pues-o-puesto-que/</url>
             <example correction="profesional, ya que|profesional porque">Busque atención <marker>profesional ya que</marker> pueden deberse a una infección.</example>
         </rule>
+        <rulegroup id="PUES_COMAS" name="pues (comas)">
+            <url>https://dle.rae.es/pues</url>
+            <antipattern>
+                <token postag="SENT_START"/>
+                <token>así</token>
+                <token>pues</token>
+            </antipattern>
+            <antipattern>
+                <token regexp="yes">\p{P}</token>
+                <token>así</token>
+                <token>pues</token>
+            </antipattern>
+            <rule>
+                <pattern>
+                    <token><exception postag="SENT_START|_PUNCT.*" postag_regexp="yes"/><exception regexp="yes">\p{P}</exception><exception regexp="yes">y|o</exception></token>
+                    <marker>
+                        <token case_sensitive="yes">pues</token>
+                    </marker>
+                    <token><exception regexp="yes">\p{P}</exception></token>
+                </pattern>
+                <message>Con el sentido de causa ('puesto que'), "pues" se escribe preferiblement con una coma antes. Con valor continuativo ('por tanto'), se escribe entre dos comas.</message>
+                <!-- Third case:  con valor ilativo. ¿No quieres oír mis consejos?, pues tú lo llorarás algún día. -->
+                <suggestion>, pues</suggestion>
+                <suggestion>, pues,</suggestion>
+                <example correction=", pues|, pues,">Llámale tú<marker> pues</marker> lo conoces de hace tiempo.</example>
+                <example correction=", pues|, pues,">Insisto<marker> pues</marker> que esto es imprescindible.</example>
+                <example>Así pues esta frase corresponde a otra regla.</example>
+            </rule>
+        </rulegroup>
         <rule id="PUESTO_QUE" name="puesto que (con coma)">
             <!-- a lot of true positives expected -->
             <antipattern>
@@ -24643,6 +25586,10 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <token regexp="yes">en|con|como</token>
             </antipattern>
             <antipattern>
+                <token>exactamente</token>
+                <token>así</token>
+            </antipattern>
+            <antipattern>
                 <token regexp="yes">inmediatamente|mayoritariamente|totalmente|temporalmente</token>
                 <token postag="RG|RN" postag_regexp="yes"/>
             </antipattern>
@@ -24786,6 +25733,22 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <message>&msg_semicolon_comma;</message>
                 <example correction="embargo,">Sin <marker>embargo</marker> no logró ganar.</example>
                 <example correction="; sin embargo,|, sin embargo,">Me gusta mucho este<marker>, sin embargo</marker> prefiero aquel.</example>
+            </rule>
+            <rule>
+                <antipattern>
+                    <token postag="V.[IS].*|_GV_" postag_regexp="yes"/>
+                    <token>así</token>
+                    <token>pues</token>
+                </antipattern>
+                <pattern>
+                    <token>así</token>
+                    <token>pues</token>
+                </pattern>
+                <filter class="org.languagetool.rules.AddCommasFilter" args="suggestSemicolon:true"/>
+                <message>&msg_semicolon_comma;</message>
+                <example correction="pues,">Así <marker>pues</marker> no logró ganar.</example>
+                <example correction="; así pues,|, así pues,">No me gusta mucho este<marker>, así pues</marker> me quedaré el otro.</example>
+                <example>Ya sé que eso no es así pues tienen valores morales.</example>
             </rule>
             <rule>
                 <pattern>
@@ -25784,7 +26747,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
             </antipattern>
             <antipattern case_sensitive="yes">
                 <!-- ambigous -->
-                <token regexp="yes">[0-9]+[A-Z]+<exception regexp="yes">[0-9]+(V|W|MW|AM|PM|MB|GB|TB)</exception></token>
+                <token regexp="yes">[0-9]+[A-Z]+<exception regexp="yes">[0-9]+(V|W|MW|AM|PM|MB|GB|TB|CV)</exception></token>
             </antipattern>
             <antipattern>
                 <token postag="NP.*" postag_regexp="yes"/>
@@ -26362,6 +27325,16 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
         </rule>
     </category>
     <category name="repeticiones" id="REPETITIONS" type="duplication">
+        <rule id="ES_NO_ES" name="*es no es">
+            <pattern raw_pos="yes">
+                <token postag="V.*" postag_regexp="yes"/>
+                <token>no</token>
+                <token><match no="0"/></token>
+            </pattern>
+            <message>Palabra repetida. Posible error.</message>
+            <suggestion>\2 \3</suggestion>
+            <example correction="no es">Esto <marker>es no es</marker> lo mejor.</example>
+        </rule>
         <rule id="QUE_QUE" name="que y que">
             <pattern>
                 <token>que</token>
@@ -26739,18 +27712,179 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <token regexp="yes">28|29|30|31</token>
             </antipattern>
             <rule>
+                <!--NUMBER_DAYS_MONTH[1]-->
+                <antipattern>
+                    <token regexp="yes">\d\d?</token>
+                    <token regexp="yes">al|:</token>
+                    <token>31</token>
+                    <token min="0" regexp="yes">[-/]|de</token>
+                    <token regexp="yes">0?[469]|11</token>
+                    <token min="0">:</token>
+                    <token regexp="yes" min="0">\d\d?</token>
+                    <token min="0" regexp="yes">[-/]|de</token>
+                    <token regexp="yes">&meses_ano;|&meses_ano_abrv;|am|pm</token>
+                    <example>12:31 4 ago 2013 (UTC)</example>
+                    <example>y del 16 al 31 de 4:00 am a 6:00 pm</example>
+                </antipattern>
+                <antipattern>
+                    <token regexp="yes">\d\d?</token>
+                    <token regexp="yes">/|:</token>
+                    <token>31</token>
+                    <token min="0" regexp="yes">/|-</token>
+                    <token regexp="yes">0?[469]|11</token>
+                    <token>:</token>
+                    <token regexp="yes">\d\d?</token>
+                    <example>06/31 04:21:07 pm</example>
+                    <example>19:31/6:42</example>
+                </antipattern>
+                <antipattern>
+                    <token regexp="yes">\d\d?\d?\d?</token>
+                    <token regexp="yes">/|:|-</token>
+                    <token regexp="yes">\d\d?</token>
+                    <token regexp="yes">/|:|-</token>
+                    <token>31</token>
+                    <token regexp="yes" min="0">/|:|-</token>
+                    <token regexp="yes">0?[469]|11</token>
+                    <example>05:11:31-04</example>
+                    <example>2020-04-31 09:14:07</example>
+                </antipattern>
+                <antipattern>
+                    <token regexp="yes">caso|serie|número|ley|decreto|nº|ordenanza|pag|página|#|edición|resolución|concepto|modelo|mayores|unidad|ritmo|ejemplo|hoja|secuencia|episodio</token>
+                    <token>31</token>
+                    <token regexp="yes" min="0">-|/</token>
+                    <token regexp="yes">0?[469]|11</token>
+                    <example>nº 31- 09- abril 202</example>
+                    <example>resolución 31/6</example>
+                </antipattern>
+                <antipattern>
+                    <token regexp="yes">\d\d?</token>
+                    <token regexp="yes">\d\d?</token>
+                    <token>/</token>
+                    <token regexp="yes">\d\d?</token>
+                    <token>/</token>
+                    <token regexp="yes">\d\d?</token>
+                    <example>31 4/25/03</example>
+                    <example>25 10/31/09</example>
+                </antipattern>
+                <antipattern>
+                    <token regexp="yes">&meses_ano;|&meses_ano_abrv;</token>
+                    <token>31</token>
+                    <token min="0" regexp="yes">-|/</token>
+                    <token regexp="yes">abril|abr|junio|jun|sep?tiembre|sep|set|noviembre|nov|novbre</token>
+                    <example>octubre 31 - noviembre 2</example>
+                </antipattern>
+                <antipattern>
+                    <token>31</token>
+                    <token min="0" regexp="yes">-|/</token>
+                    <token regexp="yes">0?[469]|11</token>
+                    <token regexp="yes">piezas|días|semanas|meses|años|toneladas|&unidades;</token>
+                    <example>31 4 piezas</example>
+                </antipattern>
+                <antipattern>
+                    <token>n</token>
+                    <token>.</token>
+                    <token>º</token>
+                    <token>31</token>
+                    <token regexp="yes" min="0">-|/</token>
+                    <token regexp="yes">0?[469]|11</token>
+                    <example>N.º 31/09</example>
+                </antipattern>
                 <pattern>
                     <marker>
                         <token>31</token>
                     </marker>
                     <token min="0" regexp="yes">[-/]|de</token>
-                    <token regexp="yes">abril|abr|junio|jun|sep?tiembre|sep|set|noviembre|nov|0?[469]|11</token>
+                    <token regexp="yes">abril|abr|junio|jun|sep?tiembre|sep|set|noviembre|nov|novbre|0?[469]|11</token>
                 </pattern>
-                <message>El mes «\3» solo tiene <suggestion>30</suggestion> días.</message>
+                <message>El mes de \3 solo tiene 30 días.</message>
+                <suggestion>30</suggestion>
                 <example correction="30">Nació el <marker>31</marker> de septiembre.</example>
                 <example correction="30">Nació el <marker>31</marker>/11/1988.</example>
+                <example correction="30">Nació el <marker>31</marker> de novbre.</example>
             </rule>
             <rule>
+                <!--NUMBER_DAYS_MONTH[2]-->
+                <antipattern>
+                    <token regexp="yes">\d\d?</token>
+                    <token>:</token>
+                    <token regexp="yes">3[01]</token>
+                    <token regexp="yes" min="0">-|/</token>
+                    <token regexp="yes">0?2</token>
+                    <token min="0">:</token>
+                    <token regexp="yes">\d\d?|pm|am</token>
+                    <example>01:30 - 02:30</example>
+                    <example>12:30 - 2 pm pausa</example>
+                    <example>hace 1:30/2:00 Hs</example>
+                    <example>01:55 - 02:31 / 02:54 - 04:15</example>
+                </antipattern>
+                <antipattern>
+                    <token regexp="yes">\d\d?</token>
+                    <token>:</token>
+                    <token regexp="yes">3[01]</token>
+                    <token min="0">-</token>
+                    <token regexp="yes">0?2</token>
+                    <token min="0">de</token>
+                    <token regexp="yes">&meses_ano;|&meses_ano_abrv;|horas|días|años|semanas|meses</token>
+                    <example>07:30 2 feb 2006</example>
+                    <example>20:30 2 may 2006</example>
+                    <example>01:30 - 2 horas</example>
+                    <example>12:30 2 de octubre de 2016</example>
+                </antipattern>
+                <antipattern>
+                    <token>=</token>
+                    <token regexp="yes">3[01]</token>
+                    <token min="0" regexp="yes">-|/</token>
+                    <token regexp="yes">0?2</token>
+                    <example>largo = 30 - 2 </example>
+                </antipattern>
+                <antipattern>
+                    <token regexp="yes">caso|serie|número|ley|decreto|nº|ordenanza|pag|página|#|edición|resolución|concepto|modelo|mayores|unidad|ritmo|ejemplo|hoja|secuencia|episodio</token>
+                    <token min="0">de</token>
+                    <token regexp="yes">3[01]</token>
+                    <token min="0" regexp="yes">[-/]|de</token>
+                    <token regexp="yes">0?2</token>
+                    <example>en el caso 31-2</example>
+                    <example>para niños mayores 30/2</example>
+                    <example>unidad 30/2</example>
+                    <example>a un ritmo de 30/2</example>
+                </antipattern>
+                <antipattern>
+                    <token regexp="yes">\d\d\d\d</token>
+                    <token>-</token>
+                    <token regexp="yes">\d\d?</token>
+                    <token>-</token>
+                    <token regexp="yes">3[01]</token>
+                    <token regexp="yes">0?2</token>
+                    <token>:</token>
+                    <token regexp="yes">\d\d?</token>
+                    <example>El día 2019-05-30 02:22:33</example>
+                </antipattern>
+                <antipattern>
+                    <token regexp="yes">3[01]</token>
+                    <token min="0" regexp="yes">-|/</token>
+                    <token regexp="yes">0?2</token>
+                    <token regexp="yes">días|semanas|meses|años|toneladas|&unidades;</token>
+                    <example>30 - 2 días</example>
+                </antipattern>
+                <antipattern>
+                    <token regexp="yes">\d\d\d\d</token>
+                    <token min="0" regexp="yes">-|/</token>
+                    <token regexp="yes">3[01]</token>
+                    <token min="0" regexp="yes">-|/</token>
+                    <token regexp="yes">0?2</token>
+                    <token min="0" regexp="yes">-|/</token>
+                    <token regexp="yes">\d\d\d\d</token>
+                    <example>2019-30-2-0009</example>
+                </antipattern>
+                <antipattern>
+                    <token>n</token>
+                    <token>.</token>
+                    <token>º</token>
+                    <token regexp="yes">3[01]</token>
+                    <token regexp="yes" min="0">-|/</token>
+                    <token regexp="yes">0?2</token>
+                    <example>N.º 31/02</example>
+                </antipattern>
                 <pattern>
                     <marker>
                         <token regexp="yes">3[01]</token>
@@ -26763,6 +27897,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example correction="28|29">Nació el <marker>30</marker>/2/1988.</example>
             </rule>
             <rule>
+                <!--NUMBER_DAYS_MONTH[3]-->
                 <pattern>
                     <marker>
                         <token>29</token>
@@ -26806,6 +27941,503 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
                 <example correction="28">El <marker>29</marker>-02-1900</example>
                 <example correction="28">El <marker>29</marker>-feb-2005</example>
                 <example>El 29-feb-2004</example>
+            </rule>
+            <rule>
+                <!--NUMBER_DAYS_MONTH[4]-->
+                <antipattern>
+                    <token regexp="yes">\d\d</token>
+                    <token>:</token>
+                    <token regexp="yes">\d\d</token>
+                    <token regexp="yes">&meses_ano;|&meses_ano_abrv;</token>
+                    <example>08:34 oct</example>
+                </antipattern>
+                <antipattern>
+                    <token regexp="yes">\d\d\d\d</token>
+                    <token min="0" regexp="yes">[-/]|de</token>
+                    <token regexp="yes">&meses_ano;|&meses_ano_abrv;</token>
+                    <example>2001 enero</example>
+                </antipattern>
+                <antipattern>
+                    <token regexp="yes">\d+</token>
+                    <token min="0" regexp="yes">[-/]|de</token>
+                    <token regexp="yes">&meses_ano;|&meses_ano_abrv;</token>
+                    <token regexp="yes">\d+</token>
+                    <example>9 41 OCT 16 2005</example>
+                </antipattern>
+                <antipattern>
+                    <token regexp="yes" inflected="yes" skip="-1">número|ley|decreto|nº|ordenanza|pag|página|#|edición|resolución|concepto|modelo</token>
+                    <token regexp="yes">3[2-9]|[4-9][0-9]|[1-9][0-9][0-9]+</token>
+                    <token min="0" regexp="yes">[-/]|de|a</token>
+                    <token regexp="yes" min="0">3[2-9]|[4-9][0-9]|[1-9][0-9][0-9]+</token>
+                    <token regexp="yes">&meses_ano;|&meses_ano_abrv;</token>
+                    <example>número 300 de enero</example>
+                    <example>ediciones Octubre: 322 - noviembre: 338</example>
+                    <example>resolución 142 de febrero de 2021 </example>
+                    <example>el concepto 556 de mayo del 2022</example>
+                    <example>el modelo 200 de julio.</example>
+                </antipattern>
+                <antipattern>
+                    <token regexp="yes" inflected="yes">número|ley|decreto|nº|ordenanza|pag|página|#|edición|resolución|concepto|modelo</token>
+                    <token regexp="yes">3[2-9]|[4-9][0-9]|[1-9][0-9][0-9]+</token>
+                    <token>/</token>
+                    <token regexp="yes">3[2-9]|[4-9][0-9]|[1-9][0-9][0-9]+</token>
+                    <token min="0" regexp="yes">[-/]|de|a</token>
+                    <token regexp="yes" min="0">3[2-9]|[4-9][0-9]|[1-9][0-9][0-9]+</token>
+                    <token regexp="yes">&meses_ano;|&meses_ano_abrv;</token>
+                    <example>resolución 57/249 de diciembre de 2002.</example>
+                </antipattern>
+                <antipattern>
+                    <token regexp="yes" min="0">&meses_ano;|&meses_ano_abrv;</token>
+                    <token min="0">de</token>
+                    <token regexp="yes">\d+</token>
+                    <token min="0" regexp="yes">/|o</token>
+                    <token regexp="yes" min="0">\d+</token>
+                    <token>-</token>
+                    <token regexp="yes">&meses_ano;|&meses_ano_abrv;</token>
+                    <token min="0" regexp="yes">/|o</token>
+                    <token regexp="yes" min="0">&meses_ano;|&meses_ano_abrv;</token>
+                    <token min="0">de</token>
+                    <token regexp="yes">\d+</token>
+                    <example>Enero/febrero de 847 - julio/agosto de 869</example>
+                </antipattern>
+                <antipattern>
+                    <token regexp="yes">\d\d\d\d\d+</token>
+                    <token min="0" regexp="yes">[-/]|de</token>
+                    <token regexp="yes">&meses_ano;|&meses_ano_abrv;</token>
+                    <example>2113822 MAR CASO, HADE XIO</example>
+                    <example>21481924323 - Abril</example>
+                </antipattern>
+                <antipattern>
+                    <token regexp="yes">\d\d+</token>
+                    <token regexp="yes">\d\d+</token>
+                    <token regexp="yes">\d\d+</token>
+                    <token regexp="yes">\d\d+</token>
+                    <token min="0" regexp="yes">[-/]|de</token>
+                    <token regexp="yes">&meses_ano;|&meses_ano_abrv;</token>
+                    <token>.</token>
+                    <example> (12) 345 67 89 58 mar.kape.2304</example>
+                </antipattern>
+                <pattern>
+                    <token regexp="yes">3[2-9]|[4-9][0-9]|[1-9][0-9][0-9]+</token>
+                    <token min="0" regexp="yes">[-/]|de</token>
+                    <token regexp="yes">&meses_ano;|&meses_ano_abrv;</token>
+                </pattern>
+                <message>Verifique que la fecha es correcta. Ningún mes tiene más de 31 días.</message>
+                <example correction="">Nació el <marker>32 de enero</marker>.</example>
+                <example correction="">Nació el <marker>300 de enero</marker>.</example>
+                <example>Nació el <marker>31 de enero</marker>.</example>
+                <example>Nació el <marker>30 de enero</marker>.</example>
+                <example>Nació el <marker>20 de enero</marker>.</example>
+                <example>Nació el <marker>2 de enero</marker>.</example>
+            </rule>
+            <rule>
+                <!--NUMBER_DAYS_MONTH[5]-->
+                <antipattern>
+                    <token skip="-1">ISBN</token>
+                    <token regexp="yes">\d+</token>
+                    <token min="0">-</token>
+                    <token regexp="yes">\d+</token>
+                    <token min="0">-</token>
+                    <token regexp="yes">\d+</token>
+                    <token min="0">-</token>
+                    <token regexp="yes">\d+</token>
+                    <example>ISBN 978-84-01-1074-83</example>
+                </antipattern>
+                <antipattern>
+                    <token regexp="yes">número|N°|nº|n\d+|\+|#|teléfono|expediente|FSE|URCG|CAD</token>
+                    <token regexp="yes" min="0">:|-|/</token>
+                    <token regexp="yes">\d+</token>
+                    <token regexp="yes" min="0">-|/</token>
+                    <token regexp="yes">\d+</token>
+                    <token regexp="yes" min="0">-|/</token>
+                    <token regexp="yes" min="0">\d+</token>
+                    <example>número 50/12</example>
+                    <example>n381 4327-4263 11-2454-0035</example>
+                    <example>teléfono: 54-11-1234-5678</example>
+                    <example>expediente 52-123-6-2020-5678</example>
+                    <example>(S)FSE-123/07/2021/UE-</example>
+                    <example>URCG-38-06-2019</example>
+                    <example>CAD/123/12/2021</example>
+                </antipattern>
+                <antipattern>
+                    <token regexp="yes">\d\d\d\d\d\d</token>
+                    <token min="0" regexp="yes">-|/</token>
+                    <token regexp="yes">0?[1-9]|10|11|12</token>
+                    <token min="0" regexp="yes">-|/</token>
+                    <token regexp="yes">[12]\d{3}</token>
+                    <example>123-456789-5-2021-DGP-OH-CR</example>
+                </antipattern>
+                <antipattern>
+                    <token regexp="yes">\d+</token>
+                    <token min="0" regexp="yes">-|/</token>
+                    <token regexp="yes">3[2-9]|[4-9][0-9]|[1-9][0-9][0-9]+</token>
+                    <token min="0" regexp="yes">-|/</token>
+                    <token regexp="yes">0?[1-9]|10|11|12</token>
+                    <token min="0" regexp="yes">-|/</token>
+                    <token regexp="yes">[12]\d{3}</token>
+                    <example>2/300 / 2/2025</example>
+                    <example>03/2021/05/2021</example>
+                </antipattern>
+                <antipattern>
+                    <token regexp="yes">3[2-9]|[4-9][0-9]|[1-9][0-9][0-9]+</token>
+                    <token min="0" regexp="yes">-|/</token>
+                    <token regexp="yes">0?[1-9]|10|11|12</token>
+                    <token min="0" regexp="yes">-|/</token>
+                    <token regexp="yes">3[2-9]|[4-9][0-9]|[1-9][0-9][0-9]+</token>
+                    <token min="0" regexp="yes">-|/</token>
+                    <token regexp="yes">0?[1-9]|10|11|12</token>
+                    <example>2021-01 - 2021-12</example>
+                </antipattern>
+                <antipattern>
+                    <token>n</token>
+                    <token>.</token>
+                    <token>º</token>
+                    <token regexp="yes">3[2-9]|[4-9][0-9]|[1-9][0-9][0-9]+</token>
+                    <token regexp="yes" min="0">-|/</token>
+                    <token regexp="yes">0?[1-9]|10|11|12</token>
+                    <example>N.º 300/12</example>
+                </antipattern>
+                <pattern>
+                    <marker>
+                        <token regexp="yes">3[2-9]|[4-9][0-9]|[1-9][0-9][0-9]+</token>
+                        <token min="0" regexp="yes">-|/</token>
+                        <token regexp="yes">0?[1-9]|10|11|12</token>
+                    </marker>
+                    <token><match no="1"/></token>
+                    <token regexp="yes">[12]\d{3}</token>
+                </pattern>
+                <message>Verifique que la fecha es correcta. Ningún mes tiene más de 31 días.</message>
+                <example correction="">Nació el <marker>32/01</marker>/1985.</example>
+                <example correction="">Nació el <marker>300/01</marker>/1985.</example>
+                <example correction="">Nació el <marker>32/1</marker>/1985.</example>
+                <example correction="">Nació el <marker>300/1</marker>/1985.</example>
+                <example>Nació el <marker>31/01</marker>/1985.</example>
+                <example>Nació el <marker>30/01</marker>/1985.</example>
+                <example>Nació el <marker>20/01</marker>/1985.</example>
+                <example>Nació el <marker>2/01</marker>/1985.</example>
+                <example>Nació el <marker>31/1</marker>/1985.</example>
+                <example>Nació el <marker>30/1</marker>/1985.</example>
+                <example>Nació el <marker>20/1</marker>/1985.</example>
+                <example>Nació el <marker>2/1</marker>/1985.</example>
+            </rule>
+            <rule>
+                <!--NUMBER_DAYS_MONTH[6]-->
+                <antipattern>
+                    <token>ajp</token>
+                    <token>.</token>
+                    <token postag="DN.*" postag_regexp="yes"/>
+                    <example>doi:10.1176/appi.ajp.163.10.1710.</example>
+                </antipattern>
+                <antipattern>
+                    <token regexp="yes" inflected="yes" skip="-1">número|ley|decreto|nº|n°|ordenanza|pag|página|#|edición|resolución|concepto|modelo</token>
+                    <token regexp="yes">(3[2-9]|[4-9][0-9]|[1-9][0-9][0-9]+)\.(0[1-9]|10|11|12)\.\d\d\d\d</token>
+                    <example>N° 54.07.2021</example>
+                </antipattern>
+                <antipattern>
+                    <token>n</token>
+                    <token>.</token>
+                    <token>º</token>
+                    <token regexp="yes">(3[2-9]|[4-9][0-9]|[1-9][0-9][0-9]+)\.(0[1-9]|10|11|12)\.\d\d\d\d</token>
+                    <example>N.º 93.07.0049</example>
+                </antipattern>
+                <pattern>
+                    <marker>
+                        <token regexp="yes">(3[2-9]|[4-9][0-9]|[1-9][0-9][0-9]+)\.(0[1-9]|10|11|12)\.\d\d\d\d</token>
+                    </marker>
+                </pattern>
+                <message>Verifique que la fecha es correcta. Ningún mes tiene más de 31 días.</message>
+                <example correction="">Nació el <marker>32.01.1985</marker>.</example>
+                <example correction="">Nació el <marker>300.01.1985</marker>.</example>
+                <example>Nació el <marker>31.01.1985</marker>.</example>
+                <example>Nació el <marker>30.01.1985</marker>.</example>
+                <example>Nació el <marker>20.01.1985</marker>.</example>
+            </rule>
+            <rule>
+                <!--NUMBER_DAYS_MONTH[7]-->
+                <pattern>
+                    <marker>
+                        <token regexp="yes">(3[2-9]|[4-9][0-9]|[1-9][0-9][0-9]+)\.([1-9]|10|11|12)</token>
+                        <token>.</token>
+                        <token regexp="yes">\d\d\d\d</token>
+                    </marker>
+                </pattern>
+                <message>Verifique que la fecha es correcta. Ningún mes tiene más de 31 días.</message>
+                <example correction="">Nació el <marker>32.1.1985</marker>.</example>
+                <example correction="">Nació el <marker>300.1.1985</marker>.</example>
+                <example>Nació el <marker>31.1.1985</marker>.</example>
+                <example>Nació el <marker>30.1.1985</marker>.</example>
+                <example>Nació el <marker>20.1.1985</marker>.</example>
+            </rule>
+            <rule>
+                <!--NUMBER_DAYS_MONTH[8], antes 7-->
+                <antipattern>
+                    <!--American date notation: month/day/year-->
+                    <token regexp="yes">0?[1-9]|10|11|12</token>
+                    <token regexp="yes">-|/</token>
+                    <token regexp="yes">0?[1-9]|1[0-9]|2[0-9]|3[0-1]</token>
+                    <token regexp="yes">-|/</token>
+                    <token regexp="yes">\d\d\d\d</token>
+                    <example>Publicado por Javier en 8/21/2015.</example>
+                    <example>02/19/1954.</example>
+                </antipattern>
+                <antipattern>
+                    <token regexp="yes" skip="-1">número?s|nº|Cel|Tel|n\d+|cédula|al|acuerdo|P</token>
+                    <token regexp="yes">\d\d?</token>
+                    <token regexp="yes" min="0">-|/</token>
+                    <token regexp="yes">1[3-9]|[2-9]\d</token>
+                    <token regexp="yes" min="0">-|/</token>
+                    <token regexp="yes" min="0">\d+</token>
+                    <example>nº 02/29/1771</example>
+                    <example>Cel: 48-22-2733</example>
+                    <example>n381 4327-4263 11-54-1035</example>
+                    <example>Cédula: 6-51-2032</example>
+                    <example>al 01-800-2656-345</example>
+                    <example>del Acuerdo 17-17-2020</example>
+                    <example>P. 32-38-1970</example>
+                </antipattern>
+                <antipattern>
+                    <token>n</token>
+                    <token>.</token>
+                    <token>º</token>
+                    <token regexp="yes">\d\d?</token>
+                    <token regexp="yes">-|/</token>
+                    <token regexp="yes">1[3-9]|[2-9]\d</token>
+                    <token regexp="yes">-|/</token>
+                    <token regexp="yes">[12]\d{3}</token>
+                    <example>N.º 93-07-2019</example>
+                </antipattern>
+                <pattern>
+                    <token regexp="yes">\d\d?</token>
+                    <token regexp="yes">-|/</token>
+                    <token regexp="yes">1[3-9]|[2-9]\d</token>
+                    <token><match no="1"/></token>
+                    <token regexp="yes">[12]\d{3}</token>
+                </pattern>
+                <message>Si se trata de una fecha, el mes no es correcto.</message>
+                <example correction="">Nació el <marker>11/50/2014</marker>.</example>
+                <example correction="">Nació el <marker>01/32/2014</marker>.</example>
+                <example correction="">Nació el <marker>13/31/2014</marker>.</example>
+                <example correction="">Nació el <marker>31/13/2014</marker>.</example>
+                <example>Nació el <marker>11/05/2014</marker>.</example>
+                <example>Nació el <marker>01/31/2014</marker>.</example>
+                <example>Nació el <marker>12/31/2014</marker>.</example>
+                <example>Nació el <marker>31/12/2014</marker>.</example>
+            </rule>
+            <rule>
+                <!--NUMBER_DAYS_MONTH[9]-->
+                <antipattern>
+                    <token regexp="yes">(0?[1-9]|10|11|12)\.(0?[1-9]|1[0-9]|2[0-9]|3[0-1])\.\d\d\d\d</token>
+                    <example>Publicado por Javier en 8.21.2015.</example>
+                    <example>02.19.1954.</example>
+                </antipattern>
+                <pattern>
+                    <token regexp="yes">\d\d?\.(1[3-9]|[2-9]\d)\.\d\d\d\d</token>
+                </pattern>
+                <message>Si se trata de una fecha, el mes no es correcto.</message>
+                <example correction="">Nació el <marker>11.50.2014</marker>.</example>
+                <example correction="">Nació el <marker>01.32.2014</marker>.</example>
+                <example correction="">Nació el <marker>13.31.2014</marker>.</example>
+                <example correction="">Nació el <marker>31.13.2014</marker>.</example>
+                <example>Nació el <marker>11.05.2014</marker>.</example>
+                <example>Nació el <marker>01.31.2014</marker>.</example>
+                <example>Nació el <marker>12.31.2014</marker>.</example>
+                <example>Nació el <marker>31.12.2014</marker>.</example>
+            </rule>
+            <rule>
+                <!--NUMBER_DAYS_MONTH[10]-->
+                <pattern>
+                    <marker>
+                        <token regexp="yes">31\.(11|0[469])\.\d\d(\d\d)?</token>
+                    </marker>
+                </pattern>
+                <message>Este mes solo tiene 30 días.</message>
+                <example correction="">Nació el <marker>31.11.1989</marker>.</example>
+                <example correction="">Nació el <marker>31.11.89</marker>.</example>
+                <example>Nació el <marker>30.11.89</marker>.</example>
+            </rule>
+            <rule>
+                <!--NUMBER_DAYS_MONTH[11]-->
+                <antipattern>
+                    <token postag="SENT_START"/>
+                    <token regexp="yes">31\.(11|0?[469])</token>
+                    <example>31.4 Las modificaciones</example>
+                </antipattern>
+                <antipattern case_sensitive="yes">
+                    <token regexp="yes">31\.(11|0?[469])</token>
+                    <token regexp="yes">%|€|\$|¥|MXN|millones|&unidades;|días|meses|semanas|años</token>
+                    <example>la cantidad de 31.6 millones</example>
+                    <example>IMC: 31.6 kg/m²</example>
+                    <example>30.4 x 11.4 x 31.4 cm.</example>
+                    <example>El 31.4 % fueron mujeres</example>
+                    <example>31.09 MXN</example>
+                    <example>31.4 $</example>
+                    <example>31.4 semanas</example>
+                </antipattern>
+                <antipattern>
+                    <token min="0">de</token>
+                    <token regexp="yes">31\.(11|0?[469])</token>
+                    <token regexp="yes" min="0">a|-</token>
+                    <token regexp="yes">\d+\.\d+</token>
+                    <example>de 31.4 a 35.9 meses</example>
+                </antipattern>
+                <antipattern>
+                    <token regexp="yes">\d\d?</token>
+                    <token>:</token>
+                    <token regexp="yes">\d\d?</token>
+                    <token>:</token>
+                    <token regexp="yes">31\.(11|0?[469])</token>
+                    <example>10:40:31.06</example>
+                </antipattern>
+                <antipattern>
+                    <token regexp="yes">artículo|número|ley|decreto|nº|ordenanza|pag|página|#|edición|resolución|concepto|modelo|PEN|MXN</token>
+                    <token regexp="yes">31\.(11|0?[469])</token>
+                    <example>artículo 31.4</example>
+                    <example>MXN 31.06</example>
+                </antipattern>
+                <antipattern>
+                    <token>n</token>
+                    <token>.</token>
+                    <token>º</token>
+                    <token regexp="yes">31\.(11|0?[469])</token>
+                    <example>N.º 31.04</example>
+                </antipattern>
+                <pattern>
+                    <marker>
+                        <token regexp="yes">31\.(11|0?[469])</token>
+                    </marker>
+                </pattern>
+                <message>Este mes solo tiene 30 días.</message>
+                <example correction="">Nació el <marker>31.04</marker>.</example>
+                <example correction="">Nació el <marker>31.4</marker>.</example>
+                <example correction="">Nació el <marker>31.4</marker>.1989.</example>
+                <example>Nació el <marker>30.04</marker>.</example>
+                <example>Nació el <marker>30.4</marker>.</example>
+                <example>Nació el <marker>30.4</marker>.1989.</example>
+            </rule>
+            <rule>
+                <!--NUMBER_DAYS_MONTH[12]-->
+                <pattern>
+                    <marker>
+                        <token regexp="yes">(30|31)\.(02)\.\d\d(\d\d)?</token>
+                    </marker>
+                </pattern>
+                <message>El mes de febrero solo tiene 28 o 29 días.</message>
+                <example correction="">Nació el <marker>30.02.1900</marker>.</example>
+                <example correction="">Nació el <marker>31.02.1900</marker>.</example>
+                <example>Nació el <marker>28.02.1900</marker></example>
+            </rule>
+            <rule>
+                <!--NUMBER_DAYS_MONTH[13]-->
+                <antipattern>
+                    <token postag="SENT_START"/>
+                    <token regexp="yes">(30|31)\.(0?2)</token>
+                    <example>31.02 Proyectos</example>
+                </antipattern>
+                <antipattern case_sensitive="yes">
+                    <token regexp="yes">(30|31)\.(0?2)</token>
+                    <token regexp="yes">%|€|\$|¥|MXN|millones|puntos|&unidades;</token>
+                    <example>peso: 31.2 kg</example>
+                    <example>Ganó con 30.2 puntos.</example>
+                </antipattern>
+                <antipattern>
+                    <token regexp="yes">\d\d?</token>
+                    <token>:</token>
+                    <token regexp="yes">\d\d?</token>
+                    <token>:</token>
+                    <token regexp="yes">(30|31)\.(0?2)</token>
+                    <example>09:40:30.02</example>
+                </antipattern>
+                <antipattern>
+                    <token regexp="yes" skip="-1">IMC|MXN|artículo|número|ley|decreto|nº|ordenanza|pag|página|#|edición|resolución|concepto|modelo</token>
+                    <token regexp="yes">(30|31)\.(0?2)</token>
+                    <example>su IMC es 30.2</example>
+                    <example>artículo 31.3 y 31.2 del RGPD</example>
+                    <example>valor de MXN 30.02</example>
+                </antipattern>
+                <antipattern>
+                    <token>n</token>
+                    <token>.</token>
+                    <token>º</token>
+                    <token regexp="yes">(30|31)\.(0?2)</token>
+                    <example>N.º 31.02</example>
+                </antipattern>
+                <pattern>
+                    <marker>
+                        <token regexp="yes">(30|31)\.(0?2)</token>
+                    </marker>
+                </pattern>
+                <message>El mes de febrero solo tiene 28 o 29 días.</message>
+                <example correction="">Nació el <marker>30.02</marker>.</example>
+                <example correction="">Nació el <marker>31.02</marker>.</example>
+                <example correction="">Nació el <marker>30.2</marker>.</example>
+                <example correction="">Nació el <marker>31.2</marker>.</example>
+                <example correction="">Nació el <marker>30.2</marker>.1900.</example>
+                <example correction="">Nació el <marker>31.2</marker>.1900.</example>
+                <example>Nació el <marker>28.02</marker>.</example>
+                <example>Nació el <marker>28.2</marker>.</example>
+                <example>Nació el <marker>28.2</marker>.1900.</example>
+            </rule>
+            <rule>
+                <!--NUMBER_DAYS_MONTH[14]-->
+                <antipattern>
+                    <token regexp="yes">29\.02\.([13579][26]00|[2468][048]00)</token>
+                    <!-- 2000 is a leap year (divisible by 400) -->
+                    <example>Nació el <marker>29.02.2000</marker>.</example>
+                    <!-- 2004 is a leap year (divisible by 4) -->
+                    <example>Nació el<marker>29.02.2004</marker>.</example>
+                    <!-- 2008 is a leap year (divisible by 4) -->
+                    <example>Nació el<marker>29.02.2008</marker>.</example>
+                    <!-- 2012 is a leap year (divisible by 4) -->
+                    <example>Nació el<marker>29.02.2012</marker>.</example>
+                    <!-- 2016 is a leap year (divisible by 4) -->
+                    <example>Nació el <marker>29.02.2016</marker>.</example>
+                    <!-- 2020 is a leap year (divisible by 4) -->
+                    <example>Nació el <marker>29.02.2020</marker>.</example>
+                </antipattern>
+                <pattern>
+                    <marker>
+                        <token regexp="yes">29\.02\.\d\d(00|\d[13579]|[02468][26]|[13579][048])</token>
+                    </marker>
+                </pattern>
+                <message>El mes de febrero solo tiene 28 días, porque este año no es bisiesto.</message>
+                <example correction="">Nació el <marker>29.02.1900</marker>.</example>
+                <example>Nació el <marker>28.02.1900</marker>.</example>
+                <!-- 2100 is not a leap year (divisible by 100) -->
+                <example correction="">El <marker>29.02.2100</marker>.</example>
+                <example>Sucederá el <marker>28.02.2100</marker>.</example>
+            </rule>
+            <rule>
+                <!--NUMBER_DAYS_MONTH[15]-->
+                <antipattern>
+                    <token regexp="yes">29\.2</token>
+                    <token>.</token>
+                    <token regexp="yes">([13579][26]00|[2468][048]00)</token>
+                    <!-- 2000 is a leap year (divisible by 400) -->
+                    <example>Nació el <marker>29.2.2000</marker>.</example>
+                    <!-- 2004 is a leap year (divisible by 4) -->
+                    <example>Nació el<marker>29.2.2004</marker>.</example>
+                    <!-- 2008 is a leap year (divisible by 4) -->
+                    <example>Nació el<marker>29.2.2008</marker>.</example>
+                    <!-- 2012 is a leap year (divisible by 4) -->
+                    <example>Nació el<marker>29.2.2012</marker>.</example>
+                    <!-- 2016 is a leap year (divisible by 4) -->
+                    <example>Nació el <marker>29.2.2016</marker>.</example>
+                    <!-- 2020 is a leap year (divisible by 4) -->
+                    <example>Nació el <marker>29.2.2020</marker>.</example>
+                </antipattern>
+                <pattern>
+                    <marker>
+                        <token regexp="yes">29\.2</token>
+                        <token>.</token>
+                        <token regexp="yes">\d\d(00|\d[13579]|[02468][26]|[13579][048])</token>
+                    </marker>
+                </pattern>
+                <message>El mes de febrero solo tiene 28 días, porque este año no es bisiesto.</message>
+                <example correction="">Nació el <marker>29.2.1900</marker>.</example>
+                <example>Nació el <marker>28.2.1900</marker>.</example>
+                <!-- 2100 is not a leap year (divisible by 100) -->
+                <example correction="">El <marker>29.2.2100</marker>.</example>
+                <example>Sucederá el <marker>28.2.2100</marker>.</example>
             </rule>
         </rulegroup>
     </category>

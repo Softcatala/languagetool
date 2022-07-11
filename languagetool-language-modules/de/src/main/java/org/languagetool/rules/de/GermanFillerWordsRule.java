@@ -72,6 +72,34 @@ public class GermanFillerWordsRule extends AbstractStatisticStyleRule {
     if (num == 1 || ",".equals(tokens[num - 1].getToken())) {
       return true;
     }
+    if ("recht".equals(tokens[num].getToken())) {
+      for(int i = 1; i < tokens.length; i++) {
+        if (tokens[i].hasAnyLemma("haben", "geben")) {
+          return true;
+        }
+      }
+    }
+    if (("so".equals(tokens[num].getToken()) || "besonders".equals(tokens[num].getToken())) && tokens[num + 1].hasPosTagStartingWith("ADJ")) {
+      return true;
+    }
+    if(tokens[num].hasPosTagStartingWith("ADJ") && "so".equals(tokens[num - 1].getToken())) {
+      return true;
+    }
+    if ("nur".equals(tokens[num].getToken()) && "nicht".equals(tokens[num - 1].getToken())) {
+      for(int i = num + 1; i < tokens.length - 2; i++) {
+        if (",".equals(tokens[i].getToken()) && ("auch".equals(tokens[i + 1].getToken()) 
+            || ("sondern".equals(tokens[i + 1].getToken()) && "auch".equals(tokens[i + 2].getToken())))) {
+          return true;
+        }
+      }
+    }
+    if (num > 2 && "auch".equals(tokens[num].getToken()) && "sondern".equals(tokens[num - 1].getToken()) && ",".equals(tokens[num - 2].getToken())) {
+      for(int i = 1; i < num - 2; i++) {
+        if ("nicht".equals(tokens[i].getToken()) && "nur".equals(tokens[i + 1].getToken())){
+          return true;
+        }
+      }
+    }
     return false;
   }
 
@@ -91,7 +119,7 @@ public class GermanFillerWordsRule extends AbstractStatisticStyleRule {
         || ("auch".equals(first) && "nur".equals(second))
         || ("immer".equals(first) && "wieder".equals(second))
         || ("genau".equals(first) && "so".equals(second))
-        || ("so".equals(first) && ("etwas".equals(second) || "viel".equals(second)))
+        || ("so".equals(first) && ("etwas".equals(second) || "viel".equals(second) || "oft".equals(second)))
         || ("schon".equals(first) && "fast".equals(second))
         );
   }

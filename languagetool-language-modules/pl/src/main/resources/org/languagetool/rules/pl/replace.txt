@@ -220,3 +220,15 @@ maże=marzę
 znal=znał
 znalem=znałem
 Jeszce=Jeszcze
+jusz=już
+Bedę=Będę
+Bedą=Będą
+zrobie=zrobię
+czany=czarny
+poco=po co
+przestala=przestała
+przestalam=przestałam
+graja=grają
+fer=fair
+ostania=ostatnia
+

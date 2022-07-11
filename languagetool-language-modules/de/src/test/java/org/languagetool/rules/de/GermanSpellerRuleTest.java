@@ -86,6 +86,27 @@ public class GermanSpellerRuleTest {
   }
 
   @Test
+  public void testSplitWords() throws IOException {
+    GermanSpellerRule rule = new GermanSpellerRule(TestTools.getMessages("de"), GERMAN_DE);
+    JLanguageTool lt = new JLanguageTool(GERMAN_DE);
+    RuleMatch[] matches = rule.match(lt.getAnalyzedSentence("Das ist ein sher schöner Satz."));
+    assertThat(matches.length, is(1));
+    assertThat(matches[0].getSuggestedReplacements().get(0), is("sehr"));
+    assertThat(matches[0].getFromPos(), is(12));
+    assertThat(matches[0].getToPos(), is(16));
+    matches = rule.match(lt.getAnalyzedSentence("Das sin die Optionen."));
+    assertThat(matches.length, is(1));
+    assertThat(matches[0].getSuggestedReplacements().get(0), is("ein"));
+    assertThat(matches[0].getSuggestedReplacements().get(1), is("sind"));
+    matches = rule.match(lt.getAnalyzedSentence("Gibt es einen grund, dass…"));
+    assertThat(matches.length, is(1));
+    assertThat(matches[0].getSuggestedReplacements().get(0), is("Grund"));
+    
+    matches = rule.match(lt.getAnalyzedSentence("Kryptomarktplatzes"));
+    assertThat(matches.length, is(0));
+  }
+
+  @Test
   public void testGetOnlySuggestions() throws IOException {
     GermanSpellerRule rule = new GermanSpellerRule(TestTools.getMessages("de"), GERMAN_DE);
     assertThat(rule.getOnlySuggestions("autentisch").size(), is(1));
@@ -173,7 +194,7 @@ public class GermanSpellerRuleTest {
     assertThat(rule.match(lt.getAnalyzedSentence("Kleindung")).length, is(1));  // ignored due to ignoreCompoundWithIgnoredWord(), but still in ignore.txt -> ignore.txt must override this
     assertThat(rule.match(lt.getAnalyzedSentence("Majonäse."))[0].getSuggestedReplacements().toString(), is("[Mayonnaise]"));
     assertFirstSuggestion("Schöler-", "Schüler-", rule, lt);
-    assertFirstSuggestion("wars.", "war's", rule, lt);
+    assertFirstSuggestion("wars.", "war es", rule, lt);
     assertFirstSuggestion("konservierungsstoffe", "Konservierungsstoffe", rule, lt);
 //    assertFirstSuggestion("Ist Ventrolateral", "ventrolateral", rule, lt);
     assertFirstSuggestion("denkte", "dachte", rule, lt);

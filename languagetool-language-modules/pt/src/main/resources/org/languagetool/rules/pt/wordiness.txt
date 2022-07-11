@@ -17,6 +17,7 @@ a cor verde=verde
 a cor vermelha=vermelho
 a deitar sangue=a sangrar
 a extensão em que=APAGAR
+a falar sozinho=num monólogo
 a fazer melhorias na=a melhorar a
 a fazer melhorias nas=a melhorar as
 a fazer melhorias no=a melhorar o
@@ -66,7 +67,6 @@ quando se tem=ao ter
 aos dias de hoje=agora
 apontar o dedo=culpar
 aproveitando o ensejo, anexamos=anexamos
-aproximadamente=APAGAR SE POSSÍVEL|cerca de
 articular claramente=articular
 as motivações do crime=o móbil do crime
 as razões do crime=o móbil do crime
@@ -148,7 +148,6 @@ durante o curso de=durante|enquanto
 é mais dependente=depende mais
 é menos dependente=depende menos
 é necessário que=deve
-é o contrário de=é o oposto de
 e tal como=tal como
 economicamente desfavorecido=pobre
 efetuámos alterações na=alterámos a
@@ -159,11 +158,14 @@ em conexão com=com
 em conformidade com=conforme|segundo|consoante
 em essência=APAGAR
 em excesso de=mais de
+em grande parte=na maioria
 em referência a=sobre|sobre a
 em si mesma=APAGAR
 em si mesmo=APAGAR
 em si=APAGAR
 em termos de=em|como|a|o|as|os
+em todas elas=nelas todas
+em todos eles=neles todos
 em virtude de=por
 emergência inesperada=emergência
 encaminhamos em anexo=encaminhamos|anexamos
@@ -216,7 +218,7 @@ levamos a seu conhecimento=informamos
 levantar voo=descolar|decolar
 lista de abreviaturas=glossário
 mais à frente=mais adiante
-mais ou menos=APAGAR|ESPECIFICAR|aproximadamente
+mais ou menos=APAGAR|ESPECIFICAR|aproximadamente|cerca de
 mais preferível=preferível
 momento propício=ocasião|oportunidade
 muito boa=ótima
@@ -243,6 +245,8 @@ não é estável=é instável
 não é verdade=é falso|é mentira
 não é verdadeiro=é falso|é mentira
 não está estável=está instável
+não legível=ilegível
+não legíveis=ilegíveis
 não teve êxito=falhou
 não vai aceitar=vai recusar|vai rejeitar
 nas proximidades de=próximo de
@@ -254,6 +258,7 @@ na qual=onde|em que
 no qual=onde|em que
 no sentido alargado=no sentido lato
 nós como uma sociedade=nós|a sociedade
+nos dias atuais=presentemente
 nostalgia do passado=nostalgia
 numa base diária=diariamente
 numa situação em que=em
@@ -320,6 +325,7 @@ que se seguem=seguintes
 raramente é o caso em que acontece=raramente acontece
 referência supracitada=mencionada
 representa simbolicamente=representa|simboliza
+saber a diferença=distinguir|diferenciar
 segue anexo nosso cheque=anexamos cheque
 seguem em anexo=anexos, ou anexamos
 semelhante a=como
@@ -361,10 +367,12 @@ um número acrescido de=mais
 um número diminuído de=menos
 uma quantidade considerável de=APAGAR|ESPECIFICAR
 uma vez que=visto que|dado que
+um ao outro=reciprocamente|mutualmente
+uns aos outros=reciprocamente|mutualmente
 vai vir=vem
 vais vir=vens
 vão vir=vêm
-ver a diferença=distinguir
+ver a diferença=distinguir|diferenciar
 vida real=realidade
 vidas reais=realidades
 vimos solicitar=solicitamos
@@ -406,6 +414,13 @@ estratégias de ataque=estratégias ofensivas
 estratégia de defesa=estratégia defensiva
 estratégias de defesa=estratégias defensivas
 # CAPACIDADE(S)/ESTRATÉGIA(S) ATAQUE/DEFESA *END*
+#
+# COMO É OBSERVADO NA(S)/NO(S) *START*
+como é observado na=observável na
+como é observado nas=observável nas
+como é observado no=observável no
+como é observado nos=observável nos
+# COMO É OBSERVADO NA(S)/NO(S) *END*
 #
 # DAR UMA +ÇÃO → VERBO_INFINITIVO *START*
 dar uma explicação da=explicar a
@@ -568,6 +583,12 @@ qualquer que seja o=independentemente do
 quaisquer que sejam as=independentemente das
 quaisquer que sejam os=independentemente dos
 # QUALQUER/QUAISQUER QUE SEJA(M) *END*
+#
+# RARAMENTE *START*
+com pouca frequência=raramente
+de modo raro=raramente
+muito poucas vezes=raramente
+# RARAMENTE *END*
 #
 # RECEBIMENTO *START*
 acusamos o recebimento da carta=recebemos a carta
