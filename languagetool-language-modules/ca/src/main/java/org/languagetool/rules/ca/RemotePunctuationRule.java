@@ -130,18 +130,38 @@ public class RemotePunctuationRule extends TextLevelRule {
 
   }
 
+  private boolean IsSessionInControlGroup() {
+    boolean inControlGroup = false;
+
+    try {
+
+      if (userConfig != null) {
+        Long textSessionID;
+
+        textSessionID = userConfig.getTextSessionId();
+        inControlGroup = textSessionID % 100 == 0;
+        System.out.println("SessionID: " + textSessionID + " in control group: " +  inControlGroup);
+      }
+    }
+    catch (Exception e) {
+      logger.error("IsSessionInControlGroup error", e);
+      return false;
+    }
+
+    return inControlGroup;
+  }
+
   @Override
   public RuleMatch[] match(List<AnalyzedSentence> sentences) throws IOException {
 
     try {
     
-        if (userConfig != null) {
-          Long textSessionID;
-          textSessionID = userConfig.getTextSessionId();
-          System.out.println("SessionID: " + textSessionID);
+        if (IsSessionInControlGroup() == true) {
+          return toRuleMatchArray(new ArrayList<>());
         }
-
-        return doRule(sentences);
+        else {
+          return doRule(sentences);
+        }
     }
     catch (Exception e) {
       logger.error("Error while processing rule", e);
