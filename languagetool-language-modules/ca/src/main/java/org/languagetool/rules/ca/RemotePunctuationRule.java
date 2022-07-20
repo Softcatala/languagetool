@@ -139,7 +139,7 @@ public class RemotePunctuationRule extends TextLevelRule {
         Long textSessionID;
 
         textSessionID = userConfig.getTextSessionId();
-        inControlGroup = textSessionID % 100 == 0;
+        inControlGroup = textSessionID % 100 != 0;
         System.out.println("SessionID: " + textSessionID + " in control group: " +  inControlGroup);
       }
     }
