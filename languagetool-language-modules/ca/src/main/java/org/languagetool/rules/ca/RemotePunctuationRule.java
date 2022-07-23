@@ -131,7 +131,7 @@ public class RemotePunctuationRule extends TextLevelRule {
   }
 
   private boolean IsSessionInControlGroup() {
-    boolean inControlGroup = false;
+    boolean inControlGroup = true;
 
     try {
 
@@ -145,7 +145,7 @@ public class RemotePunctuationRule extends TextLevelRule {
     }
     catch (Exception e) {
       logger.error("IsSessionInControlGroup error", e);
-      return false;
+      return true;
     }
 
     return inControlGroup;
