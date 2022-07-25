@@ -22,7 +22,7 @@ public class RemotePunctuationRuleTest {
 
     public RemotePunctuationRuleForTest(ResourceBundle messages, UserConfig userConfig) throws IOException {
       super(messages, userConfig);
-      setOnlyNew(false);
+      setABTest(false);
     }
 
      public String connectRemoteServer(String url, String text) {
@@ -87,16 +87,6 @@ public class RemotePunctuationRuleTest {
     assertEquals(1, matches.length);
     assertEquals(19, matches[0].getFromPos());
     assertEquals(23, matches[0].getToPos());
-  }
-
-  @Test
-  public void testRuleRemoveCommas() throws IOException {
-
-    RuleMatch[] matches = rule.match(getAnalyzedSentence("Això però ningú, ho sap"));
-    assertEquals(1, matches.length);
-    assertEquals(15, matches[0].getFromPos());
-    assertEquals(19, matches[0].getToPos());
- 
   }
 
 }

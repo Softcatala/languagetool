@@ -30,7 +30,7 @@ public class RemotePunctuationRule extends TextLevelRule {
 
   String server_url;
   final int TIMEOUT_MS = 2000;
-  boolean newOnly = true;
+  boolean ab_test = true;
 
   public RemotePunctuationRule(ResourceBundle messages, UserConfig userConfig) {
     super.setCategory(Categories.PUNCTUATION.getCategory(messages));
@@ -40,8 +40,8 @@ public class RemotePunctuationRule extends TextLevelRule {
 
   }
 
-  public void setOnlyNew(boolean _newOnly) {
-    newOnly = _newOnly;
+  public void setABTest(boolean _ab_test) {
+    ab_test = _ab_test;
   }
 
   private HttpURLConnection createConnection(URL url, String urlParameters) {
@@ -156,7 +156,7 @@ public class RemotePunctuationRule extends TextLevelRule {
 
     try {
     
-        if (IsSessionInControlGroup() == true) {
+        if (ab_test && IsSessionInControlGroup() == true) {
           return toRuleMatchArray(new ArrayList<>());
         }
         else {
@@ -266,29 +266,7 @@ public class RemotePunctuationRule extends TextLevelRule {
             idxC++;
             continue;
           }
-          else if (originalTokenText.equals(",")) {
-            System.out.println("Removed");
-            if (!newOnly) {
-              int COMMA_LENGTH = (",").length();
-
-              String nextWord = getUntilEndOfNextWord(originalTokens, idxO + COMMA_LENGTH);
-
-              int start = sentenceOffset + originalToken.getStartPos();
-              int length = nextWord.length() + COMMA_LENGTH;
-
-              RuleMatch ruleMatch = new RuleMatch(this, originalSentence, start,
-                  start + length, "Sobra la coma", "Sobra la coma");
-
-              String suggestion = correctedTokenText + nextWord;
-              System.out.println("Suggestion:'" + suggestion + "'");
-              ruleMatch.addSuggestedReplacement(suggestion);
-              ShowRuleMatch(ruleMatch);
-              ruleMatches.add(ruleMatch);
-            }
-            idxO++;
-            continue;
-          }
-
+          
          /* Target may contain less spaces than source*/
          if (originalToken.isWhitespace() && !correctedToken.isWhitespace()) {
             System.out.println("Space out sync");
