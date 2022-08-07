@@ -30,7 +30,7 @@ public class RemotePunctuationRule extends TextLevelRule {
 
   String server_url;
   final int TIMEOUT_MS = 2000;
-  boolean ab_test = true;
+  boolean ab_test = false; //AB test disabled, opened 100%
 
   public RemotePunctuationRule(ResourceBundle messages, UserConfig userConfig) {
     super.setCategory(Categories.PUNCTUATION.getCategory(messages));
