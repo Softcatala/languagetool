@@ -100,7 +100,8 @@ public class Catalan extends Language {
             new CatalanRepeatedWordsRule(messages), 
             new SimpleReplaceDNVRule(messages, this),
             new SimpleReplaceDNVColloquialRule(messages, this),
-            new SimpleReplaceDNVSecondaryRule(messages, this)
+            new SimpleReplaceDNVSecondaryRule(messages, this),
+            new RemotePunctuationRule(messages, userConfig)
     );
   }
 
@@ -226,6 +227,7 @@ public class Catalan extends Language {
       case "MUNDAR": return -50;
       case "NOMBRES_ROMANS": return -90;
       case "MORFOLOGIK_RULE_CA_ES": return -100;
+      case "CA_REMOTE_PUNCTUATION_RULE": return -100;
       case "EXIGEIX_ACCENTUACIO_VALENCIANA": return -120;
       case "PHRASE_REPETITION": return -150;
       case "SUBSTANTIUS_JUNTS": return -150;
